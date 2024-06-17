@@ -1,4 +1,5 @@
 import React from "react";
+import TestimonialCard from "../../TestimonialCard";
 
 const Testimonials: React.FC = () => {
     return (
@@ -18,54 +19,9 @@ const Testimonials: React.FC = () => {
                 </div>
             </div>
             <div className="grid grid-cols-3 gap-10 pt-28">
-                <div className="flex flex-col text-center justify-center rounded-[32px] bg-slate-500 px-7 py-7">
-                    <div className="flex justify-center">
-                        <img className="w-12 h-12" src="" alt="" />
-                    </div>
-                    <div className="">
-                        <p>
-                            Chinedu Okonkwo
-                        </p>
-                        <p>
-                            Abuja. Nigeria.
-                        </p>
-                        <p>
-                            "I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!"
-                        </p>
-                    </div>
-                </div>
-                <div className="flex flex-col text-center justify-center rounded-[32px] bg-slate-500 px-7 py-7">
-                    <div className="flex justify-center">
-                        <img className="w-12 h-12" src="" alt="" />
-                    </div>
-                    <div className="">
-                        <p>
-                            Chinedu Okonkwo
-                        </p>
-                        <p>
-                            Abuja. Nigeria.
-                        </p>
-                        <p>
-                            "I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!"
-                        </p>
-                    </div>
-                </div>
-                <div className="flex flex-col text-center justify-center rounded-[32px] bg-slate-500 px-7 py-7">
-                    <div className="flex justify-center">
-                        <img className="w-12 h-12" src="" alt="" />
-                    </div>
-                    <div className="">
-                        <p>
-                            Chinedu Okonkwo
-                        </p>
-                        <p>
-                            Abuja. Nigeria.
-                        </p>
-                        <p>
-                            "I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!"
-                        </p>
-                    </div>
-                </div>
+                <TestimonialCard />
+                <TestimonialCard />
+                <TestimonialCard />
             </div>
         </div>
     )
