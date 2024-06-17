@@ -10,9 +10,9 @@ const Footer: React.FC = () => {
             <img
                 src="still-life-of-colombia-national-soccer-team.png"
                 className="w-full h-auto absolute right-0 top-0 opacity-[0.08] object-cover"
-                style={{ maxWidth: '100%', maxHeight: '510px' }}
+                style={{ maxWidth: '100%', maxHeight: '' }}
             />
-            <div className="flex flex-col justify-start items-center relative py-16 md:py-20 lg:py-24 gap-16">
+            <div className="flex flex-col justify-start items-center relative pt-16 md:pt-20 lg:pt-24 gap-16">
                 <div className="flex flex-wrap justify-around w-full gap-8 px-4 md:px-8 lg:px-16">
                     <div className="flex flex-col items-start gap-10 w-full sm:w-auto">
                         <div className="flex items-center gap-4">

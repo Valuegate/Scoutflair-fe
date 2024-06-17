@@ -21,8 +21,8 @@ const Navbar: React.FC = () => {
                     </p>
                 </div>
                 <div className="hidden md:flex gap-6">
-                    <a href="#home" className="text-xl text-white">Home</a>
-                    <a href="#about" className="text-xl text-white">About</a>
+                    <Link to={Urls.HOME} className="text-xl text-white">Home</Link>
+                    <Link to={Urls.ABOUT} className="text-xl text-white">About</Link>
                     <a href="#services" className="text-xl text-white">Services</a>
                     <a href="#resources" className="text-xl text-white">Resources</a>
                     <a href="#blogs" className="text-xl text-white">Blogs</a>
@@ -41,8 +41,8 @@ const Navbar: React.FC = () => {
             </div>
             {isMenuOpen && (
                 <div className="md:hidden bg-[#192b4d] px-6 py-4">
-                    <a href="#home" className="block py-2 text-xl text-white">Home</a>
-                    <Link to={Urls.ABOUT} className="block py-2 text-xl text-white">About</Link>
+                    <Link to={Urls.HOME} className="text-xl text-white">Home</Link>
+                    <Link to={Urls.ABOUT} className="text-xl text-white">About</Link>
                     <a href="#services" className="block py-2 text-xl text-white">Services</a>
                     <a href="#resources" className="block py-2 text-xl text-white">Resources</a>
                     <a href="#blogs" className="block py-2 text-xl text-white">Blogs</a>
