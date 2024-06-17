@@ -23,10 +23,10 @@ const Navbar: React.FC = () => {
                 <div className="hidden md:flex gap-6">
                     <Link to={Urls.HOME} className="text-xl text-white">Home</Link>
                     <Link to={Urls.ABOUT} className="text-xl text-white">About</Link>
-                    <a href="#services" className="text-xl text-white">Services</a>
-                    <a href="#resources" className="text-xl text-white">Resources</a>
-                    <a href="#blogs" className="text-xl text-white">Blogs</a>
-                    <a href="#contact" className="text-xl text-white">Contact</a>
+                    <Link to={Urls.SERVICES} className="text-xl text-white">Services</Link>
+                    <Link to={Urls.RESOURCES} className="text-xl text-white">Resources</Link>
+                    <Link to={Urls.BLOGS} className="text-xl text-white">Blogs</Link>
+                    <Link to={Urls.CONTACT} className="text-xl text-white">Contact</Link>
                 </div>
                 <div className="hidden md:flex">
                     <button className="px-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
@@ -43,10 +43,10 @@ const Navbar: React.FC = () => {
                 <div className="md:hidden bg-[#192b4d] px-6 py-4">
                     <Link to={Urls.HOME} className="text-xl text-white">Home</Link>
                     <Link to={Urls.ABOUT} className="text-xl text-white">About</Link>
-                    <a href="#services" className="block py-2 text-xl text-white">Services</a>
-                    <a href="#resources" className="block py-2 text-xl text-white">Resources</a>
-                    <a href="#blogs" className="block py-2 text-xl text-white">Blogs</a>
-                    <a href="#contact" className="block py-2 text-xl text-white">Contact</a>
+                    <Link to={Urls.SERVICES} className="text-xl text-white">Services</Link>
+                    <Link to={Urls.RESOURCES} className="text-xl text-white">Resources</Link>
+                    <Link to={Urls.BLOGS} className="text-xl text-white">Blogs</Link>
+                    <Link to={Urls.CONTACT} className="text-xl text-white">Contact</Link>
                     <button className="w-full mt-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
                         Sign Up
                     </button>

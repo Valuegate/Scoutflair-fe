@@ -22,7 +22,7 @@ const PartnerSection: React.FC = () => {
                             className="flex justify-start items-start relative overflow-hidden gap-2.5 p-2 rounded-lg bg-white border-[0.48px] border-black/[0.56]"
                             style={{ boxShadow: "0px 4px 8px 0 rgba(0,0,0,0.1)" }}
                         >
-                            <img className="w-12 h-12" src={Binoculars} alt="" />
+                            <img className="w-16 h-16" src={Binoculars} alt="" />
                         </div>
                         <div className="flex flex-col justify-start items-start relative gap-2">
                             <p className="self-stretch text-2xl font-semibold text-left text-white">
@@ -42,7 +42,7 @@ const PartnerSection: React.FC = () => {
                             className="flex justify-start items-start relative overflow-hidden gap-2.5 p-2 rounded-lg bg-white border-[0.48px] border-black/[0.56]"
                             style={{ boxShadow: "0px 4px 8px 0 rgba(0,0,0,0.1)" }}
                         >
-                            <img className="w-12 h-12" src={Binoculars} alt="" />
+                            <img className="w-16 h-16" src={Binoculars} alt="" />
                         </div>
                         <div className="flex flex-col justify-start items-start relative gap-2">
                             <p className="self-stretch text-2xl font-semibold text-left text-black">
@@ -62,7 +62,7 @@ const PartnerSection: React.FC = () => {
                             className="flex justify-start items-start overflow-hidden gap-2.5 p-2 rounded-lg bg-white border-[0.48px] border-black/[0.56]"
                             style={{ boxShadow: "0px 4px 8px 0 rgba(0,0,0,0.1)" }}
                         >
-                            <img className="w-12 h-12" src={Binoculars} alt="" />
+                            <img className="w-16 h-16" src={Binoculars} alt="" />
                         </div>
                         <div className="flex flex-col justify-start items-start relative gap-2">
                             <p className="self-stretch text-2xl font-semibold text-left text-black">
@@ -82,7 +82,7 @@ const PartnerSection: React.FC = () => {
                             className="flex justify-start items-start relative overflow-hidden gap-2.5 p-2 rounded-lg bg-white border-[0.48px] border-black/[0.56]"
                             style={{ boxShadow: "0px 4px 8px 0 rgba(0,0,0,0.1)" }}
                         >
-                            <img className="w-12 h-12" src={Binoculars} alt="" />
+                            <img className="w-16 h-16" src={Binoculars} alt="" />
                         </div>
                         <div className="flex flex-col justify-start items-start relative gap-2">
                             <p className="self-stretch text-2xl font-semibold text-left text-black">

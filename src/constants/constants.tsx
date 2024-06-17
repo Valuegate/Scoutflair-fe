@@ -1,4 +1,8 @@
 export const Urls = {
     ABOUT: "/about",
-    HOME: "/"
+    HOME: "/",
+    BLOGS: "/blogs",
+    CONTACT: "/contact",
+    SERVICES: "/services",
+    RESOURCES: "/resources"
 }
