@@ -16,7 +16,7 @@ const FaqSection: React.FC = () => {
                     </p>
                 </div>
             </div>
-            <div className="grid grid-cols-4 gap-6 pt-20">
+            <div className="grid lg:grid-cols-4 xs:grid-cols-1 md:grid-cols-3 gap-6 pt-20">
                 <FaqCardBlue />
                 <FaqCardWhite />
                 <FaqCardWhite />

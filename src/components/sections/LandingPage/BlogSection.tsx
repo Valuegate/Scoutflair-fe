@@ -16,7 +16,7 @@ const BlogSection: React.FC = () => {
                     </p>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-2 pb-20">
+            <div className="grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 pb-20">
                 <div
                     className="flex flex-col justify-start items-start relative gap-[19.255014419555664px] px-[19.25px] pt-[14.44px] pb-[28.88px] rounded-[19.26px] bg-[#4bbac1] border-[4.81px] border-[#d1d1d1]"
                     style={{ boxShadow: "0px 6.6px 8.3px 0 rgba(209,209,209,0.14)" }}

@@ -1,61 +1,59 @@
-import React from "react";
-import Logo from "../assets/Scoutflairlogo.svg"
+import React, { useState } from "react";
+import Logo from "../assets/Scoutflairlogo.svg";
+import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { Urls } from "../constants/constants";
 
 const Navbar: React.FC = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
-        <div
-            className="flex justify-start items-start w-screen absolute left-0 top-0 gap-40 px-[120px] py-6 bg-[#192b4d]"
-            style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
-        >
-            <div className="flex justify-start items-center w-[228px] h-12 relative gap-4">
-                <img className="w-12 h-12" src={Logo} alt="" />
-                <p className="opacity-80 text-[32px] text-left text-white">
-                    <span className="opacity-80 text-[32px] font-bold text-left text-white">
-                        Scout
-                    </span>
-                    <span className="opacity-80 text-[32px] text-left text-white">
-                        Flair
-                    </span>
-                </p>
-            </div>
-            <div className="flex justify-start items-center flex-grow gap-8">
-                <div className="flex flex-col justify-start items-center flex-grow gap-2.5">
-                    <div className="flex flex-col justify-start items-center self-stretch gap-3">
-                        <div className="flex justify-start items-start w-[628px] relative gap-6">
-                            <div className="w-[65px] h-7 relative">
-                                <p className="absolute left-0 top-0 text-2xl font-bold text-left text-white">Home</p>
-                            </div>
-                            <div className="w-[65px] h-7 relative">
-                                <p className="absolute left-0 top-0 text-2xl text-left text-white">About</p>
-                            </div>
-                            <div className="w-[97px] h-7 relative">
-                                <p className="absolute left-0 top-0 text-2xl text-left text-white">Services</p>
-                            </div>
-                            <div className="w-[114px] h-7 relative">
-                                <p className="absolute left-0 top-0 text-2xl text-left text-white">Resources</p>
-                            </div>
-                            <div className="w-[65px] h-7 relative">
-                                <p className="absolute left-0 top-0 text-2xl text-left text-white">Blogs</p>
-                            </div>
-                            <div className="w-[88px] h-7 relative">
-                                <p className="absolute left-0 top-0 text-2xl text-left text-white">Contact</p>
-                            </div>
-                        </div>
-                    </div>
+        <div className="w-full bg-[#192b4d] shadow-md">
+            <div className="flex justify-between items-center px-6 py-4 md:px-12">
+                <div className="flex items-center gap-4">
+                    <img className="w-12 h-12" src={Logo} alt="Scoutflair Logo" />
+                    <p className="text-2xl font-bold text-white">
+                        Scout<span className="font-normal">Flair</span>
+                    </p>
                 </div>
-                <div className="flex justify-start items-start h-12 gap-4">
-                    <div
-                        className="flex justify-center items-center w-[136px] h-12 relative gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725]"
-                        style={{ boxShadow: "0px 16px 24px 2px rgba(0,0,0,0.14)" }}
-                    >
-                        <p className="text-xl font-bold text-left text-black">
-                            Sign Up
-                        </p>
-                    </div>
+                <div className="hidden md:flex gap-6">
+                    <a href="#home" className="text-xl text-white">Home</a>
+                    <a href="#about" className="text-xl text-white">About</a>
+                    <a href="#services" className="text-xl text-white">Services</a>
+                    <a href="#resources" className="text-xl text-white">Resources</a>
+                    <a href="#blogs" className="text-xl text-white">Blogs</a>
+                    <a href="#contact" className="text-xl text-white">Contact</a>
+                </div>
+                <div className="hidden md:flex">
+                    <button className="px-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
+                        Sign Up
+                    </button>
+                </div>
+                <div className="md:hidden flex items-center">
+                    <button onClick={toggleMenu} className="text-white">
+                        {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+                    </button>
                 </div>
             </div>
+            {isMenuOpen && (
+                <div className="md:hidden bg-[#192b4d] px-6 py-4">
+                    <a href="#home" className="block py-2 text-xl text-white">Home</a>
+                    <Link to={Urls.ABOUT} className="block py-2 text-xl text-white">About</Link>
+                    <a href="#services" className="block py-2 text-xl text-white">Services</a>
+                    <a href="#resources" className="block py-2 text-xl text-white">Resources</a>
+                    <a href="#blogs" className="block py-2 text-xl text-white">Blogs</a>
+                    <a href="#contact" className="block py-2 text-xl text-white">Contact</a>
+                    <button className="w-full mt-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
+                        Sign Up
+                    </button>
+                </div>
+            )}
         </div>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;

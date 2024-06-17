@@ -13,9 +13,9 @@ const PartnerSection: React.FC = () => {
                 <div className="flex justify-center">
                     <h1 className="text-white text-3xl ">Our Services</h1>
                 </div>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid xs:grid-cols-1 md:grid-cols-2 gap-6">
                     <div
-                        className="flex justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-[#4bbac1]"
+                        className="flex xs:flex-col lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-[#4bbac1]"
                         style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
                     >
                         <div
@@ -35,7 +35,7 @@ const PartnerSection: React.FC = () => {
                         </div>
                     </div>
                     <div
-                        className="flex justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
+                        className="flex xs:flex-col lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
                         style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
                     >
                         <div
@@ -55,7 +55,7 @@ const PartnerSection: React.FC = () => {
                         </div>
                     </div>
                     <div
-                        className="flex justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
+                        className="flex xs:flex-col lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
                         style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
                     >
                         <div
@@ -75,7 +75,7 @@ const PartnerSection: React.FC = () => {
                         </div>
                     </div>
                     <div
-                        className="flex justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
+                        className="flex xs:flex-col lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
                         style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
                     >
                         <div

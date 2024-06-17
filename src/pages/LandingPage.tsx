@@ -6,6 +6,7 @@ import Testimonials from "../components/sections/LandingPage/Testimonials";
 import AboutUs from "../components/sections/LandingPage/AboutUs";
 import BlogSection from "../components/sections/LandingPage/BlogSection";
 import FaqSection from "../components/sections/LandingPage/FaqSection";
+import Footer from "../components/Footer";
 // import Sportualogo from "../assets/Sportualogo.svg"
 // import maptivelogo from "../assets/maptivelogo.svg"
 // import talentcomlogo from "../assets/talentcomlogo.svg"
@@ -22,6 +23,7 @@ const LandingPage: React.FC = () => {
             <AboutUs />
             <BlogSection />
             <FaqSection />
+            <Footer />
         </div>
     )
 }
