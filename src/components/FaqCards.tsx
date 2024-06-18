@@ -1,6 +1,11 @@
 import React from "react";
 
-export const FaqCardBlue: React.FC = () => {
+interface FaqCardProps {
+    question: string;
+    answer: string
+}
+
+export const FaqCardBlue: React.FC <FaqCardProps> = ({question, answer}) => {
     return (
         <div
             className="flex flex-col justify-start items-center relative gap-4 px-6 pt-4 pb-7 rounded-2xl bg-[#4bbac1] border-4 border-[#d1d1d1]"
@@ -12,18 +17,17 @@ export const FaqCardBlue: React.FC = () => {
             />
             <div className="flex flex-col justify-start items-center self-stretch relative gap-2">
                 <p className="self-stretch w-fit opacity-[0.92] text-2xl font-semibold text-center text-white">
-                    How can I access Scoutflair?
+                    {question}
                 </p>
                 <p className="self-stretch w-fit opacity-80 text-sm text-center text-white">
-                    Here for the first time? Learn how to access Scouflair and start leveraging our advance
-                    football analytics and insights today...
+                    {answer}
                 </p>
             </div>
         </div>
     )
 }
 
-export const FaqCardWhite: React.FC = () => {
+export const FaqCardWhite: React.FC <FaqCardProps> = ({question, answer}) => {
     return (
         <div
             className="flex flex-col justify-start items-center relative gap-4 px-6 pt-4 pb-7 rounded-2xl bg-white border-4 border-[#d1d1d1]"
@@ -35,11 +39,10 @@ export const FaqCardWhite: React.FC = () => {
             />
             <div className="flex flex-col justify-start items-center self-stretch relative gap-2">
                 <p className="self-stretch w-fit opacity-[0.92] text-2xl font-semibold text-center text-black">
-                    How can I access Scoutflair?
+                    {question}
                 </p>
                 <p className="self-stretch w-fit opacity-80 text-sm text-center text-black">
-                    Here for the first time? Learn how to access Scouflair and start leveraging our advance
-                    football analytics and insights today...
+                    {answer}
                 </p>
             </div>
         </div>

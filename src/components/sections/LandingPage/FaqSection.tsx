@@ -17,14 +17,30 @@ const FaqSection: React.FC = () => {
                 </div>
             </div>
             <div className="grid lg:grid-cols-4 xs:grid-cols-1 md:grid-cols-3 gap-6 pt-20">
-                <FaqCardBlue />
-                <FaqCardWhite />
-                <FaqCardWhite />
-                <FaqCardWhite />
-                <FaqCardWhite />
-                <FaqCardWhite />
-                <FaqCardWhite />
-                <FaqCardWhite />
+                <FaqCardBlue 
+                    question="How can I access Scoutflair?"
+                    answer="Here for the first time? Learn how to access Scouflair and start leveraging our advance football analytics and insights today..." />
+                <FaqCardWhite
+                    question="Is Scoutflair free to use?"
+                    answer="Yes, our platform offers both free and premium features, allowing users to access basic functionalities at no cost while offering advanced..." />
+                <FaqCardWhite
+                    question="What type of football data is available?"
+                    answer="Our platform offers a comprehensive range of football data, including player statistics, match insights, and team performance metrics..." />
+                <FaqCardWhite
+                    question="Can I customize my dashboard?"
+                    answer="Absolutely! Our platform allows you to personalize your dashboard, tailoring it to your specific preferences and needs for optimal usability..." />
+                <FaqCardWhite
+                    question="Does Scoutflair support fantasy football?"
+                    answer="Our platform caters to fantasy football enthusuiasts with specialized features and tools tailored to enhance their experience..." />
+                <FaqCardWhite
+                    question="How frequently are matches updated?"
+                    answer="Our platform delivers real-time match updates promptly, ensuring you stay informed with the latest development as they happen..." />
+                <FaqCardWhite
+                    question="Are there any specialized tools?"
+                    answer="We offer advanced tools and anayltics designed specifically to enhance coaching strategies and performance analysis..." />
+                <FaqCardWhite
+                    question="How effective is the scouting support?"
+                    answer="Our scouting support offers detailed insights and analytics, ensuring you identify and develop top talent effectively...." />
             </div>
         </section>
     )

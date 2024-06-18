@@ -10,7 +10,7 @@ const ContactSection: React.FC = () => {
                 <div className="w-full md:w-[50%] h-auto bg-white p-8 rounded-tl-2xl rounded-bl-2xl">
                     <img src="/Img-frame-contact.png" alt="" />
                 </div>
-                <div className="flex flex-col justify-start items-center w-full md:w-[50%] p-6 md:p-12 bg-white rounded-tr-2xl rounded-br-2xl">
+                <form className="flex flex-col justify-start items-center w-full md:w-[50%] p-6 md:p-12 bg-white rounded-tr-2xl rounded-br-2xl">
                     <p className="w-full text-2xl md:text-[32px] font-bold text-center text-black mb-8">
                         Write us a message
                     </p>
@@ -35,12 +35,12 @@ const ContactSection: React.FC = () => {
                         </div>
                         <button
                             className="w-full h-12 mt-4 p-2.5 rounded-lg bg-[#f2a725] text-black font-bold"
-                            style={{ boxShadow: "0px 16px 24px 2px rgba(0,0,0,0.14)" }}
+                            style={{ boxShadow: "0px 16px 24px 2px rgba(0,0,0,0.14)" }} type="submit"
                         >
                             Send Message
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );
