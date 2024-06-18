@@ -3,7 +3,11 @@ import TestimonialCard from "../../TestimonialCard";
 
 const Testimonials: React.FC = () => {
     return (
-        <div className="flex flex-col py-[56px] justify-center px-[120px]">
+        <div className="flex flex-col relative py-[56px] justify-center px-[120px]">
+            <img
+                src="hands-of-teenagers-showing-okay-sign.png"
+                className="w-[518px] h-[345px] absolute right-0 top-0 opacity-40 object-cover"
+            />            
             <div className="flex flex-col justify-start items-center relative gap-6">
                 <p className="text-xl font-bold text-left text-[#946108]">
                     TESTIMONIALS
@@ -23,6 +27,10 @@ const Testimonials: React.FC = () => {
                 <TestimonialCard />
                 <TestimonialCard />
             </div>
+            <img
+                src="hands-of-teenagers-showing-okay-sign.png"
+                className="w-[518px] h-[345px] absolute bottom-0 left-0 rotate-180 opacity-40 object-cover"
+            />
         </div>
     )
 }

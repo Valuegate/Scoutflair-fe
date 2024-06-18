@@ -2,7 +2,7 @@ import React from "react";
 
 const TestimonialCard: React.FC = () => {
     return (
-        <div className="relative flex justify-center items-center w-full h-auto">
+        <div className="relative flex justify-center items-center w-full h-auto opacity-100 z-10">
             <div
                 className="w-full max-w-md h-auto p-6 rounded-[32px] bg-white"
                 style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14), 0px 6px 10px 0 rgba(0,0,0,0.14)" }}
