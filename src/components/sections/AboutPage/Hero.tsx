@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
                             scouting, analytics and advance insights.
                         </p>
                     </div>
-                    <div className="flex justify-start items-start gap-2.5">
+                    {/* <div className="flex justify-start items-start gap-2.5">
                         <svg
                             width={80}
                             height={80}
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
                                 <path d="M15 9L-8.15666e-07 17.6603L-5.85621e-08 0.339745L15 9Z" fill="white" />
                             </svg>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="pb-24">
                     <img className="rounded-2xl" src="./frame-36284.png" alt="" />

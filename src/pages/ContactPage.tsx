@@ -8,7 +8,7 @@ import FaqSection from "../components/sections/LandingPage/FaqSection";
 const ContactPage: React.FC = () => {
     return (
         <div>
-            <Navbar />
+            <Navbar />            
             <ContactHero />
             <ContactSection />
             <FaqSection />
