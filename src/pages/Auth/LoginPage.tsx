@@ -1,35 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Scoutflairlogo from '../../assets/Scoutflairlogo.svg'; // Adjust the import path to your logo
 import { Link } from 'react-router-dom';
 import { Urls } from '../../constants/constants';
+import { useAxios } from '../../api/base';
+import { Form, Formik, Field, FormikHelpers } from 'formik';
+import { LoginValidationSchema } from '../../schemas/Schema';
 
 const LoginPage: React.FC = () => {
-  const [usernameOrEmail, setUsernameOrEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState<{ usernameOrEmail?: string; password?: string }>({});
+  const { requestApi } = useAxios()
 
-  const validateForm = () => {
-    const newErrors: { usernameOrEmail?: string; password?: string } = {};
+  interface FormValues {
+    username: string;
+    password: string;
+  }
 
-    if (!usernameOrEmail) {
-      newErrors.usernameOrEmail = 'Email address or Username is required';
-    }
-
-    if (!password) {
-      newErrors.password = 'Password is required';
-    }
-
-    setErrors(newErrors);
-
-    return Object.keys(newErrors).length === 0;
+  const initialValues: FormValues = {
+    username: "",
+    password: "",
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      // proceed with form submission (e.g., API call)
-      console.log('Form is valid');
-    }
+  const onSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
+    console.log("Form data", values);
+    // Perform form submission logic here
+    requestApi("/signin", "POST", values)
+    console.log("form submission successful")
+    resetForm();
   };
 
   return (
@@ -50,55 +45,67 @@ const LoginPage: React.FC = () => {
                     A Sports Analytics Application
                   </p>
                 </div>
-                <form onSubmit={handleSubmit} className="flex flex-col justify-start items-start w-full gap-6">
-                  <div className="w-full">
-                    <input
-                      type="text"
-                      placeholder="Email address or Username"
-                      className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
-                      value={usernameOrEmail}
-                      onChange={(e) => setUsernameOrEmail(e.target.value)}
-                    />
-                    {errors.usernameOrEmail && (
-                      <p className="text-red-500 text-sm">{errors.usernameOrEmail}</p>
-                    )}
-                  </div>
-                  <div className="w-full">
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                    {errors.password && (
-                      <p className="text-red-500 text-sm">{errors.password}</p>
-                    )}
-                  </div>
-                  <div className="flex justify-between items-center w-full gap-4">
-                    <div className="flex items-center gap-2">
-                      <input type="checkbox" className="w-4 h-4 border border-black" />
-                      <label className="text-black opacity-72">Remember me</label>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Link to={Urls.PASSWORDRESET}>
-                        <p className='text-bold opacity-72'>Forgot Password</p>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="flex flex-col justify-center items-center w-full gap-4">
-                    <button
-                      type="submit"
-                      className="w-full h-12 flex justify-center items-center gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725] text-2xl font-semibold text-black shadow-lg"
-                    >
-                      Sign In
-                    </button>
-                    <p className="opacity-80 text-base text-left">
-                      <span className="text-black">Don’t have an account?</span>
-                      <Link to={Urls.HOME} className="font-bold text-[#010e1d]"> Sign Up</Link>
-                    </p>
-                  </div>
-                </form>
+                <Formik
+                  initialValues={initialValues}
+                  validationSchema={LoginValidationSchema}
+                  onSubmit={onSubmit}
+                >
+                  {({ errors, touched }) => (
+                    <Form className="flex flex-col justify-start items-start w-full gap-6">
+                      <div className="w-full">
+                        <Field
+                          type="text"
+                          placeholder="Email address or Username"
+                          name="username"
+                          className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
+                          // value={username}
+                          // onChange={(e: any) => setUsername(e.target.value)}
+                          required
+                        />
+                        {errors.username && touched.username ? (
+                          <div>{errors.username}</div>
+                        ) : null}
+                      </div>
+                      <div className="w-full">
+                        <Field
+                          type="password"
+                          placeholder="Password"
+                          name="password"
+                          className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
+                          // value={password}
+                          // onChange={(e: any) => setPassword(e.target.value)}
+                          required
+                        />
+                        {errors.password && touched.password ? (
+                          <div>{errors.password}</div>
+                        ) : null}
+                      </div>
+                      <div className="flex justify-between items-center w-full gap-4">
+                        <div className="flex items-center gap-2">
+                          <Field type="checkbox" className="w-4 h-4 border border-black" />
+                          <label className="text-black opacity-72">Remember me</label>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Link to={Urls.PASSWORDRESET}>
+                            <p className='text-bold opacity-72'>Forgot Password</p>
+                          </Link>
+                        </div>
+                      </div>
+                      <div className="flex flex-col justify-center items-center w-full gap-4">
+                        <button
+                          type="submit"
+                          className="w-full h-12 flex justify-center items-center gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725] text-2xl font-semibold text-black shadow-lg"
+                        >
+                          Sign In
+                        </button>
+                        <p className="opacity-80 text-base text-left">
+                          <span className="text-black">Don’t have an account?</span>
+                          <Link to={Urls.HOME} className="font-bold text-[#010e1d]"> Sign Up</Link>
+                        </p>
+                      </div>
+                    </Form>
+                  )}
+                </Formik>
               </div>
             </div>
           </div>

@@ -1,40 +1,29 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';  // Adjust the import path to your logo
 import { Link } from 'react-router-dom';
 import { Urls } from '../../constants/constants';
+import { Form, Formik, FormikHelpers } from "formik"
+import { PasswordResetValidationSchema } from '../../schemas/Schema';
+import { useAxios } from '../../api/base';
 
 const PasswordResetForm: React.FC = () => {
+  const { requestApi } = useAxios() 
+  interface FormValues {
+    newpassword: string;
+    confirmpassword: string;
+  }
 
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [errors, setErrors] = useState<{ newPassword?: string; confirmPassword?: string }>({});
-
-  const validateForm = () => {
-    const newErrors: { newPassword?: string; confirmPassword?: string } = {};
-
-    if (!newPassword) {
-      newErrors.newPassword = 'New password is required';
-    }
-
-    if (!confirmPassword) {
-      newErrors.confirmPassword = 'Confirm password is required';
-    }
-
-    if (newPassword && confirmPassword && newPassword !== confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
-
-    setErrors(newErrors);
-
-    return Object.keys(newErrors).length === 0;
+  const initialValues: FormValues = {
+    newpassword: "",
+    confirmpassword: "",
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      // proceed with form submission (e.g., API call)
-      console.log('Form is valid');
-    }
+  const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
+    console.log("Form data", values);
+    // Perform form submission logic here
+    requestApi("/signin", "POST", values)
+    console.log("form submission successful")
+    resetForm();
   };
   return (
     <div className="w-full h-screen relative overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('/frame-3404.png')" }}>
@@ -53,43 +42,49 @@ const PasswordResetForm: React.FC = () => {
                   We have received your reset password. Please enter your new password below
                 </p>
               </div>
-              <form onSubmit={handleSubmit} className="flex flex-col justify-start items-start w-full relative gap-6">
-                <div className="w-full">
-                  <input
-                    type="password"
-                    placeholder="New Password"
-                    className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                  />
-                  {errors.newPassword && (
-                    <p className="text-red-500 text-sm">{errors.newPassword}</p>
-                  )}
-                </div>
-                <div className="w-full">
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                  />
-                  {errors.confirmPassword && (
-                    <p className="text-red-500 text-sm">{errors.confirmPassword}</p>
-                  )}
-                </div>
-                <div className="flex flex-col justify-center items-center w-full gap-6">
-                  <button
-                    type="submit"
-                    className="w-full h-12 flex justify-center items-center gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725] text-2xl font-medium text-black"
-                  >
-                    Change Password
-                  </button>
-                </div>
-                {Object.keys(errors).length === 0 && (
-                  <Link to={Urls.PASSWORDRESETSUCCESS} className="w-full"></Link>
+              <Formik
+                initialValues={initialValues}
+                validationSchema={PasswordResetValidationSchema}
+                onSubmit={handleSubmit}
+              >
+                {({ errors, touched }) => (
+                  <Form className="flex flex-col justify-start items-start w-full relative gap-6">
+                    <div className="w-full">
+                      <input
+                        type="password"
+                        placeholder="New Password"
+                        className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
+                        name="newpassword"                       
+                      />
+                      {errors.newpassword && touched.newpassword ? (
+                          <div>{errors.newpassword}</div>
+                        ) : null}
+                    </div>
+                    <div className="w-full">
+                      <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
+                        name="confirmPassword"                     
+                      />
+                      {errors.confirmpassword && touched.confirmpassword ? (
+                          <div>{errors.confirmpassword}</div>
+                        ) : null}
+                    </div>
+                    <div className="flex flex-col justify-center items-center w-full gap-6">
+                      <button
+                        type="submit"
+                        className="w-full h-12 flex justify-center items-center gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725] text-2xl font-medium text-black"
+                      >
+                        Change Password
+                      </button>
+                    </div>
+                    {Object.keys(errors).length === 0 && (
+                      <Link to={Urls.PASSWORDRESETSUCCESS} className="w-full"></Link>
+                    )}
+                  </Form>
                 )}
-              </form>
+              </Formik>
             </div>
           </div>
         </div>

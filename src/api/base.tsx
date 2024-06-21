@@ -4,9 +4,10 @@ type IMethod = 'GET' | 'POST' | 'PATCH'| 'DELETE' | 'PUT';
 
 export const useAxios = () => {
     // const {storage} = useGlobal();
+    const baseURL = "localhost:5173"
 
     const api = axios.create({
-        baseURL: process.env.API_URL
+        baseURL
     })
 
     const errorHandler = (error: any) => {
@@ -31,7 +32,7 @@ export const useAxios = () => {
         return errorHandler(error)
     })
 
-    const requestApi = async (path: string,method: IMethod,body?: object,headers?: object) => {
+    const requestApi = async (path: string, method: IMethod,body?: object, headers?: object) => {
         try{
 
             const apiData = await api.request({

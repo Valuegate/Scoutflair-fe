@@ -11,11 +11,13 @@ import PasswordResetPage from './pages/Auth/PassworResetPage'
 import PasswordResetForm from './pages/Auth/PasswordResetForm'
 import PasswordResetSuccess from './pages/Auth/PasswordResetSuccess'
 import SignUpPage from './pages/Auth/SignUpPage'
+import PlayerSignUp from './pages/Auth/PlayerSignUp'
 
 const App = () => {
   return (
     <Routes>
       <Route path={'/'} element={<LandingPage />} />
+      <Route path={'/test'} element={<PlayerSignUp />} />
       <Route path={'/about'} element={<AboutPage />} />
       <Route path={'/contact'} element={<ContactPage />} />
       <Route path={'/blogs'} element={<BlogsPage />} />

@@ -1,27 +1,25 @@
-import React, { useState } from 'react';
-import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';  // Adjust the import path to your logo
+import React from 'react';
+import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';
+import { Formik, Form, FormikHelpers } from 'formik';
+import { EmailValidationSchema } from '../../schemas/Schema';
+import { useAxios } from '../../api/base';
 
 const PasswordResetPage: React.FC = () => {
-  const [Email, setEmail] = useState("");
-  const [errors, setErrors] = useState<{ Email?: string}>({});
+  const { requestApi } = useAxios()
+  interface FormValues {
+    email: string
+  }
 
-  const newErrors: { Email?: string} = {};
+  const initialValues: FormValues = {
+    email: ""
+  }
 
-  const validateForm = () => {
-    if (!Email) {
-      newErrors.Email = "Email is required"
-    }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  }  
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      // proceed with form submission (e.g., API call)
-      console.log('Form is valid');
-    }
+  const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
+    console.log("Form data", values);
+    // Perform form submission logic here
+    requestApi(`/signup/recover/first/${values.email}/`, "POST", values)
+    console.log("form submission successful")
+    resetForm();
   };
 
   return (
@@ -43,31 +41,38 @@ const PasswordResetPage: React.FC = () => {
                       Enter your registered email address to receive a password reset link.
                     </p>
                   </div>
-                  <form onSubmit={handleSubmit} className="flex flex-col justify-start items-start w-full relative gap-6">
-                    <div className="w-full">
-                    <input
-                      type="text"
-                      placeholder="Email address or Username"
-                      className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
-                      value={Email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                    {errors.Email && (
-                      <p className="text-red-500 text-sm">{errors.Email}</p>
+                  <Formik
+                    initialValues={initialValues}
+                    validationSchema={EmailValidationSchema}
+                    onSubmit={handleSubmit}
+                  >
+                    {({ errors, touched }) => (
+                      <Form className="flex flex-col justify-start items-start w-full relative gap-6">
+                        <div className="w-full">
+                          <input
+                            type="text"
+                            placeholder="Email address or Username"
+                            className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
+                            name='email'
+                          />
+                          {errors.email && touched.email ? (
+                            <div>{errors.email}</div>
+                          ) : null}
+                        </div>
+                        <div className="flex flex-col justify-center items-center w-full gap-6">
+                          <button
+                            type="submit"
+                            className="w-full h-12 flex justify-center items-center gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725] text-2xl font-medium text-black"
+                          >
+                            Continue
+                          </button>
+                          <p className="w-full text-base font-semibold text-center text-[#f00] cursor-pointer">
+                            Cancel
+                          </p>
+                        </div>
+                      </Form>
                     )}
-                    </div>
-                    <div className="flex flex-col justify-center items-center w-full gap-6">
-                      <button
-                        type="submit"
-                        className="w-full h-12 flex justify-center items-center gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725] text-2xl font-medium text-black"
-                      >
-                        Continue
-                      </button>
-                      <p className="w-full text-base font-semibold text-center text-[#f00] cursor-pointer">
-                        Cancel
-                      </p>
-                    </div>
-                  </form>
+                  </Formik>
                 </div>
               </div>
             </div>

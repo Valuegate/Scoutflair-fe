@@ -1,7 +1,50 @@
-import React from "react";
-import Scoutflairlogo from "../../assets/Scoutflairlogo.svg"
+import React, { useState } from 'react';
+import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';
+import { useAxios } from '../../api/base';
+import { Form, Formik, Field} from 'formik';
+import {SignUpValidationSchema} from '../../schemas/Schema';
 
 const SignUpPage: React.FC = () => {
+    const { requestApi } = useAxios();
+
+    const [formData, setFormData] = useState({
+        fullName: "",
+        dob: "",
+        licenceNumber: "",
+        experience: "",
+        currentTeam: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+    });
+
+    const handleChange = (e: any) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        // Assuming position, preferredFoot, and usertype are not part of the form
+        const body = {
+            ...formData,
+            position: 'somePosition', // Add appropriate values or get from form if needed
+            preferredFoot: 'someFoot', // Add appropriate values or get from form if needed
+            usertype: 'someType' // Add appropriate values or get from form if needed
+        };
+
+        const response = await requestApi('/signup', 'POST', body);
+
+        if (response.status) {
+            alert('User created successfully!');
+        } else {
+            alert(`Error: ${response.data.message}`);
+        }
+    };
+
     return (
         <div className="flex flex-row">
             <div className="w-full sm:w-1/2 h-screen relative overflow-hidden bg-[url('frame-36351.jpeg')] bg-cover bg-no-repeat bg-center hidden sm:block">
@@ -9,11 +52,9 @@ const SignUpPage: React.FC = () => {
                     Welcome aboard! scoutFlair awaits your football brilliance
                 </p>
                 <div className="flex justify-start items-center w-[610.75px] h-[128.58px] absolute left-[72px] top-[513px] gap-[42.85964584350586px]">
-                    <img className="w-[129px] h-[129px]" src={Scoutflairlogo} alt="" />
+                    <img className="w-[129px] h-[129px]" src={Scoutflairlogo} alt="Scoutflair Logo" />
                     <p className="flex-grow-0 flex-shrink-0 text-[32px] text-left text-white">
-                        <span className="flex-grow-0 flex-shrink-0 text-[32px] font-bold text-left text-white">
-                            Scout
-                        </span>
+                        <span className="flex-grow-0 flex-shrink-0 text-[32px] font-bold text-left text-white">Scout</span>
                         <span className="flex-grow-0 flex-shrink-0 text-[32px] text-left text-white">Flair</span>
                     </p>
                 </div>
@@ -33,113 +74,163 @@ const SignUpPage: React.FC = () => {
                                 fill="white"
                             />
                         </svg>
-                        <p className="flex-grow-0 flex-shrink-0 w-[130px] text-lg text-left text-white">
-                            {" "}
-                            ScoutFlair 2024
-                        </p>
+                        <p className="flex-grow-0 flex-shrink-0 w-[130px] text-lg text-left text-white"> ScoutFlair 2024</p>
                     </div>
                 </div>
             </div>
             <div className="md:w-1/2 xs:w-full">
                 <div
                     className="flex flex-col justify-start items-start relative gap-12 px-6 py-10 md:px-24 md:py-[72px] rounded-tl-3xl rounded-bl-3xl bg-white"
-                    style={{ boxShadow: "0px 6px 10px 0 rgba(0,0,0,0.14)" }}
+                    style={{ boxShadow: '0px 6px 10px 0 rgba(0,0,0,0.14)' }}
                 >
                     <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-3">
-                        <p className="flex-grow-0 flex-shrink-0 text-xl md:text-2xl font-bold text-left text-black">
-                            Create an account
-                        </p>
-                        <p className="flex-grow-0 flex-shrink-0 text-sm md:text-xs font-bold text-left text-black/[0.72]">
-                            Please enter your details
-                        </p>
+                        <p className="flex-grow-0 flex-shrink-0 text-xl md:text-2xl font-bold text-left text-black">Create an account</p>
+                        <p className="flex-grow-0 flex-shrink-0 text-sm md:text-xs font-bold text-left text-black/[0.72]">Please enter your details</p>
                     </div>
-                    <div className="flex-grow-0 flex-shrink-0 w-full md:w-[400px] relative">
-                        <div className="w-full md:w-[400px]">
-                            <div className="w-full md:w-[400px] mb-6">
-                                <input
-                                    type="text"
-                                    placeholder="Full Name"
-                                    className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
-                                />
-                            </div>
-                            <div className="w-full md:w-[400px] mb-6">
-                                <input
-                                    type="date"
-                                    placeholder="Date of Birth"
-                                    className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
-                                />
-                            </div>
-                            <div className="w-full md:w-[400px] mb-6">
-                                <input
-                                    type="text"
-                                    placeholder="Coaching License Number"
-                                    className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
-                                />
-                            </div>
-                            <div className="w-full md:w-[400px] mb-6">
-                                <input
-                                    type="number"
-                                    placeholder="Coaching Experience (years)"
-                                    className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
-                                />
-                            </div>
-                            <div className="w-full md:w-[400px] mb-6">
-                                <input
-                                    type="text"
-                                    placeholder="Current Team or Club"
-                                    className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
-                                />
-                            </div>
-                            <div className="w-full md:w-[400px] mb-6">
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
-                                />
-                            </div>
-                            <div className="w-full md:w-[400px] mb-6">
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
-                                />
-                            </div>
-                            <div className="w-full md:w-[400px] mb-6">
-                                <input
-                                    type="password"
-                                    placeholder="Confirm Password"
-                                    className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
-                                />
-                            </div>
-                        </div>
-                        <div className="flex flex-col justify-start items-center gap-6 mt-6">
-                            <div className="flex flex-col justify-start items-center gap-1">
-                                <div className="flex justify-start items-center gap-2">
-                                    <input type="checkbox" className="w-3 h-3 bg-white border border-black" />
-                                    <p className="text-sm md:text-base opacity-[0.72] text-black">
-                                        By creating an account, you are agreeing to our
+                    <Formik
+                        initialValues={formData}
+                        validationSchema={SignUpValidationSchema}
+                        onSubmit={handleSubmit}
+                    >
+                        {({ errors, touched }) => (
+                            <Form onSubmit={handleSubmit} className="flex-grow-0 flex-shrink-0 w-full md:w-[400px] relative">
+                                <div className="w-full md:w-[400px]">
+                                    <div className="w-full md:w-[400px] mb-6">
+                                        <Field
+                                            type="text"
+                                            name="fullName"
+                                            value={formData.fullName}
+                                            onChange={handleChange}
+                                            placeholder="Full Name"
+                                            className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
+                                        />
+                                        {errors.fullName && touched.fullName ? (
+                                            <div>{errors.fullName}</div>
+                                        ) : null}
+                                    </div>
+                                    <div className="w-full md:w-[400px] mb-6">
+                                        <Field
+                                            type="date"
+                                            name="dob"
+                                            value={formData.dob}
+                                            onChange={handleChange}
+                                            placeholder="Date of Birth"
+                                            className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
+                                        />
+                                        {errors.dob && touched.dob ? (
+                                            <div>{errors.dob}</div>
+                                        ) : null}
+                                    </div>
+                                    <div className="w-full md:w-[400px] mb-6">
+                                        <Field
+                                            type="text"
+                                            name="licenceNumber"
+                                            value={formData.licenceNumber}
+                                            onChange={handleChange}
+                                            placeholder="Coaching License Number"
+                                            className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
+                                        />
+                                        {errors.licenceNumber && touched.licenceNumber ? (
+                                            <div>{errors.licenceNumber}</div>
+                                        ) : null}
+                                    </div>
+                                    <div className="w-full md:w-[400px] mb-6">
+                                        <Field
+                                            type="number"
+                                            name="experience"
+                                            value={formData.experience}
+                                            onChange={handleChange}
+                                            placeholder="Coaching Experience (years)"
+                                            className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
+                                        />
+                                        {errors.experience && touched.experience ? (
+                                            <div>{errors.experience}</div>
+                                        ) : null}
+                                    </div>
+                                    <div className="w-full md:w-[400px] mb-6">
+                                        <Field
+                                            type="text"
+                                            name="currentTeam"
+                                            value={formData.currentTeam}
+                                            onChange={handleChange}
+                                            placeholder="Current Team or Club"
+                                            className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
+                                        />
+                                        {errors.currentTeam && touched.currentTeam ? (
+                                            <div>{errors.currentTeam}</div>
+                                        ) : null}
+                                    </div>
+                                    <div className="w-full md:w-[400px] mb-6">
+                                        <Field
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            placeholder="Email"
+                                            className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
+                                        />
+                                        {errors.email && touched.email ? (
+                                            <div>{errors.email}</div>
+                                        ) : null}
+                                    </div>
+                                    <div className="w-full md:w-[400px] mb-6">
+                                        <Field
+                                            type="password"
+                                            name="password"
+                                            value={formData.password}
+                                            onChange={handleChange}
+                                            placeholder="Password"
+                                            className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
+                                        />
+                                        {errors.password && touched.password ? (
+                                            <div>{errors.password}</div>
+                                        ) : null}
+                                    </div>
+                                    <div className="w-full md:w-[400px] mb-6">
+                                        <Field
+                                            type="password"
+                                            name="confirmPassword"
+                                            value={formData.confirmPassword}
+                                            onChange={handleChange}
+                                            placeholder="Confirm Password"
+                                            className="w-full h-12 px-3 rounded-lg border-[0.72px] border-black/80"
+                                        />
+                                        {errors.confirmPassword && touched.confirmPassword ? (
+                                            <div>{errors.confirmPassword}</div>
+                                        ) : null}
+                                    </div>
+                                </div>
+                                <div className="flex flex-col justify-start items-center gap-6 mt-6">
+                                    <div className="flex flex-col justify-start items-center gap-1">
+                                        <div className="flex justify-start items-center gap-2">
+                                            <Field type="checkbox" className="w-3 h-3 bg-white border border-black" />
+                                            <p className="text-sm md:text-base opacity-[0.72] text-black">
+                                                By creating an account, you are agreeing to our
+                                            </p>
+                                        </div>
+                                        <p className="text-sm md:text-base font-semibold text-left text-[#010e1d]">
+                                            Terms of Service and Privacy Policy.
+                                        </p>
+                                    </div>
+                                    <button
+                                        type="submit"
+                                        className="flex justify-center items-center w-full md:w-[400px] h-12 rounded-[20px] bg-[#f2a725] text-2xl font-semibold text-black"
+                                        style={{ boxShadow: '0px 16px 24px 2px rgba(0,0,0,0.14)' }}
+                                    >
+                                        Sign Up
+                                    </button>
+                                    <p className="text-sm md:text-base text-left">
+                                        <span className="text-black">Already have an account?</span>
+                                        <span className="font-bold text-[#010e1d] ml-1">Sign In</span>
                                     </p>
                                 </div>
-                                <p className="text-sm md:text-base font-semibold text-left text-[#010e1d]">
-                                    Terms of Service and Privacy Policy.
-                                </p>
-                            </div>
-                            <button
-                                className="flex justify-center items-center w-full md:w-[400px] h-12 rounded-[20px] bg-[#f2a725] text-2xl font-semibold text-black"
-                                style={{ boxShadow: "0px 16px 24px 2px rgba(0,0,0,0.14)" }}
-                            >
-                                Sign Up
-                            </button>
-                            <p className="text-sm md:text-base text-left">
-                                <span className="text-black">Already have an account?</span>
-                                <span className="font-bold text-[#010e1d] ml-1">Sign In</span>
-                            </p>
-                        </div>
-                    </div>
+                            </Form>
+                        )}
+                    </Formik>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default SignUpPage
+export default SignUpPage;
