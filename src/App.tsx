@@ -10,8 +10,9 @@ import LoginPage from './pages/Auth/LoginPage'
 import PasswordResetPage from './pages/Auth/PassworResetPage'
 import PasswordResetForm from './pages/Auth/PasswordResetForm'
 import PasswordResetSuccess from './pages/Auth/PasswordResetSuccess'
-import SignUpPage from './pages/Auth/SignUpPage'
+// import SignUpPage from './pages/Auth/SignUpPage'
 import PlayerSignUp from './pages/Auth/PlayerSignUp'
+import SignUpSelectPage from './pages/Auth/SignUpSelect'
 
 const App = () => {
   return (
@@ -24,7 +25,7 @@ const App = () => {
       <Route path={'/services'} element={<ServicePage />} />
       <Route path={'/sign-up/success'} element={<SignUpSuccessPage />} />
       <Route path={'/login'} element={<LoginPage />} />
-      <Route path={'/sign-up'} element={<SignUpPage />} />
+      <Route path={'/sign-up'} element={<SignUpSelectPage />} />
       <Route path={'/password-reset'} element={<PasswordResetPage />} />
       <Route path={'/password-reset-form'} element={<PasswordResetForm />} />
       <Route path={'/password-reset/success'} element={<PasswordResetSuccess />} />
