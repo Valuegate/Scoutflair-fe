@@ -2,17 +2,17 @@ import * as Yup from "yup";
 
 export const SignUpValidationSchema = Yup.object().shape({
   firstName: Yup.string()
-    .min(2, "Full Name must be at least 2 characters")
-    .max(50, "Full Name must be less than 50 characters")
-    .required("Full Name is required"),
+    .min(2, "First Name must be at least 2 characters")
+    .max(50, "First Name must be less than 50 characters")
+    .required("First Name is required"),
   lastName: Yup.string()
-    .min(2, "Full Name must be at least 2 characters")
-    .max(50, "Full Name must be less than 50 characters")
-    .required("Full Name is required"),
+    .min(2, "Last Name must be at least 2 characters")
+    .max(50, "Last Name must be less than 50 characters")
+    .required("Last Name is required"),
   positon: Yup.string()
-    .min(2, "Full Name must be at least 2 characters")
-    .max(50, "Full Name must be less than 50 characters")
-    .required("Full Name is required"),
+    .min(2, "Position must be at least 2 characters")
+    .max(50, "Position must be less than 50 characters")
+    .required("Position is required"),
   dob: Yup.date()
     .required("Date of Birth is required")
     .max(new Date(), "Date of Birth cannot be in the future"),

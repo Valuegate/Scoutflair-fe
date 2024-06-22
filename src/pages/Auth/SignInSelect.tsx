@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import CoachSignUp from './Coach/CoachSignUp';
-import PlayerSignUp from './Player/PlayerSignUp';
-import ScoutSignUp from './Scout/ScoutSignUp';
+import CoachLoginPage from './Coach/CoachLoginPage';
+import PlayerLoginPage from './Player/PlayerLoginPage';
+import ScoutLoginPage from './Scout/ScoutLoginPage';
 
-const Home: React.FC = () => {
+const SignInSelectPage: React.FC = () => {
   const [selectedPath, setSelectedPath] = useState('');
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -21,7 +21,6 @@ const Home: React.FC = () => {
       alert('Please select an option first');
     }
   };
-  
   if (!type || !["coach", "player", "scout"].includes(type) ) {
     return (
       <div className="relative overflow-hidden bg-[#010e1d]/[0.84] px-32 pb-32">
@@ -122,11 +121,11 @@ const Home: React.FC = () => {
     )
   } else {
     switch (type) {
-      case ("coach") : return <CoachSignUp />
-      case ("player") : return <PlayerSignUp />
-      case ("scout") : return <ScoutSignUp />
+      case ("coach") : return <CoachLoginPage />
+      case ("player") : return <PlayerLoginPage />
+      case ("scout") : return <ScoutLoginPage />
    }
   };
 }
 
-export default Home;
+export default SignInSelectPage;

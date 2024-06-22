@@ -103,7 +103,7 @@ const SignUpPage: React.FC = () => {
                                             name="firstName"
                                             value={formData.firstName}
                                             onChange={handleChange}
-                                            placeholder="Full Name"
+                                            placeholder="First Name"
                                             className="w-1/2 h-12 px-3 rounded-lg border-[0.72px] border-black/80"
                                         />
                                         {errors.firstName && touched.firstName ? (
@@ -114,7 +114,7 @@ const SignUpPage: React.FC = () => {
                                             name="lastName"
                                             value={formData.lastName}
                                             onChange={handleChange}
-                                            placeholder="Full Name"
+                                            placeholder="Last Name"
                                             className="w-1/2 h-12 px-3 rounded-lg border-[0.72px] border-black/80"
                                         />
                                         {errors.lastName && touched.lastName ? (

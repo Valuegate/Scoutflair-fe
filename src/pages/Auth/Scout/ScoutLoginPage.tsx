@@ -1,12 +1,12 @@
 import React from 'react';
-import Scoutflairlogo from '../../assets/Scoutflairlogo.svg'; // Adjust the import path to your logo
+import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg"
 import { Link } from 'react-router-dom';
-import { Urls } from '../../constants/constants';
-import { useAxios } from '../../api/base';
+import { Urls } from '../../../constants/constants';
+import { useAxios } from '../../../api/base';
 import { Form, Formik, Field, FormikHelpers } from 'formik';
-import { LoginValidationSchema } from '../../schemas/Schema';
+import { LoginValidationSchema } from '../../../schemas/Schema';
 
-const LoginPage: React.FC = () => {
+const ScoutLoginPage: React.FC = () => {
   const { requestApi } = useAxios()
 
   interface FormValues {
@@ -133,4 +133,4 @@ const LoginPage: React.FC = () => {
   );
 };
 
-export default LoginPage;
+export default ScoutLoginPage;

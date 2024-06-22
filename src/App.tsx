@@ -6,14 +6,12 @@ import ContactPage from './pages/ContactPage'
 import BlogsPage from './pages/BlogsPage'
 import ServicePage from './pages/ServicePage'
 import SignUpSuccessPage from './pages/Auth/SignUpSuccess'
-import LoginPage from './pages/Auth/LoginPage'
 import PasswordResetPage from './pages/Auth/PassworResetPage'
 import PasswordResetForm from './pages/Auth/PasswordResetForm'
 import PasswordResetSuccess from './pages/Auth/PasswordResetSuccess'
-// import SignUpPage from './pages/Auth/SignUpPage'
-import PlayerSignUp from './pages/Auth/PlayerSignUp'
 import SignUpSelectPage from './pages/Auth/SignUpSelect'
 import TestSC from './pages/test'
+import SignInSelectPage from './pages/Auth/SignInSelect'
 
 const App = () => {
   return (
@@ -25,7 +23,7 @@ const App = () => {
       <Route path={'/blogs'} element={<BlogsPage />} />
       <Route path={'/services'} element={<ServicePage />} />
       <Route path={'/sign-up/success'} element={<SignUpSuccessPage />} />
-      <Route path={'/login'} element={<LoginPage />} />
+      <Route path={'/login'} element={<SignInSelectPage />} />
       <Route path={'/sign-up'} element={<SignUpSelectPage />} />
       <Route path={'/password-reset'} element={<PasswordResetPage />} />
       <Route path={'/password-reset-form'} element={<PasswordResetForm />} />
