@@ -1,7 +1,15 @@
 import * as Yup from "yup";
 
 export const SignUpValidationSchema = Yup.object().shape({
-  fullName: Yup.string()
+  firstName: Yup.string()
+    .min(2, "Full Name must be at least 2 characters")
+    .max(50, "Full Name must be less than 50 characters")
+    .required("Full Name is required"),
+  lastName: Yup.string()
+    .min(2, "Full Name must be at least 2 characters")
+    .max(50, "Full Name must be less than 50 characters")
+    .required("Full Name is required"),
+  positon: Yup.string()
     .min(2, "Full Name must be at least 2 characters")
     .max(50, "Full Name must be less than 50 characters")
     .required("Full Name is required"),

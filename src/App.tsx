@@ -13,12 +13,13 @@ import PasswordResetSuccess from './pages/Auth/PasswordResetSuccess'
 // import SignUpPage from './pages/Auth/SignUpPage'
 import PlayerSignUp from './pages/Auth/PlayerSignUp'
 import SignUpSelectPage from './pages/Auth/SignUpSelect'
+import TestSC from './pages/test'
 
 const App = () => {
   return (
     <Routes>
       <Route path={'/'} element={<LandingPage />} />
-      <Route path={'/test'} element={<PlayerSignUp />} />
+      <Route path={'/test'} element={<TestSC />} />
       <Route path={'/about'} element={<AboutPage />} />
       <Route path={'/contact'} element={<ContactPage />} />
       <Route path={'/blogs'} element={<BlogsPage />} />
