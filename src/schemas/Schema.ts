@@ -50,5 +50,7 @@ export const PasswordResetValidationSchema = Yup.object({
 })
 
 export const EmailValidationSchema = Yup.object({
-  email: Yup.string().email("Invalid Email Address").required("Required")
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
 })

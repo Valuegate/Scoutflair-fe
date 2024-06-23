@@ -2,7 +2,7 @@ import React from 'react';
 import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';  // Adjust the import path to your logo
 import { Link } from 'react-router-dom';
 import { Urls } from '../../constants/constants';
-import { Form, Formik, FormikHelpers } from "formik"
+import { Field, Form, Formik, FormikHelpers } from "formik"
 import { PasswordResetValidationSchema } from '../../schemas/Schema';
 import { useAxios } from '../../api/base';
 
@@ -21,7 +21,7 @@ const PasswordResetForm: React.FC = () => {
   const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
     console.log("Form data", values);
     // Perform form submission logic here
-    requestApi("/signin", "POST", values)
+    requestApi("/signup", "POST", values)
     console.log("form submission successful")
     resetForm();
   };
@@ -50,7 +50,7 @@ const PasswordResetForm: React.FC = () => {
                 {({ errors, touched }) => (
                   <Form className="flex flex-col justify-start items-start w-full relative gap-6">
                     <div className="w-full">
-                      <input
+                      <Field
                         type="password"
                         placeholder="New Password"
                         className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
@@ -61,7 +61,7 @@ const PasswordResetForm: React.FC = () => {
                         ) : null}
                     </div>
                     <div className="w-full">
-                      <input
+                      <Field
                         type="password"
                         placeholder="Confirm Password"
                         className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"

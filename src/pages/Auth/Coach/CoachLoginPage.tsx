@@ -40,7 +40,7 @@ const CoachLoginPage: React.FC = () => {
               Don’t have an account?
             </span>
             <span className="w-56 opacity-80 text-base font-semibold text-left text-black"> </span>
-            <span className="w-56 opacity-80 text-base font-bold text-left text-[#010e1d]">Sign Up</span>
+            <Link to={Urls.SIGNUP} ><span className="w-56 opacity-80 text-base font-bold text-left text-[#010e1d]">Sign Up</span></Link>
           </p>
         </div>
         <div className="w-1/2 max-w-md p-6 bg-white rounded-tl-2xl rounded-bl-2xl shadow-lg my-10 mx-32">
@@ -66,7 +66,7 @@ const CoachLoginPage: React.FC = () => {
                     required
                   />
                   {errors.username && touched.username ? (
-                    <div className="text-red">{errors.username}</div>
+                    <div><p style={{color: "red"}}>{errors.username}</p></div>
                   ) : null}
                 </div>
                 <div className="w-full">
@@ -80,7 +80,7 @@ const CoachLoginPage: React.FC = () => {
                     required
                   />
                   {errors.password && touched.password ? (
-                    <div className="text-red">{errors.password}</div>
+                    <div className="text-red"><p style={{color: "red"}}>{errors.password}</p></div>
                   ) : null}
                 </div>
                 <div className="flex justify-between items-center w-full gap-4">

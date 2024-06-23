@@ -86,7 +86,7 @@ const CoachSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.firstName && touched.firstName ? (
-                                        <div>{errors.firstName}</div>
+                                        <div><p style={{ color: "red" }}>{errors.firstName}</p></div>
                                     ) : null}
                                     <Field
                                         type="text"
@@ -96,7 +96,7 @@ const CoachSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.lastName && touched.lastName ? (
-                                        <div>{errors.lastName}</div>
+                                        <div><p style={{ color: "red" }}>{errors.lastName}</p></div>
                                     ) : null}
                                 </div>
                                 <div className="flex flex-col md:flex-row gap-4">
@@ -108,7 +108,7 @@ const CoachSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.experience && touched.experience ? (
-                                        <div>{errors.experience}</div>
+                                        <div><p style={{ color: "red" }}>{errors.experience}</p></div>
                                     ) : null}
                                     <Field
                                         type="date"
@@ -118,11 +118,11 @@ const CoachSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.dob && touched.dob ? (
-                                        <div>{errors.dob}</div>
+                                        <div><p style={{ color: "red" }}>{errors.dob}</p></div>
                                     ) : null}
                                 </div>
                                 <div className="flex flex-col md:flex-row gap-4">
-                                <Field
+                                    <Field
                                         type="text"
                                         placeholder="Coaching Licence Number"
                                         name="licencenumber"
@@ -130,7 +130,7 @@ const CoachSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.licenceNumber && touched.licenceNumber ? (
-                                        <div>{errors.licenceNumber}</div>
+                                        <div><p style={{ color: "red" }}>{errors.licenceNumber}</p></div>
                                     ) : null}
                                     <Field
                                         type="text"
@@ -140,8 +140,8 @@ const CoachSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.currentTeam && touched.currentTeam ? (
-                                        <div>{errors.currentTeam}</div>
-                                    ) : null}                                
+                                        <div><p style={{ color: "red" }}>{errors.currentTeam}</p></div>
+                                    ) : null}
                                 </div>
                                 <Field
                                     type="email"
@@ -151,7 +151,7 @@ const CoachSignUp: React.FC = () => {
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.email && touched.email ? (
-                                    <div>{errors.email}</div>
+                                    <div><p style={{ color: "red" }}>{errors.email}</p></div>
                                 ) : null}
                                 <Field
                                     type="password"
@@ -161,7 +161,7 @@ const CoachSignUp: React.FC = () => {
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.password && touched.password ? (
-                                    <div>{errors.password}</div>
+                                    <div><p style={{ color: "red" }}>{errors.password}</p></div>
                                 ) : null}
                                 <Field
                                     type="password"
@@ -171,7 +171,7 @@ const CoachSignUp: React.FC = () => {
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.confirmPassword && touched.confirmPassword ? (
-                                    <div>{errors.confirmPassword}</div>
+                                    <div><p style={{ color: "red" }}>{errors.confirmPassword}</p></div>
                                 ) : null}
                                 <div className="flex items-center space-x-2">
                                     <Field type="checkbox" className="form-checkbox" />

@@ -1,6 +1,6 @@
 import React from 'react';
 import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';
-import { Formik, Form, FormikHelpers } from 'formik';
+import { Formik, Form, FormikHelpers, Field } from 'formik';
 import { EmailValidationSchema } from '../../schemas/Schema';
 import { useAxios } from '../../api/base';
 
@@ -24,7 +24,7 @@ const PasswordResetPage: React.FC = () => {
 
   return (
     <div className="w-full h-screen relative overflow-hidden bg-white">
-      <div className="absolute inset-0 overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('/path/to/frame-3404.png')" }}>
+      <div className="absolute inset-0 overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('frame-3404.png')" }}>
         <div className="absolute inset-0 overflow-hidden bg-[#010e1d]/90">
           <div
             className="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 rounded-2xl bg-white p-8 md:p-12"
@@ -49,7 +49,7 @@ const PasswordResetPage: React.FC = () => {
                     {({ errors, touched }) => (
                       <Form className="flex flex-col justify-start items-start w-full relative gap-6">
                         <div className="w-full">
-                          <input
+                          <Field
                             type="text"
                             placeholder="Email address or Username"
                             className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"

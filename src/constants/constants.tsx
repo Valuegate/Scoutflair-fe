@@ -7,5 +7,6 @@ export const Urls = {
     RESOURCES: "/resources",
     PASSWORDRESET: "/password-reset",
     PASSWORDRESETSUCCESS: "/password-reset/success",
-    LOGIN: "/login"
+    LOGIN: "/login",
+    SIGNUP: "/sign-up"
 }

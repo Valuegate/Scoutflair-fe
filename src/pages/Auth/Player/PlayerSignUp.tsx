@@ -22,7 +22,7 @@ const PlayerSignUp: React.FC = () => {
         password: "",
         confirmPassword: "",
         preferredFoot: "",
-        usertype: {type}
+        usertype: { type }
     });
 
     const handleChange = (e: any) => {
@@ -77,7 +77,7 @@ const PlayerSignUp: React.FC = () => {
                     >
                         {({ errors, touched }) => (
                             <Form className="space-y-4">
-                                <div className="flex flex-col md:flex-row gap-4">                                
+                                <div className="flex flex-col md:flex-row gap-4">
                                     <Field
                                         type="text"
                                         placeholder="First Name"
@@ -86,8 +86,8 @@ const PlayerSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.firstName && touched.firstName ? (
-                                            <div>{errors.firstName}</div>
-                                        ) : null}
+                                        <div><p style={{ color: "red" }}>{errors.firstName}</p></div>
+                                    ) : null}
                                     <Field
                                         type="text"
                                         placeholder="Last Name"
@@ -96,8 +96,8 @@ const PlayerSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.lastName && touched.lastName ? (
-                                            <div>{errors.lastName}</div>
-                                        ) : null}
+                                        <div><p style={{ color: "red" }}>{errors.lastName}</p></div>
+                                    ) : null}
                                 </div>
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <Field
@@ -108,8 +108,8 @@ const PlayerSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.position && touched.position ? (
-                                            <div>{errors.position}</div>
-                                        ) : null}
+                                        <div><p style={{ color: "red" }}>{errors.position}</p></div>
+                                    ) : null}
                                     <Field
                                         type="date"
                                         placeholder="Date of Birth"
@@ -118,8 +118,8 @@ const PlayerSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.dob && touched.dob ? (
-                                            <div>{errors.dob}</div>
-                                        ) : null}
+                                        <div><p style={{ color: "red" }}>{errors.dob}</p></div>
+                                    ) : null}
                                 </div>
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <Field
@@ -130,8 +130,8 @@ const PlayerSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.currentTeam && touched.currentTeam ? (
-                                            <div>{errors.currentTeam}</div>
-                                        ) : null}
+                                        <div><p style={{ color: "red" }}>{errors.currentTeam}</p></div>
+                                    ) : null}
                                     <Field
                                         type="text"
                                         placeholder="Preferred Foot"
@@ -140,8 +140,8 @@ const PlayerSignUp: React.FC = () => {
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.preferredFoot && touched.preferredFoot ? (
-                                            <div>{errors.preferredFoot}</div>
-                                        ) : null}
+                                        <div><p style={{ color: "red" }}>{errors.preferredFoot}</p></div>
+                                    ) : null}
                                 </div>
                                 <Field
                                     type="email"
@@ -151,8 +151,8 @@ const PlayerSignUp: React.FC = () => {
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.email && touched.email ? (
-                                            <div>{errors.email}</div>
-                                        ) : null}
+                                    <div><p style={{ color: "red" }}>{errors.email}</p></div>
+                                ) : null}
                                 <Field
                                     type="password"
                                     placeholder="Password"
@@ -161,8 +161,8 @@ const PlayerSignUp: React.FC = () => {
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.password && touched.password ? (
-                                            <div>{errors.password}</div>
-                                        ) : null}
+                                    <div><p style={{ color: "red" }}>{errors.password}</p></div>
+                                ) : null}
                                 <Field
                                     type="password"
                                     placeholder="Confirm Password"
@@ -171,8 +171,8 @@ const PlayerSignUp: React.FC = () => {
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.confirmPassword && touched.confirmPassword ? (
-                                            <div>{errors.confirmPassword}</div>
-                                        ) : null}
+                                    <div><p style={{ color: "red" }}>{errors.confirmPassword}</p></div>
+                                ) : null}
                                 <div className="flex items-center space-x-2">
                                     <Field type="checkbox" className="form-checkbox" />
                                     <label className="text-gray-700 text-sm">
