@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg";
 import { Field, Form, Formik } from "formik";
 import { SignUpValidationSchema } from "../../../schemas/Schema";
@@ -9,6 +10,7 @@ const PlayerSignUp: React.FC = () => {
     const { requestApi } = useAxios();
     const [searchParams] = useSearchParams();
     const type = searchParams.get('type');
+    const navigate = useNavigate();
 
     const initialValues = {
         firstName: "",
@@ -35,9 +37,9 @@ const PlayerSignUp: React.FC = () => {
         try {
             const response = await requestApi('/signup', 'POST', newValues);
             console.log(response.data);
-
             if (response.status) {
                 alert('User created successfully!');
+                navigate("/login?type=player", {replace: true})
             } else {
                 alert(`Error: ${response.data.response.data}`);
             }

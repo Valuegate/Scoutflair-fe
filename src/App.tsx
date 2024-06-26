@@ -12,8 +12,8 @@ import PasswordResetSuccess from './pages/Auth/PasswordResetSuccess'
 import SignUpSelectPage from './pages/Auth/SignUpSelect'
 // import TestSC from './pages/test'
 import SignInSelectPage from './pages/Auth/SignInSelect'
-import ScoutIntro from './pages/Auth/Scout/ScoutIntro'
-import PlayerIntro from './pages/Auth/Player/PlayerIntro'
+// import ScoutIntro from './pages/Auth/Scout/ScoutIntro'
+// import PlayerIntro from './pages/Auth/Player/PlayerIntro'
 import CoachIntro from './pages/Auth/Coach/CoachIntro'
 
 const App = () => {

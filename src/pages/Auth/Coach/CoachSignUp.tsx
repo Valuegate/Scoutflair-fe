@@ -3,12 +3,13 @@ import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg"
 import { Field, Form, Formik } from "formik";
 import { SignUpValidationSchema } from "../../../schemas/Schema";
 import { useAxios } from "../../../api/base";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 const CoachSignUp: React.FC = () => {
     const { requestApi } = useAxios();
     const [searchParams] = useSearchParams();
     const type = searchParams.get('type');
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -45,6 +46,7 @@ const CoachSignUp: React.FC = () => {
 
             if (response.status) {
                 alert('User created successfully!');
+                navigate("/login?type=scout", {replace: true})
             } else {
                 alert(`Error: ${response.data.response.data}`);
             }
