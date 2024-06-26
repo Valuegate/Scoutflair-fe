@@ -9,23 +9,25 @@ export const SignUpValidationSchema = Yup.object().shape({
     .min(2, "Last Name must be at least 2 characters")
     .max(50, "Last Name must be less than 50 characters")
     .required("Last Name is required"),
-  positon: Yup.string()
+  position: Yup.string()
     .min(2, "Position must be at least 2 characters")
     .max(50, "Position must be less than 50 characters")
     .required("Position is required"),
   dob: Yup.date()
     .required("Date of Birth is required")
     .max(new Date(), "Date of Birth cannot be in the future"),
-  licenceNumber: Yup.string()
-    .matches(/^[A-Z0-9]{6,10}$/, "Licence Number must be 6-10 characters and alphanumeric")
-    .required("Licence Number is required"),
-  experience: Yup.number()
-    .min(0, "Experience must be a positive number")
-    .max(50, "Experience cannot be more than 50 years")
-    .required("Experience is required"),
+  // licenceNumber: Yup.string()
+  //   .matches(/^[A-Z0-9]{6,10}$/, "Licence Number must be 6-10 characters and alphanumeric")
+  //   .optional(),
+  // experience: Yup.number()
+  //   .min(0, "Experience must be a positive number")
+  //   .max(50, "Experience cannot be more than 50 years")
+  //   .optional(),
   currentTeam: Yup.string()
     .max(50, "Current Team must be less than 50 characters")
     .required("Current Team is required"),
+  preferredFoot: Yup.string()
+    .optional(),
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),

@@ -10,14 +10,17 @@ import PasswordResetPage from './pages/Auth/PassworResetPage'
 import PasswordResetForm from './pages/Auth/PasswordResetForm'
 import PasswordResetSuccess from './pages/Auth/PasswordResetSuccess'
 import SignUpSelectPage from './pages/Auth/SignUpSelect'
-import TestSC from './pages/test'
+// import TestSC from './pages/test'
 import SignInSelectPage from './pages/Auth/SignInSelect'
+import ScoutIntro from './pages/Auth/Scout/ScoutIntro'
+import PlayerIntro from './pages/Auth/Player/PlayerIntro'
+import CoachIntro from './pages/Auth/Coach/CoachIntro'
 
 const App = () => {
   return (
     <Routes>
       <Route path={'/'} element={<LandingPage />} />
-      <Route path={'/test'} element={<TestSC />} />
+      <Route path={'/test'} element={<CoachIntro />} />
       <Route path={'/about'} element={<AboutPage />} />
       <Route path={'/contact'} element={<ContactPage />} />
       <Route path={'/blogs'} element={<BlogsPage />} />

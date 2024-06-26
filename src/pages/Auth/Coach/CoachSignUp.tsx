@@ -33,20 +33,24 @@ const CoachSignUp: React.FC = () => {
         }));
     };
 
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-        // Assuming position, preferredFoot, and usertype are not part of the form
-        const body = {
-            ...formData,
-            position: 'somePosition', // Add appropriate values or get from form if needed            
-        };
+    const handleSubmit = async (values: any) => {
+        console.log("Submission Block", values);
+         const newValues = {
+            ...values,
+            fullName: values.firstName + " " + values.lastName
+         }
+        try {
+            const response = await requestApi('/signup', 'POST', newValues);
+            console.log(response.data);
 
-        const response = await requestApi('/signup', 'POST', body);
-
-        if (response.status) {
-            alert('User created successfully!');
-        } else {
-            alert(`Error: ${response.data.message}`);
+            if (response.status) {
+                alert('User created successfully!');
+            } else {
+                alert(`Error: ${response.data.response.data}`);
+            }
+        } catch (error: any) {
+            console.error("Submission error:", error.response.data);
+            alert("An error occurred during submission. Please try again.");
         }
     };
 

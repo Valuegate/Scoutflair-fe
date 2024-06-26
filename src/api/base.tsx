@@ -4,7 +4,7 @@ type IMethod = 'GET' | 'POST' | 'PATCH'| 'DELETE' | 'PUT';
 
 export const useAxios = () => {
     // const {storage} = useGlobal();
-    const baseURL = "localhost:5173"
+    const baseURL = "https://scoutflair.top:8080/scoutflair/v1"
 
     const api = axios.create({
         baseURL

@@ -19,13 +19,24 @@ const CoachLoginPage: React.FC = () => {
     password: "",
   };
 
-  const onSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
-    console.log("Form data", values);
-    // Perform form submission logic here
-    requestApi("/signin", "POST", values)
-    console.log("form submission successful")
-    resetForm();
-  };
+  const onSubmit = async (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
+    console.log("Submission Block", values);
+    
+    try {
+      const response = await requestApi('/signup', 'POST', values);
+      console.log(response.data);
+
+      if (response.status) {
+        alert('Logged In successfully!');
+        resetForm()
+      } else {
+        alert(`Error: ${response.data.response.data}`);
+      }
+    } catch (error: any) {
+      console.error("Submission error:", error.response.data);
+      alert("An error occurred during submission. Please try again.");
+    };
+  }
 
   return (
     <div className="w-full h-screen flex items-center justify-center bg-[url('scout-sign-in-(wrong-password).png')] bg-cover bg-no-repeat bg-center">

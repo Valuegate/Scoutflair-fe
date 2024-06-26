@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg"
+import React from "react";
+import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg";
 import { Field, Form, Formik } from "formik";
 import { SignUpValidationSchema } from "../../../schemas/Schema";
 import { useAxios } from "../../../api/base";
@@ -10,7 +10,7 @@ const PlayerSignUp: React.FC = () => {
     const [searchParams] = useSearchParams();
     const type = searchParams.get('type');
 
-    const [formData, setFormData] = useState({
+    const initialValues = {
         firstName: "",
         lastName: "",
         position: "",
@@ -22,31 +22,30 @@ const PlayerSignUp: React.FC = () => {
         password: "",
         confirmPassword: "",
         preferredFoot: "",
-        usertype: { type }
-    });
-
-    const handleChange = (e: any) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
+        usertype: type || ""
     };
 
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-        // Assuming position, preferredFoot, and usertype are not part of the form
-        const body = {
-            ...formData,
-            position: 'somePosition', // Add appropriate values or get from form if needed            
-        };
+    const handleSubmit = async (values: any, { setSubmitting }: any) => {
+        setSubmitting(true);
+        console.log("Submission Block", values);
+         const newValues = {
+            ...values,
+            fullName: values.firstName + " " + values.lastName
+         }
+        try {
+            const response = await requestApi('/signup', 'POST', newValues);
+            console.log(response.data);
 
-        const response = await requestApi('/signup', 'POST', body);
-
-        if (response.status) {
-            alert('User created successfully!');
-        } else {
-            alert(`Error: ${response.data.message}`);
+            if (response.status) {
+                alert('User created successfully!');
+            } else {
+                alert(`Error: ${response.data.response.data}`);
+            }
+        } catch (error: any) {
+            console.error("Submission error:", error.response.data);
+            alert("An error occurred during submission. Please try again.");
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -71,18 +70,19 @@ const PlayerSignUp: React.FC = () => {
                         <p className="text-sm text-gray-600">Please enter your details</p>
                     </div>
                     <Formik
-                        initialValues={formData}
+                        initialValues={initialValues}
                         validationSchema={SignUpValidationSchema}
                         onSubmit={handleSubmit}
                     >
-                        {({ errors, touched }) => (
+                        {({ errors, touched, isSubmitting }) => {
+                            console.log(errors) 
+                            return (
                             <Form className="space-y-4">
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <Field
                                         type="text"
                                         placeholder="First Name"
-                                        name="firstName"
-                                        onChange={handleChange}
+                                        name="firstName"                                
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.firstName && touched.firstName ? (
@@ -92,7 +92,6 @@ const PlayerSignUp: React.FC = () => {
                                         type="text"
                                         placeholder="Last Name"
                                         name="lastName"
-                                        onChange={handleChange}
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.lastName && touched.lastName ? (
@@ -104,7 +103,6 @@ const PlayerSignUp: React.FC = () => {
                                         type="text"
                                         placeholder="Position"
                                         name="position"
-                                        onChange={handleChange}
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.position && touched.position ? (
@@ -113,8 +111,7 @@ const PlayerSignUp: React.FC = () => {
                                     <Field
                                         type="date"
                                         placeholder="Date of Birth"
-                                        name="dob"
-                                        onChange={handleChange}
+                                        name="dob"                                        
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.dob && touched.dob ? (
@@ -126,7 +123,6 @@ const PlayerSignUp: React.FC = () => {
                                         type="text"
                                         placeholder="Current Team"
                                         name="currentTeam"
-                                        onChange={handleChange}
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.currentTeam && touched.currentTeam ? (
@@ -136,7 +132,6 @@ const PlayerSignUp: React.FC = () => {
                                         type="text"
                                         placeholder="Preferred Foot"
                                         name="preferredFoot"
-                                        onChange={handleChange}
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.preferredFoot && touched.preferredFoot ? (
@@ -147,7 +142,6 @@ const PlayerSignUp: React.FC = () => {
                                     type="email"
                                     placeholder="Email"
                                     name="email"
-                                    onChange={handleChange}
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.email && touched.email ? (
@@ -157,7 +151,6 @@ const PlayerSignUp: React.FC = () => {
                                     type="password"
                                     placeholder="Password"
                                     name="password"
-                                    onChange={handleChange}
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.password && touched.password ? (
@@ -166,22 +159,26 @@ const PlayerSignUp: React.FC = () => {
                                 <Field
                                     type="password"
                                     placeholder="Confirm Password"
-                                    name="cofirmPassword"
-                                    onChange={handleChange}
+                                    name="confirmPassword"
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.confirmPassword && touched.confirmPassword ? (
                                     <div><p style={{ color: "red" }}>{errors.confirmPassword}</p></div>
                                 ) : null}
-                                <div className="flex items-center space-x-2">
-                                    <Field type="checkbox" className="form-checkbox" />
+                                {/* <div className="flex items-center space-x-2">
                                     <label className="text-gray-700 text-sm">
                                         By creating an account, you are agreeing to our <span className="font-bold italic">Terms of Service</span> and <span className="font-bold italic">Privacy Policy</span>
                                     </label>
-                                </div>
-                                <button type="submit" className="w-full py-2 bg-[#f2a725] text-black font-bold rounded-md hover:bg-yellow-500 transition">Sign Up</button>
+                                </div> */}
+                                <button
+                                    type="submit"
+                                    className="w-full py-2 bg-[#f2a725] text-black font-bold rounded-md hover:bg-yellow-500 transition"
+                                    // disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? 'Submitting...' : 'Sign Up'}
+                                </button>
                             </Form>
-                        )}
+                        )}}
                     </Formik>
                     <div className="text-center my-4">
                         <p className="text-gray-600 font-bold">Or</p>
