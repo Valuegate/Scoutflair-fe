@@ -1,13 +1,14 @@
 import React from 'react';
 import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';  // Adjust the import path to your logo
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Urls } from '../../constants/constants';
-import { Field, Form, Formik, FormikHelpers } from "formik"
+import { Field, Form, Formik } from "formik"
 import { PasswordResetValidationSchema } from '../../schemas/Schema';
 import { useAxios } from '../../api/base';
 
 const PasswordResetForm: React.FC = () => {
-  const { requestApi } = useAxios() 
+  const { requestApi } = useAxios()
+  const navigate = useNavigate()
   interface FormValues {
     newpassword: string;
     confirmpassword: string;
@@ -18,13 +19,27 @@ const PasswordResetForm: React.FC = () => {
     confirmpassword: "",
   };
 
-  const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
-    console.log("Form data", values);
-    // Perform form submission logic here
-    requestApi("/signup", "POST", values)
-    console.log("form submission successful")
-    resetForm();
+  const handleSubmit = async (values: any) => {
+    console.log("Submission Block", values);
+    const newValues = {
+      ...values
+    }
+    try {
+      const response = await requestApi('/scoutflair/v1/signup/changePassword', 'POST', newValues);
+      console.log(response.data);
+
+      if (response.status) {
+        alert('Password Reset Successfully!');
+        navigate("/login", { replace: true })
+      } else {
+        alert(`Error: ${response.data.response.data}`);
+      }
+    } catch (error: any) {
+      console.error("Submission error:", error.response.data);
+      alert("An error occurred during submission. Please try again.");
+    }
   };
+
   return (
     <div className="w-full h-screen relative overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('/frame-3404.png')" }}>
       <div className="w-full h-full absolute left-0 top-0 overflow-hidden bg-[#010e1d]/90">
@@ -54,22 +69,22 @@ const PasswordResetForm: React.FC = () => {
                         type="password"
                         placeholder="New Password"
                         className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
-                        name="newpassword"                       
+                        name="newpassword"
                       />
                       {errors.newpassword && touched.newpassword ? (
-                          <div>{errors.newpassword}</div>
-                        ) : null}
+                        <div>{errors.newpassword}</div>
+                      ) : null}
                     </div>
                     <div className="w-full">
                       <Field
                         type="password"
                         placeholder="Confirm Password"
                         className="w-full h-12 p-4 rounded-lg border border-black/80 text-black"
-                        name="confirmPassword"                     
+                        name="confirmPassword"
                       />
                       {errors.confirmpassword && touched.confirmpassword ? (
-                          <div>{errors.confirmpassword}</div>
-                        ) : null}
+                        <div>{errors.confirmpassword}</div>
+                      ) : null}
                     </div>
                     <div className="flex flex-col justify-center items-center w-full gap-6">
                       <button

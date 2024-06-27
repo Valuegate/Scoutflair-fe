@@ -23,7 +23,7 @@ const CoachLoginPage: React.FC = () => {
     console.log("Submission Block", values);
     
     try {
-      const response = await requestApi('/signup', 'POST', values);
+      const response = await requestApi('/scoutflair/v1/signup', 'POST', values);
       console.log(response.data);
 
       if (response.status) {

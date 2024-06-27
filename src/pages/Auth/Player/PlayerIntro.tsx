@@ -1,5 +1,7 @@
 import React from 'react';
 import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg"
+import { Link } from 'react-router-dom';
+import { Urls } from '../../../constants/constants';
 
 const PlayerIntro: React.FC = () => {
     return (
@@ -14,10 +16,10 @@ const PlayerIntro: React.FC = () => {
                         Get Started With Scoutflair To.....
                     </p>
                     <p className="text-2xl lg:text-3xl font-bold text-black">
-                    Enhance Your Strategies with Advanced Analytics and Tactical Tools
+                        Enhance Your Strategies with Advanced Analytics and Tactical Tools
                     </p>
                     <p className="text-lg lg:text-xl text-black opacity-80">
-                    Gain a competitive edge, optimize your team's performance and make data-driven decisions with <span className="font-bold">Scoutflair</span>
+                        Gain a competitive edge, optimize your team's performance and make data-driven decisions with <span className="font-bold">Scoutflair</span>
                     </p>
                     <div className="flex flex-row gap-7">
                         <div className="flex">
@@ -69,12 +71,14 @@ const PlayerIntro: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex w-1/2 max-h-screen relative overflow-hidden rounded-2xl bg-[#041931]">
-                    <div
-                        className="flex justify-center items-center absolute top-3 right-3 h-10 w-20 rounded-[10.66px] bg-[#f2a725]"
-                        style={{ boxShadow: "0px 16px 24px 2px rgba(0,0,0,0.14)" }}
-                    >
-                        <p className="text-lg font-bold text-left text-black">Sign Up</p>
-                    </div>
+                    <Link to={Urls.PLAYERSIGNUP}>
+                        <button
+                            className="flex justify-center items-center absolute top-3 right-3 h-10 w-20 rounded-[10.66px] bg-[#f2a725]"
+                            style={{ boxShadow: "0px 16px 24px 2px rgba(0,0,0,0.14)" }}
+                        >
+                            <p className="text-lg font-bold text-left text-black">Sign Up</p>
+                        </button>
+                    </Link>
                     <div className='flex h-fit overflow-hidden'>
                         <img
                             src="3d-rendering-of-boy-playing-soccer.png"

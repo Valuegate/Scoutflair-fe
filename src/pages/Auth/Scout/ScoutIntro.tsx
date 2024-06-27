@@ -1,5 +1,7 @@
 import React from 'react';
 import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg"
+import { Link } from 'react-router-dom';
+import { Urls } from '../../../constants/constants';
 
 const ScoutIntro: React.FC = () => {
     return (
@@ -69,12 +71,14 @@ const ScoutIntro: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex w-1/2 max-h-screen relative overflow-hidden rounded-2xl bg-[#041931]">
-                    <div
-                        className="flex justify-center items-center absolute top-3 right-3 h-10 w-20 rounded-[10.66px] bg-[#f2a725]"
-                        style={{ boxShadow: "0px 16px 24px 2px rgba(0,0,0,0.14)" }}
-                    >
-                        <p className="text-lg font-bold text-left text-black">Sign Up</p>
-                    </div>
+                    <Link to={Urls.SCOUTSIGNUP}>
+                        <button
+                            className="flex justify-center items-center absolute top-3 right-3 h-10 w-20 rounded-[10.66px] bg-[#f2a725]"
+                            style={{ boxShadow: "0px 16px 24px 2px rgba(0,0,0,0.14)" }}
+                        >
+                            <p className="text-lg font-bold text-left text-black">Sign Up</p>
+                        </button>
+                    </Link>
                     <div className='flex h-fit overflow-hidden'>
                         <img
                             src="view-of-3d-videographer-with-camera.png"

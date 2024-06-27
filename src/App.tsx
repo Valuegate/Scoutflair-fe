@@ -15,6 +15,7 @@ import SignInSelectPage from './pages/Auth/SignInSelect'
 // import ScoutIntro from './pages/Auth/Scout/ScoutIntro'
 // import PlayerIntro from './pages/Auth/Player/PlayerIntro'
 import CoachIntro from './pages/Auth/Coach/CoachIntro'
+import Intro from './pages/Auth/Intro'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
       <Route path={'/sign-up/success'} element={<SignUpSuccessPage />} />
       <Route path={'/login'} element={<SignInSelectPage />} />
       <Route path={'/sign-up'} element={<SignUpSelectPage />} />
+      <Route path={'/intro'} element={<Intro />} />
       <Route path={'/password-reset'} element={<PasswordResetPage />} />
       <Route path={'/password-reset-form'} element={<PasswordResetForm />} />
       <Route path={'/password-reset/success'} element={<PasswordResetSuccess />} />

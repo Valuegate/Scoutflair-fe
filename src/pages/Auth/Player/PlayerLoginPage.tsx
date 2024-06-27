@@ -15,15 +15,15 @@ const PlayerLoginPage: React.FC = () => {
   }
 
   const initialValues: FormValues = {
-    username: "",
     password: "",
+    username: "",
   };
 
   const onSubmit = async (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
     console.log("Submission Block", values);
     
     try {
-      const response = await requestApi('/signup', 'POST', values);
+      const response = await requestApi('/scoutflair/v1/signin', 'POST', values);
       console.log(response.data);
 
       if (response.status) {

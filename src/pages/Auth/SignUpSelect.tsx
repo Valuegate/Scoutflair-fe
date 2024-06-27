@@ -17,7 +17,7 @@ const Home: React.FC = () => {
 
   const handleNextClick = () => {
     if (selectedPath) {
-      navigate(`?type=${selectedPath}`);
+      navigate(`/intro?type=${selectedPath}`, {replace: true});
     } else {
       alert('Please select an option first');
     }
