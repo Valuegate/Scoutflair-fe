@@ -5,13 +5,15 @@ import { Field, Form, Formik } from "formik";
 import { SignUpValidationSchema } from "../../../schemas/Schema";
 import { useAxios } from "../../../api/base";
 import { useSearchParams } from "react-router-dom";
+import { positions } from "../../../constants/constants";
+import Swal from "sweetalert2";
 
 const PlayerSignUp: React.FC = () => {
     const { requestApi } = useAxios();
     const [searchParams] = useSearchParams();
     const type = searchParams.get('type');
     const navigate = useNavigate();
-    const [ teams, setTeams ] = useState <[]> ([])
+    const [teams, setTeams] = useState<[]>([])
 
     useEffect(() => {
         const fetchTeams = async () => {
@@ -52,11 +54,20 @@ const PlayerSignUp: React.FC = () => {
         try {
             const response = await requestApi('/scoutflair/v1/signup', 'POST', newValues);
             console.log(response.data);
+
             if (response.status) {
-                alert('User created successfully!');
+                Swal.fire({
+                    title: "User created successfully!",
+                    text: "Redirecting to Login",
+                    icon: "success"
+                });
                 navigate("/login?type=player", { replace: true })
             } else {
-                alert(`Error: ${response.data.response.data}`);
+                Swal.fire({
+                    title: "Oops...",
+                    text: `${response.data.response.data}`,
+                    icon: "error"
+                });
             }
         } catch (error: any) {
             console.error("Submission error:", error.response.data);
@@ -117,11 +128,18 @@ const PlayerSignUp: React.FC = () => {
                                     </div>
                                     <div className="flex flex-col md:flex-row gap-4">
                                         <Field
-                                            type="text"
+                                            as="select"
                                             placeholder="Position"
                                             name="position"
                                             className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                        />
+                                        >
+                                            <option value="" label="Select a position" />
+                                            {positions.map((position: any) => (
+                                                <option className="text-black" key={position} value={position}>
+                                                    {position}
+                                                </option>
+                                            ))}
+                                        </Field>
                                         {errors.position && touched.position ? (
                                             <div><p style={{ color: "red" }}>{errors.position}</p></div>
                                         ) : null}
@@ -142,10 +160,10 @@ const PlayerSignUp: React.FC = () => {
                                             name="currentTeam"
                                             className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                         >
-                                            <option value="" label="Select an item" />
+                                            <option value="" label="Select a team" />
                                             {teams.map((team: any) => (
                                                 <option className="text-black" key={team} value={team}>
-                                                    {team.name}
+                                                    {team}
                                                 </option>
                                             ))}
                                         </Field>
@@ -190,10 +208,10 @@ const PlayerSignUp: React.FC = () => {
                                         <div><p style={{ color: "red" }}>{errors.confirmPassword}</p></div>
                                     ) : null}
                                     <div className="flex items-center space-x-2">
-                                    <label className="text-gray-700 text-sm">
-                                        By creating an account, you are agreeing to our <span className="font-bold italic">Terms of Service</span> and <span className="font-bold italic">Privacy Policy</span>
-                                    </label>
-                                </div>
+                                        <label className="text-gray-700 text-sm">
+                                            By creating an account, you are agreeing to our <span className="font-bold italic">Terms of Service</span> and <span className="font-bold italic">Privacy Policy</span>
+                                        </label>
+                                    </div>
                                     <button
                                         type="submit"
                                         className="w-full py-2 bg-[#f2a725] text-black font-bold rounded-md hover:bg-yellow-500 transition"

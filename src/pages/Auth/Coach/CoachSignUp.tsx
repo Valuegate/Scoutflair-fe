@@ -4,13 +4,14 @@ import { Field, Form, Formik } from "formik";
 import { SignUpValidationSchema } from "../../../schemas/Schema";
 import { useAxios } from "../../../api/base";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CoachSignUp: React.FC = () => {
     const { requestApi } = useAxios();
     const [searchParams] = useSearchParams();
     const type = searchParams.get('type');
     const navigate = useNavigate();
-    const [ teams, setTeams ] = useState<[]>([])
+    const [teams, setTeams] = useState<[]>([])
 
     useEffect(() => {
         const fetchTeams = async () => {
@@ -49,25 +50,36 @@ const CoachSignUp: React.FC = () => {
         }));
     };
 
-    const handleSubmit = async (values: any) => {
+    const handleSubmit = async (values: any, { setSubmitting }: any) => {
+        setSubmitting(true)
         console.log("Submission Block", values);
-         const newValues = {
+        const newValues = {
             ...values,
             fullName: values.firstName + " " + values.lastName
-         }
+        }
         try {
             const response = await requestApi('/scoutflair/v1/signup', 'POST', newValues);
             console.log(response.data);
 
             if (response.status) {
-                alert('User created successfully!');
-                navigate("/login?type=scout", {replace: true})
+                Swal.fire({
+                    title: "User created successfully!",
+                    text: "Redirecting to Login",
+                    icon: "success"
+                });
+                navigate("/login?type=scout", { replace: true })
             } else {
-                alert(`Error: ${response.data.response.data}`);
+                Swal.fire({
+                    title: "Oops...",
+                    text: `${response.data.response.data}`,
+                    icon: "error"
+                });
             }
         } catch (error: any) {
             console.error("Submission error:", error.response.data);
             alert("An error occurred during submission. Please try again.");
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -96,7 +108,7 @@ const CoachSignUp: React.FC = () => {
                         validationSchema={SignUpValidationSchema}
                         onSubmit={handleSubmit}
                     >
-                        {({ errors, touched }) => (
+                        {({ errors, touched, isSubmitting }) => (
                             <Form className="space-y-4">
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <Field
@@ -154,18 +166,18 @@ const CoachSignUp: React.FC = () => {
                                         <div><p style={{ color: "red" }}>{errors.licenceNumber}</p></div>
                                     ) : null}
                                     <Field
-                                            as="select"
-                                            placeholder="Current Team"
-                                            name="currentTeam"
-                                            className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                        >
-                                            <option value="" label="Select an item" />
-                                            {teams.map((team: any) => (
-                                                <option key={team.indexOf()} value={team}>
-                                                    {team.name}
-                                                </option>
-                                            ))}
-                                        </Field>
+                                        as="select"
+                                        placeholder="Current Team"
+                                        name="currentTeam"
+                                        className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    >
+                                        <option value="" label="Select a team" />
+                                        {teams.map((team: any) => (
+                                            <option key={team.indexOf()} value={team}>
+                                                {team}
+                                            </option>
+                                        ))}
+                                    </Field>
                                     {errors.currentTeam && touched.currentTeam ? (
                                         <div><p style={{ color: "red" }}>{errors.currentTeam}</p></div>
                                     ) : null}
@@ -206,7 +218,13 @@ const CoachSignUp: React.FC = () => {
                                         By creating an account, you are agreeing to our <span className="font-bold italic">Terms of Service</span> and <span className="font-bold italic">Privacy Policy</span>
                                     </label>
                                 </div>
-                                <button type="submit" className="w-full py-2 bg-[#f2a725] text-black font-bold rounded-md hover:bg-yellow-500 transition">Sign Up</button>
+                                <button
+                                    type="submit"
+                                    className="w-full py-2 bg-[#f2a725] text-black font-bold rounded-md hover:bg-yellow-500 transition"
+                                // disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? 'Submitting...' : 'Sign Up'}
+                                </button>
                             </Form>
                         )}
                     </Formik>

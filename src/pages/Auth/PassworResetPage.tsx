@@ -1,11 +1,15 @@
 import React from 'react';
 import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';
-import { Formik, Form, FormikHelpers, Field } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { EmailValidationSchema } from '../../schemas/Schema';
 import { useAxios } from '../../api/base';
+import { useNavigate } from 'react-router-dom';
+// import Toastify from "toastify-js"
+import Swal from 'sweetalert2'
 
 const PasswordResetPage: React.FC = () => {
   const { requestApi } = useAxios()
+  const navigate = useNavigate()
   interface FormValues {
     email: string
   }
@@ -14,12 +18,50 @@ const PasswordResetPage: React.FC = () => {
     email: ""
   }
 
-  const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
-    console.log("Form data", values);
-    // Perform form submission logic here
-    requestApi(`/signup/recover/first/${values.email}/`, "POST", values)
-    console.log("form submission successful")
-    resetForm();
+  const toast = () => {
+    // Toastify({
+    //   text: "This is a toast",
+    //   duration: 3000,
+    //   destination: "https://github.com/apvarun/toastify-js",
+    //   newWindow: true,
+    //   close: true,
+    //   gravity: "top", // `top` or `bottom`
+    //   position: "right", // `left`, `center` or `right`
+    //   stopOnFocus: true, // Prevents dismissing of toast on hover
+    //   onClick: function(){} // Callback after click
+    // }).showToast();
+
+    Swal.fire({
+      title: "Oops...",
+      text: `testtttt`,
+      icon: "error"
+    });
+  }
+  
+  const handleSubmit = async (values: any) => {
+    console.log("Submission Block", values);
+    try {
+      const response = await requestApi(`/signup/recover/first/${values.email}/`, "POST", values)
+      console.log(response.data);
+
+      if (response.status) {
+        Swal.fire({
+          title: "Password Reset Link Sent!",
+          text: "",
+          icon: "success"
+        });
+        navigate("/login", { replace: true })
+      } else {
+        Swal.fire({
+          title: "Oops...",
+          text: `${response.data.response.data}`,
+          icon: "error"
+        });
+      }
+    } catch (error: any) {
+      console.error("Submission error:", error.response.data);
+      alert("An error occurred during submission. Please try again.");
+    }
   };
 
   return (
@@ -65,6 +107,9 @@ const PasswordResetPage: React.FC = () => {
                             className="w-full h-12 flex justify-center items-center gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725] text-2xl font-medium text-black"
                           >
                             Continue
+                          </button>
+                          <button onClick={toast}>
+                            Toast
                           </button>
                           <p className="w-full text-base font-semibold text-center text-[#f00] cursor-pointer">
                             Cancel

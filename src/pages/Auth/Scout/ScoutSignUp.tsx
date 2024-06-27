@@ -4,6 +4,8 @@ import { Field, Form, Formik } from "formik";
 import { SignUpValidationSchema } from "../../../schemas/Schema";
 import { useAxios } from "../../../api/base";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { positions } from "../../../constants/constants";
+import Swal from "sweetalert2";
 
 const ScoutSignUp: React.FC = () => {
     const { requestApi } = useAxios();
@@ -26,7 +28,7 @@ const ScoutSignUp: React.FC = () => {
         fetchTeams()
     })
 
-    const [formData, setFormData] = useState({
+    const formData = {
         firstName: "",
         lastName: "",
         position: "",
@@ -38,36 +40,39 @@ const ScoutSignUp: React.FC = () => {
         password: "",
         confirmPassword: "",
         preferredFoot: "",
-        usertype: { type }
-    });
-
-    const handleChange = (e: any) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
+        usertype: type
     };
 
-    const handleSubmit = async (values: any) => {
-        console.log("Submission Block", values);
+    const handleSubmit = async (values: any, { setSubmitting }: any) => {
+        setSubmitting(true)
         const newValues = {
             ...values,
             fullName: values.firstName + " " + values.lastName
         }
+        console.log("Submission Block", newValues);
         try {
-            const response = await requestApi('/signup', 'POST', newValues);
+            const response = await requestApi('/scoutflair/v1/signup', 'POST', newValues);
             console.log(response.data);
 
             if (response.status) {
-                alert('User created successfully!');
-                navigate("/login?type=player", { replace: true })
+                Swal.fire({
+                    title: "User created successfully!",
+                    text: "Redirecting to Login",
+                    icon: "success"
+                });
+                navigate("/login?type=scout", { replace: true })
             } else {
-                alert(`Error: ${response.data.response.data}`);
+                Swal.fire({
+                    title: "Oops...",
+                    text: `${response.data.response.data}`,
+                    icon: "error"
+                });
             }
         } catch (error: any) {
             console.error("Submission error:", error.response.data);
             alert("An error occurred during submission. Please try again.");
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -96,14 +101,14 @@ const ScoutSignUp: React.FC = () => {
                         validationSchema={SignUpValidationSchema}
                         onSubmit={handleSubmit}
                     >
-                        {({ errors, touched }) => (
+                        {({ errors, touched, isSubmitting }) => (
                             <Form className="space-y-4">
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <Field
                                         type="text"
                                         placeholder="First Name"
                                         name="firstName"
-                                        onChange={handleChange}
+
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.firstName && touched.firstName ? (
@@ -113,7 +118,7 @@ const ScoutSignUp: React.FC = () => {
                                         type="text"
                                         placeholder="Last Name"
                                         name="lastName"
-                                        onChange={handleChange}
+
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.lastName && touched.lastName ? (
@@ -125,7 +130,7 @@ const ScoutSignUp: React.FC = () => {
                                         type="text"
                                         placeholder="Scouting Experience"
                                         name="experience"
-                                        onChange={handleChange}
+
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.experience && touched.experience ? (
@@ -135,7 +140,7 @@ const ScoutSignUp: React.FC = () => {
                                         type="date"
                                         placeholder="Date of Birth"
                                         name="dob"
-                                        onChange={handleChange}
+
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.dob && touched.dob ? (
@@ -146,8 +151,8 @@ const ScoutSignUp: React.FC = () => {
                                     <Field
                                         type="text"
                                         placeholder="Scouting Licence Number"
-                                        name="licencenumber"
-                                        onChange={handleChange}
+                                        name="licenceNumber"
+
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     />
                                     {errors.licenceNumber && touched.licenceNumber ? (
@@ -159,10 +164,10 @@ const ScoutSignUp: React.FC = () => {
                                         name="currentTeam"
                                         className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                     >
-                                        <option value="" label="Select an item" />
+                                        <option value="" label="Select a team" />
                                         {teams.map((team: any) => (
-                                            <option key={team.indexOf()} value={team}>
-                                                {team.name}
+                                            <option key={team} value={team}>
+                                                {team}
                                             </option>
                                         ))}
                                     </Field>
@@ -171,20 +176,26 @@ const ScoutSignUp: React.FC = () => {
                                     ) : null}
                                 </div>
                                 <Field
-                                    type="text"
+                                    as="select"
                                     placeholder="Specialization"
                                     name="position"
-                                    onChange={handleChange}
                                     className="flex-1 w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                />
+                                >
+                                    <option value="" label="Select a Specialization" />
+                                    {positions.map((position: any) => (
+                                        <option className="text-black" key={position} value={position}>
+                                            {position}
+                                        </option>
+                                    ))}
+                                </Field>
                                 {errors.position && touched.position ? (
-                                    <div><p style={{ color: "red" }}>{errors.position}</p></div>
+                                    <div><p style={{ color: "red" }}>Specialization is Required</p></div>
                                 ) : null}
                                 <Field
                                     type="email"
                                     placeholder="Email"
                                     name="email"
-                                    onChange={handleChange}
+
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.email && touched.email ? (
@@ -194,7 +205,7 @@ const ScoutSignUp: React.FC = () => {
                                     type="password"
                                     placeholder="Password"
                                     name="password"
-                                    onChange={handleChange}
+
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.password && touched.password ? (
@@ -203,8 +214,8 @@ const ScoutSignUp: React.FC = () => {
                                 <Field
                                     type="password"
                                     placeholder="Confirm Password"
-                                    name="cofirmPassword"
-                                    onChange={handleChange}
+                                    name="confirmPassword"
+
                                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 />
                                 {errors.confirmPassword && touched.confirmPassword ? (
@@ -216,7 +227,13 @@ const ScoutSignUp: React.FC = () => {
                                         By creating an account, you are agreeing to our <span className="font-bold italic">Terms of Service</span> and <span className="font-bold italic">Privacy Policy</span>
                                     </label>
                                 </div>
-                                <button type="submit" className="w-full py-2 bg-[#f2a725] text-black font-bold rounded-md hover:bg-yellow-500 transition">Sign Up</button>
+                                <button
+                                    type="submit"
+                                    className="w-full py-2 bg-[#f2a725] text-black font-bold rounded-md hover:bg-yellow-500 transition"
+                                // disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? 'Submitting...' : 'Sign Up'}
+                                </button>
                             </Form>
                         )}
                     </Formik>

@@ -5,6 +5,7 @@ import { Urls } from '../../../constants/constants';
 import { useAxios } from '../../../api/base';
 import { Form, Formik, Field, FormikHelpers } from 'formik';
 import { LoginValidationSchema } from '../../../schemas/Schema';
+import Swal from 'sweetalert2';
 
 const CoachLoginPage: React.FC = () => {
   const { requestApi } = useAxios()
@@ -21,16 +22,24 @@ const CoachLoginPage: React.FC = () => {
 
   const onSubmit = async (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
     console.log("Submission Block", values);
-    
+
     try {
       const response = await requestApi('/scoutflair/v1/signup', 'POST', values);
       console.log(response.data);
 
       if (response.status) {
-        alert('Logged In successfully!');
+        Swal.fire({
+          title: "Logged In successfully!",
+          text: "Redirecting to dashboard",
+          icon: "success"
+        });
         resetForm()
       } else {
-        alert(`Error: ${response.data.response.data}`);
+        Swal.fire({
+          title: "Oops...",
+          text: `${response.data.response.data}`,
+          icon: "error"
+        });
       }
     } catch (error: any) {
       console.error("Submission error:", error.response.data);
@@ -77,7 +86,7 @@ const CoachLoginPage: React.FC = () => {
                     required
                   />
                   {errors.username && touched.username ? (
-                    <div><p style={{color: "red"}}>{errors.username}</p></div>
+                    <div><p style={{ color: "red" }}>{errors.username}</p></div>
                   ) : null}
                 </div>
                 <div className="w-full">
@@ -91,7 +100,7 @@ const CoachLoginPage: React.FC = () => {
                     required
                   />
                   {errors.password && touched.password ? (
-                    <div className="text-red"><p style={{color: "red"}}>{errors.password}</p></div>
+                    <div className="text-red"><p style={{ color: "red" }}>{errors.password}</p></div>
                   ) : null}
                 </div>
                 <div className="flex justify-between items-center w-full gap-4">
