@@ -8,7 +8,7 @@ const CoachIntro: React.FC = () => {
         <div className="w-full min-h-screen p-7 relative overflow-hidden bg-[#f8f8ff] flex flex-col justify-between">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
                 <div className="flex flex-col gap-3 mb-10 lg:mb-0 lg:w-1/2 px-20">
-                    <div className="flex items-center mb-72 gap-4">
+                    <div className="flex items-center gap-4">
                         <img className="w-7 h-7" src={Scoutflairlogo} alt="Scoutflair Logo" />
                         <p className="text-lg font-bold text-black">ScoutFlair</p>
                     </div>

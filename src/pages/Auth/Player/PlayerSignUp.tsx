@@ -79,8 +79,8 @@ const PlayerSignUp: React.FC = () => {
 
     return (
         <div className="w-full min-h-screen bg-[#041931] flex flex-col md:flex-row">
-            <div className="w-full md:w-1/2 flex justify-center items-center md:h-screen bg-[#041931] p-4 md:p-0">
-                <div className="text-white text-center md:text-left">
+            <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:h-screen bg-[#041931] px-10 md:p-0">
+                <div className="flex flex-col text-white text-center md:text-left px-20 mt-14">
                     <h1 className="text-2xl md:text-4xl font-bold mb-4">
                         Unlock Your Football Potentials With Scoutflair
                     </h1>
@@ -89,6 +89,12 @@ const PlayerSignUp: React.FC = () => {
                         <span className="text-xl font-bold">Scout</span>
                         <span className="text-xl">Flair</span>
                     </div>
+                </div>
+                <div className="flex z-10">
+                    <img
+                        src="3d-rendering-of-cartoon-like-man-working-on-computer.png"
+                        className=""
+                    />
                 </div>
             </div>
             <div className="w-full md:w-1/2 h-full flex justify-center items-center bg-[#f8f8ff] p-4 md:p-8">

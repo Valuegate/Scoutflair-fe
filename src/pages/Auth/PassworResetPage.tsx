@@ -41,7 +41,7 @@ const PasswordResetPage: React.FC = () => {
   const handleSubmit = async (values: any) => {
     console.log("Submission Block", values);
     try {
-      const response = await requestApi(`/signup/recover/first/${values.email}/`, "POST", values)
+      const response = await requestApi(`/signup/recover/first/${values.email}/`, "GET", values)
       console.log(response.data);
 
       if (response.status) {
