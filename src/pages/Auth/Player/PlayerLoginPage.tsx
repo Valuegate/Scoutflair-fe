@@ -50,10 +50,12 @@ const PlayerLoginPage: React.FC = () => {
     <div className="w-full h-screen flex items-center justify-center bg-[url('scout-sign-in-(wrong-password).png')] bg-cover bg-no-repeat bg-center">
       <div className="flex flex-col absolute right-0 items-center justify-center w-2/3 h-screen bg-[#f4f4f6] rounded-xl">
         <div className="flex flex-row gap-40 pt-4">
-          <span className="flex flex-row gap-3">
-            <img className="w-4 h-4" src={Scoutflairlogo} alt="" />
-            <p className=''>Scoutflair</p>
-          </span>
+          <Link to={Urls.HOME}>
+            <span className="flex flex-row gap-3">
+              <img className="w-4 h-4" src={Scoutflairlogo} alt="" />
+              <p className=''>Scoutflair</p>
+            </span>
+          </Link>
           <p className="w-56 opacity-80 text-base text-left">
             <span className="w-56 opacity-80 text-base font-light text-left text-black">
               Don’t have an account?

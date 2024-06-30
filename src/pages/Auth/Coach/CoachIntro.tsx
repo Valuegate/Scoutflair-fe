@@ -9,7 +9,7 @@ const CoachIntro: React.FC = () => {
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
                 <div className="flex flex-col gap-3 mb-10 lg:mb-0 lg:w-1/2 px-20">
                     <div className="flex items-center gap-4">
-                        <img className="w-7 h-7" src={Scoutflairlogo} alt="Scoutflair Logo" />
+                        <Link to={Urls.HOME}><img className="w-7 h-7" src={Scoutflairlogo} alt="Scoutflair Logo" /></Link>
                         <p className="text-lg font-bold text-black">ScoutFlair</p>
                     </div>
                     <p className="text-sm font-semibold text-black opacity-90">

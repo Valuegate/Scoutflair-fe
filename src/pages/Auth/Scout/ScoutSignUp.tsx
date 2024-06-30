@@ -3,8 +3,8 @@ import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg"
 import { Field, Form, Formik } from "formik";
 import { SignUpValidationSchema } from "../../../schemas/Schema";
 import { useAxios } from "../../../api/base";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { positions } from "../../../constants/constants";
+import { useSearchParams, useNavigate, Link } from "react-router-dom";
+import { Urls, positions } from "../../../constants/constants";
 import Swal from "sweetalert2";
 
 const ScoutSignUp: React.FC = () => {
@@ -83,11 +83,13 @@ const ScoutSignUp: React.FC = () => {
                     <h1 className="text-2xl md:text-4xl font-bold mb-4">
                         Unlock Your Football Potentials With Scoutflair
                     </h1>
-                    <div className="flex items-center justify-center md:justify-start gap-4">
-                        <img className="w-8 h-8" src={Scoutflairlogo} alt="" />
-                        <span className="text-xl font-bold">Scout</span>
-                        <span className="text-xl">Flair</span>
-                    </div>
+                    <Link to={Urls.HOME}>
+                        <div className="flex items-center justify-center md:justify-start gap-4">
+                            <img className="w-8 h-8" src={Scoutflairlogo} alt="" />
+                            <span className="text-xl font-bold">Scout</span>
+                            <span className="text-xl">Flair</span>
+                        </div>
+                    </Link>
                 </div>
             </div>
             <div className="w-full md:w-1/2 h-full flex justify-center items-center bg-[#f8f8ff] p-4 md:p-8">

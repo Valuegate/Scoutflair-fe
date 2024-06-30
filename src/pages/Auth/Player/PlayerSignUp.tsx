@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg";
 import { Field, Form, Formik } from "formik";
 import { SignUpValidationSchema } from "../../../schemas/Schema";
 import { useAxios } from "../../../api/base";
 import { useSearchParams } from "react-router-dom";
-import { positions } from "../../../constants/constants";
+import { Urls, positions } from "../../../constants/constants";
 import Swal from "sweetalert2";
 
 const PlayerSignUp: React.FC = () => {
@@ -84,11 +84,13 @@ const PlayerSignUp: React.FC = () => {
                     <h1 className="text-2xl md:text-4xl font-bold mb-4">
                         Unlock Your Football Potentials With Scoutflair
                     </h1>
-                    <div className="flex items-center justify-center md:justify-start gap-4">
-                        <img className="w-8 h-8" src={Scoutflairlogo} alt="" />
-                        <span className="text-xl font-bold">Scout</span>
-                        <span className="text-xl">Flair</span>
-                    </div>
+                    <Link to={Urls.HOME}>
+                        <div className="flex items-center justify-center md:justify-start gap-4">
+                            <img className="w-8 h-8" src={Scoutflairlogo} alt="" />
+                            <span className="text-xl font-bold">Scout</span>
+                            <span className="text-xl">Flair</span>
+                        </div>
+                    </Link>
                 </div>
                 <div className="flex z-10">
                     <img
