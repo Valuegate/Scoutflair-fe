@@ -244,7 +244,11 @@ const CoachSignUp: React.FC = () => {
                         </button>
                     </div>
                     <div className="text-center mt-4">
-                        <p className="text-gray-700">Already have an account? <span className="font-bold text-[#010e1d]">Sign In</span></p>
+                        <p className="text-gray-700">Already have an account?
+                            <Link to={Urls.LOGIN}>
+                                <span className="font-bold text-[#010e1d]">Sign In</span>
+                            </Link>
+                        </p>
                     </div>
                 </div>
             </div>

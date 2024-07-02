@@ -50,7 +50,7 @@ const SignInSelectPage: React.FC = () => {
                   />
                 </div>
                 {selectedPath === "player" ? (
-                  <img className='w-6 h-6' src={checkmark} alt="" />
+                  <img className='w-6 h-6 absolute bottom-0 right-0' src={checkmark} alt="" />
                 ) : (<div></div>)}
               </div>
               <div className="flex flex-col justify-start items-center gap-2">
@@ -73,7 +73,7 @@ const SignInSelectPage: React.FC = () => {
                   />
                 </div>
                 {selectedPath === "coach" ? (
-                  <img className='w-6 h-6' src={checkmark} alt="" />
+                  <img className='w-6 h-6 absolute bottom-0 right-0' src={checkmark} alt="" />
                 ) : (<div></div>)}
               </div>
               <div className="flex flex-col justify-start items-center gap-2">
@@ -96,7 +96,7 @@ const SignInSelectPage: React.FC = () => {
                   />
                 </div>
                 {selectedPath === "scout" ? (
-                  <img className='w-6 h-6' src={checkmark} alt="" />
+                  <img className='w-6 h-6 absolute bottom-0 right-0' src={checkmark} alt="" />
                 ) : (<div></div>)}
               </div>
               <div className="flex flex-col justify-start items-center gap-2">

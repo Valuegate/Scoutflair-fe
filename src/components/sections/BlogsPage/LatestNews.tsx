@@ -5,7 +5,7 @@ interface LatestNewsProps {
 }
 const LatestNews: React.FC <LatestNewsProps> = ({title}) => {
     return (
-        <div className="w-full px-[120px] py-8">
+        <div className="w-full xs:px-8 md:px-[120px] py-8">
             <p className="text-2xl font-bold text-left text-black mb-8">{title}</p>
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
                 <div

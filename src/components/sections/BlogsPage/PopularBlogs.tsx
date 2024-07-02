@@ -5,7 +5,7 @@ interface PopularBlogsProps {
 }
 const PopularBlogs: React.FC <PopularBlogsProps> = ({title}) => {
     return (
-        <div className="w-full px-[120px] py-8">
+        <div className="w-full xs:px-8 md:px-[120px] py-8">
             <p className="text-2xl font-bold text-left text-black mb-8">
                 {title}
             </p>
