@@ -7,7 +7,7 @@ import TalentDevIcon from "../../../assets/Frame 1000002061.png"
 
 const PartnerSection: React.FC = () => {
     return (
-        <section className="w-screen bg-[#192B4D] px-[120px] pt-10">
+        <section className="w-screen bg-[#192B4D] xs:px-8 md:px-[120px] pt-10">
             <div className="flex flex-col gap-4">
                 <p className="text-white">Our Partners</p>
                 <img src={Partners} alt="" />
@@ -75,7 +75,7 @@ const PartnerSection: React.FC = () => {
                         </div>
                         <div className="flex flex-col justify-start items-start relative gap-2">
                             <p className="self-stretch text-2xl font-semibold text-left text-black">
-                                Informaton Mapping
+                                Information Mapping
                             </p>
                             <p className="self-stretch opacity-[0.88] text-lg text-left text-black">
                             Visualize and organize complex data with our information mapping tools, making it easier to understand and interpret key insights, streamlining your decision-making process

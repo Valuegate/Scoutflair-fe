@@ -95,7 +95,7 @@ const PlayerSignUp: React.FC = () => {
                 <div className="flex z-10">
                     <img
                         src="3d-rendering-of-cartoon-like-man-working-on-computer.png"
-                        className=""
+                        className="w-[720px]"
                     />
                 </div>
             </div>

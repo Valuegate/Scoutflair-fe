@@ -48,12 +48,12 @@ const Navbar: React.FC = () => {
             </div>
             {isMenuOpen && (
                 <div className="md:hidden bg-[#192b4d] px-6 py-4">
-                    <Link to={Urls.HOME} className="text-xl text-white">Home</Link>
-                    <Link to={Urls.ABOUT} className="text-xl text-white">About</Link>
-                    <Link to={Urls.SERVICES} className="text-xl text-white">Services</Link>
-                    <Link to={Urls.RESOURCES} className="text-xl text-white">Resources</Link>
-                    <Link to={Urls.BLOGS} className="text-xl text-white">Blogs</Link>
-                    <Link to={Urls.CONTACT} className="text-xl text-white">Contact</Link>
+                    <Link to={Urls.HOME} className="block py-2 text-xl text-white">Home</Link>
+                    <Link to={Urls.ABOUT} className="block py-2 text-xl text-white">About</Link>
+                    <Link to={Urls.SERVICES} className="block py-2 text-xl text-white">Services</Link>
+                    <Link to={Urls.RESOURCES} className="block py-2 text-xl text-white">Resources</Link>
+                    <Link to={Urls.BLOGS} className="block py-2 text-xl text-white">Blogs</Link>
+                    <Link to={Urls.CONTACT} className="block py-2 text-xl text-white">Contact</Link>
                     <Link to={Urls.SIGNUP} >
                         <button className="w-full mt-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
                             Sign Up

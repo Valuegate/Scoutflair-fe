@@ -2,6 +2,7 @@ import React from 'react';
 import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg"
 import { Link } from 'react-router-dom';
 import { Urls } from '../../../constants/constants';
+import AnimatedImage from '../../../components/AnimatedBall';
 
 const PlayerIntro: React.FC = () => {
     return (
@@ -12,12 +13,7 @@ const PlayerIntro: React.FC = () => {
                         <img className="w-7 h-7" src={Scoutflairlogo} alt="Scoutflair Logo" />
                         <p className="text-lg font-bold text-black">ScoutFlair</p>
                     </Link>
-                    <div className="relative">
-                        <img
-                            src="still-life-of-colombia-national-soccer-team.png"
-                            className="absolute h-1/2 w-1/2 right-0"
-                        />
-                    </div>
+                    <AnimatedImage src='Playermation.png' />        
                     <p className="text-sm font-semibold text-black opacity-90">
                         Get Started With Scoutflair To.....
                     </p>

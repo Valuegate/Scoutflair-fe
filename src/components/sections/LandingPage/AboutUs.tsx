@@ -10,7 +10,7 @@ const AboutUs: React.FC = () => {
                 className="absolute inset-0 opacity-10 bg-cover pointer-events-none"
                 style={{backgroundImage: `url('../../../assets/aboutusbg.png')`}}
             />
-            <div className="relative z-10 flex flex-col text-center justify-center gap-32 py-14 px-[120px]">
+            <div className="relative z-10 flex flex-col text-center justify-center gap-32 py-14 xs:px-8 md:px-[120px]">
                 <div className="flex flex-col justify-start items-center relative gap-6">
                     <p className="text-xl font-bold text-left text-white">ABOUT US</p>
                     <div className="flex flex-col justify-start items-center relative gap-1">

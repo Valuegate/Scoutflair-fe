@@ -2,6 +2,7 @@ import React from 'react';
 import Scoutflairlogo from "../../../assets/Scoutflairlogo.svg"
 import { Link } from 'react-router-dom';
 import { Urls } from '../../../constants/constants';
+import AnimatedImage from '../../../components/AnimatedBall';
 
 const CoachIntro: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const CoachIntro: React.FC = () => {
                         <Link to={Urls.HOME}><img className="w-7 h-7" src={Scoutflairlogo} alt="Scoutflair Logo" /></Link>
                         <p className="text-lg font-bold text-black">ScoutFlair</p>
                     </div>
+                    <AnimatedImage src='Coach-animation.png' />
                     <p className="text-sm font-semibold text-black opacity-90">
                         Get Started With Scoutflair To.....
                     </p>

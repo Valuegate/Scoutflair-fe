@@ -3,7 +3,7 @@ import { FaqCardBlue, FaqCardWhite } from "../../FaqCards";
 
 const FaqSection: React.FC = () => {
     return (
-        <section id="Faq-section" className="bg-[#192B4D] py-14 px-[120px] gap-20">
+        <section id="Faq-section" className="bg-[#192B4D] py-14 xs:px-8 md:px-[120px] gap-20">
             <div className="flex flex-col justify-start items-center relative gap-6">
                 <p className="text-xl font-bold text-left text-white">F.A.Q</p>
                 <div className="flex flex-col justify-start items-center relative gap-1">
