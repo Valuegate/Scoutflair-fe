@@ -4,6 +4,7 @@ import CoachSignUp from './Coach/CoachSignUp';
 import PlayerSignUp from './Player/PlayerSignUp';
 import ScoutSignUp from './Scout/ScoutSignUp';
 import checkmark from "../../assets/checkmark.svg"
+import Swal from 'sweetalert2';
 
 const Home: React.FC = () => {
   const [selectedPath, setSelectedPath] = useState('');
@@ -19,13 +20,17 @@ const Home: React.FC = () => {
     if (selectedPath) {
       navigate(`/intro?type=${selectedPath}`, {replace: true});
     } else {
-      alert('Please select an option first');
+      Swal.fire({
+        title: "Oops...",
+        text: `Please select an option first`,
+        icon: "error"
+      });
     }
   };
   
   if (!type || !["coach", "player", "scout"].includes(type) ) {
     return (
-      <div className="relative overflow-hidden bg-[#010e1d]/[0.84] px-32 pb-32">
+      <div className="relative overflow-hidden bg-[#010e1d]/[0.84] xs:px-8 md:px-32 pb-32">
         <div
           className="mx-auto mt-16 lg:mt-32 w-full max-w-screen-lg lg:max-w-screen-xl h-auto overflow-hidden rounded-[32px]"
           style={{

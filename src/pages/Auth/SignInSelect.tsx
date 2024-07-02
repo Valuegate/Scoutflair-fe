@@ -4,6 +4,7 @@ import CoachLoginPage from './Coach/CoachLoginPage';
 import PlayerLoginPage from './Player/PlayerLoginPage';
 import ScoutLoginPage from './Scout/ScoutLoginPage';
 import checkmark from "../../assets/checkmark.svg"
+import Swal from 'sweetalert2';
 
 const SignInSelectPage: React.FC = () => {
   const [selectedPath, setSelectedPath] = useState('');
@@ -19,12 +20,16 @@ const SignInSelectPage: React.FC = () => {
     if (selectedPath) {
       navigate(`?type=${selectedPath}`);
     } else {
-      alert('Please select an option first');
+      Swal.fire({
+        title: "Oops...",
+        text: `Please select an option first`,
+        icon: "error"
+      });
     }
   };
-  if (!type || !["coach", "player", "scout"].includes(type) ) {
+  if (!type || !["coach", "player", "scout"].includes(type)) {
     return (
-      <div className="relative overflow-hidden bg-[#010e1d]/[0.84] px-32 pb-32">
+      <div className="relative overflow-hidden bg-[#010e1d]/[0.84] xs:px-8 md:px-32 pb-32">
         <div
           className="mx-auto mt-16 lg:mt-32 w-full max-w-screen-lg lg:max-w-screen-xl h-auto overflow-hidden rounded-[32px]"
           style={{
@@ -55,7 +60,7 @@ const SignInSelectPage: React.FC = () => {
                 </p>
               </div>
             </div>
-  
+
             <div
               className={`flex flex-col justify-start items-center gap-4 p-4 rounded-lg cursor-pointer }`}
               onClick={() => handleDivClick('coach')}
@@ -78,7 +83,7 @@ const SignInSelectPage: React.FC = () => {
                 </p>
               </div>
             </div>
-  
+
             <div
               className={`flex flex-col justify-start items-center gap-4 p-4 cursor-pointer }`}
               onClick={() => handleDivClick('scout')}
@@ -122,10 +127,10 @@ const SignInSelectPage: React.FC = () => {
     )
   } else {
     switch (type) {
-      case ("coach") : return <CoachLoginPage />
-      case ("player") : return <PlayerLoginPage />
-      case ("scout") : return <ScoutLoginPage />
-   }
+      case ("coach"): return <CoachLoginPage />
+      case ("player"): return <PlayerLoginPage />
+      case ("scout"): return <ScoutLoginPage />
+    }
   };
 }
 

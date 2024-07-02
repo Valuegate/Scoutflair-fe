@@ -79,7 +79,7 @@ const PlayerSignUp: React.FC = () => {
 
     return (
         <div className="w-full min-h-screen bg-[#041931] flex flex-col md:flex-row">
-            <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:h-screen bg-[#041931] px-10 md:p-0">
+            <div className="xs:hidden md:block w-full md:w-1/2 flex flex-col justify-center items-center md:h-screen bg-[#041931] px-10 md:p-0">
                 <div className="flex flex-col text-white text-center md:text-left px-20 mt-14">
                     <h1 className="text-2xl md:text-4xl font-bold mb-4">
                         Unlock Your Football Potentials With Scoutflair
