@@ -8,7 +8,7 @@ const CoachIntro: React.FC = () => {
     return (
         <div className="w-full min-h-screen p-7 relative overflow-hidden bg-[#f8f8ff] flex flex-col justify-between">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-                <div className="flex flex-col gap-3 mb-10 lg:mb-0 lg:w-1/2 px-20">
+                <div className="flex flex-col gap-3 mb-10 lg:mb-0 lg:w-1/2 px-20 max-h-5/6">
                     <div className="flex items-center gap-4">
                         <Link to={Urls.HOME}><img className="w-7 h-7" src={Scoutflairlogo} alt="Scoutflair Logo" /></Link>
                         <p className="text-lg font-bold text-black">ScoutFlair</p>
@@ -72,7 +72,7 @@ const CoachIntro: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex w-1/2 max-h-screen relative overflow-hidden rounded-2xl bg-[#041931]">
+                <div className="flex w-1/2 max-h-5/6 relative overflow-hidden rounded-2xl bg-[#041931]">
                     <Link to={Urls.COACHSIGNUP}>
                         <button
                             className="flex justify-center items-center absolute top-3 right-3 h-10 w-20 rounded-[10.66px] bg-[#f2a725]"

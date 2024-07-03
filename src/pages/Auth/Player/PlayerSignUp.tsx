@@ -248,7 +248,7 @@ const PlayerSignUp: React.FC = () => {
                     <div className="text-center mt-4">
                         <p className="text-gray-700">Already have an account?
                             <Link to={Urls.LOGIN}>
-                                <span className="font-bold text-[#010e1d]">Sign In</span>
+                                <span className="font-bold text-[#010e1d]"> Sign In</span>
                             </Link>
                         </p>
                     </div>
