@@ -1,14 +1,19 @@
 import React, { useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 import Logo from "../assets/Scoutflairlogo.svg";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import { Urls } from "../constants/constants";
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    const getLinkClass = (path: string) => {
+        return location.pathname === path ? "text-xl text-white font-bold" : "text-xl text-white";
     };
 
     return (
@@ -21,20 +26,20 @@ const Navbar: React.FC = () => {
                     </p>
                 </div>
                 <div className="hidden md:flex gap-6">
-                    <Link to={Urls.HOME} className="text-xl text-white">Home</Link>
-                    <Link to={Urls.ABOUT} className="text-xl text-white">About</Link>
-                    <Link to={Urls.SERVICES} className="text-xl text-white">Services</Link>
-                    <Link to={Urls.RESOURCES} className="text-xl text-white">Resources</Link>
-                    <Link to={Urls.BLOGS} className="text-xl text-white">Blogs</Link>
-                    <Link to={Urls.CONTACT} className="text-xl text-white">Contact</Link>
+                    <Link to={Urls.HOME} className={getLinkClass(Urls.HOME)}>Home</Link>
+                    <Link to={Urls.ABOUT} className={getLinkClass(Urls.ABOUT)}>About</Link>
+                    <Link to={Urls.SERVICES} className={getLinkClass(Urls.SERVICES)}>Services</Link>
+                    <Link to={Urls.RESOURCES} className={getLinkClass(Urls.RESOURCES)}>Resources</Link>
+                    <Link to={Urls.BLOGS} className={getLinkClass(Urls.BLOGS)}>Blogs</Link>
+                    <Link to={Urls.CONTACT} className={getLinkClass(Urls.CONTACT)}>Contact</Link>
                 </div>
                 <div className="hidden md:flex gap-6">
-                    <Link to={Urls.SIGNUP} >
+                    <Link to={Urls.SIGNUP}>
                         <button className="px-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
                             Sign Up
                         </button>
                     </Link>
-                    <Link to={Urls.LOGIN} >
+                    <Link to={Urls.LOGIN}>
                         <button className="px-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
                             Log In
                         </button>
@@ -48,13 +53,13 @@ const Navbar: React.FC = () => {
             </div>
             {isMenuOpen && (
                 <div className="md:hidden bg-[#192b4d] px-6 py-4">
-                    <Link to={Urls.HOME} className="block py-2 text-xl text-white">Home</Link>
-                    <Link to={Urls.ABOUT} className="block py-2 text-xl text-white">About</Link>
-                    <Link to={Urls.SERVICES} className="block py-2 text-xl text-white">Services</Link>
-                    <Link to={Urls.RESOURCES} className="block py-2 text-xl text-white">Resources</Link>
-                    <Link to={Urls.BLOGS} className="block py-2 text-xl text-white">Blogs</Link>
-                    <Link to={Urls.CONTACT} className="block py-2 text-xl text-white">Contact</Link>
-                    <Link to={Urls.SIGNUP} >
+                    <Link to={Urls.HOME} className={getLinkClass(Urls.HOME)}>Home</Link>
+                    <Link to={Urls.ABOUT} className={getLinkClass(Urls.ABOUT)}>About</Link>
+                    <Link to={Urls.SERVICES} className={getLinkClass(Urls.SERVICES)}>Services</Link>
+                    <Link to={Urls.RESOURCES} className={getLinkClass(Urls.RESOURCES)}>Resources</Link>
+                    <Link to={Urls.BLOGS} className={getLinkClass(Urls.BLOGS)}>Blogs</Link>
+                    <Link to={Urls.CONTACT} className={getLinkClass(Urls.CONTACT)}>Contact</Link>
+                    <Link to={Urls.SIGNUP}>
                         <button className="w-full mt-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
                             Sign Up
                         </button>
