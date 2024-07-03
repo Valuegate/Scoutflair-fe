@@ -16,6 +16,10 @@ const SignInSelectPage: React.FC = () => {
     setSelectedPath(path);
   };
 
+  const handleBackClick = () => {
+    navigate(`/`, { replace: true });
+  };
+
   const handleNextClick = () => {
     if (selectedPath) {
       navigate(`?type=${selectedPath}`);
@@ -111,6 +115,7 @@ const SignInSelectPage: React.FC = () => {
             <div
               className="flex justify-center items-center w-32 lg:w-[188px] h-10 lg:h-12 gap-2.5 px-6 py-2.5 rounded-[20px] border border-black/80 cursor-pointer"
               style={{ filter: 'drop-shadow(0px 16px 24px rgba(0,0,0,0.14))' }}
+              onClick={handleBackClick}
             >
               <p className="opacity-[0.72] text-xl lg:text-2xl font-semibold text-center text-black">Back</p>
             </div>

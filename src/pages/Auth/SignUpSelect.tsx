@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 
   const handleNextClick = () => {
     if (selectedPath) {
-      navigate(`/intro?type=${selectedPath}`, {replace: true});
+      navigate(`/intro?type=${selectedPath}`, { replace: true });
     } else {
       Swal.fire({
         title: "Oops...",
@@ -27,8 +27,12 @@ const Home: React.FC = () => {
       });
     }
   };
-  
-  if (!type || !["coach", "player", "scout"].includes(type) ) {
+
+  const handleBackClick = () => {
+    navigate(`/`, { replace: true });
+  };
+
+  if (!type || !["coach", "player", "scout"].includes(type)) {
     return (
       <div className="relative overflow-hidden bg-[#010e1d]/[0.84] xs:px-8 md:px-32 pb-32">
         <div
@@ -61,7 +65,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
             </div>
-  
+
             <div
               className={`flex flex-col justify-start items-center gap-4 p-4 rounded-lg cursor-pointer }`}
               onClick={() => handleDivClick('coach')}
@@ -84,7 +88,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
             </div>
-  
+
             <div
               className={`flex flex-col justify-start items-center gap-4 p-4 cursor-pointer }`}
               onClick={() => handleDivClick('scout')}
@@ -112,6 +116,7 @@ const Home: React.FC = () => {
             <div
               className="flex justify-center items-center w-32 lg:w-[188px] h-10 lg:h-12 gap-2.5 px-6 py-2.5 rounded-[20px] border border-black/80 cursor-pointer"
               style={{ filter: 'drop-shadow(0px 16px 24px rgba(0,0,0,0.14))' }}
+              onClick={handleBackClick}
             >
               <p className="opacity-[0.72] text-xl lg:text-2xl font-semibold text-center text-black">Back</p>
             </div>
@@ -128,10 +133,10 @@ const Home: React.FC = () => {
     )
   } else {
     switch (type) {
-      case ("coach") : return <CoachSignUp />
-      case ("player") : return <PlayerSignUp />
-      case ("scout") : return <ScoutSignUp />
-   }
+      case ("coach"): return <CoachSignUp />
+      case ("player"): return <PlayerSignUp />
+      case ("scout"): return <ScoutSignUp />
+    }
   };
 }
 
