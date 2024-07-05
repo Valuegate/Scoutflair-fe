@@ -48,8 +48,8 @@ const LoginPage: React.FC = () => {
   }
   return (
     <div className="w-full h-screen flex items-center justify-center bg-[url('scout-sign-in-(wrong-password).png')] bg-cover bg-no-repeat bg-center">
-      <div className="flex flex-col absolute right-0 items-center justify-center w-3/5 h-screen bg-[#f4f4f6] rounded-tl-2xl rounded-bl-2xl">
-        <div className="flex flex-row gap-40 pt-4">
+      <div className="flex flex-col absolute right-0 items-center justify-center w-full md:w-3/5 p-4 h-screen bg-[#f4f4f6] md:rounded-tl-2xl md:rounded-bl-2xl">
+        <div className="flex flex-row xs:gap-5 md:gap-40 pt-4">
           <Link to={Urls.HOME}>
             <span className="flex flex-row gap-3">
               <img className="w-4 h-4" src={Scoutflairlogo} alt="" />
@@ -64,7 +64,7 @@ const LoginPage: React.FC = () => {
             <Link to={Urls.SIGNUP} ><span className="w-56 opacity-80 text-base font-bold text-left text-[#010e1d]">Sign Up</span></Link>
           </p>
         </div>
-        <div className="w-1/2 max-w-md p-6 bg-white rounded-2xl shadow-lg my-10 mx-32">
+        <div className="md:w-1/2 max-w-md h-full p-6 bg-white rounded-2xl shadow-lg my-10 md:mx-32">
           <div className="mt-6 mb-6">
             <p className="text-2xl font-bold text-left text-black">Sign in to your account</p>
             <p className="text-xs font-bold text-left text-black/[0.72] opacity-88">Please enter your details</p>
