@@ -86,7 +86,7 @@ const CoachSignUp: React.FC = () => {
 
     return (
         <div className="w-full min-h-screen bg-[#041931] flex flex-col md:flex-row">
-            <div className="xs:hidden md:block w-full md:w-1/2 flex justify-center items-center md:h-screen bg-[#041931] p-4 md:p-0">
+            <div className="xs:hidden md:block w-full md:w-1/2 flex justify-center items-center max-h-screen bg-[#041931] p-4 md:p-0">
                 <div className="text-white text-center md:text-left">
                     <h1 className="text-2xl md:text-4xl font-bold mb-4">
                         Unlock Your Football Potentials With Scoutflair
@@ -98,7 +98,7 @@ const CoachSignUp: React.FC = () => {
                     </Link>
                 </div>
             </div>
-            <div className="w-full md:w-1/2 h-full flex justify-center items-center bg-[#f8f8ff] p-4 md:p-8">
+            <div className="w-full md:w-1/2 h-full flex justify-center items-center bg-[#f8f8ff] p-4 md:p-8 overflow-auto">
                 <div className="w-full max-w-md md:max-w-lg bg-white rounded-lg p-6 shadow-md">
                     <div className="text-center mb-6">
                         <h2 className="text-2xl font-bold">Create Account</h2>

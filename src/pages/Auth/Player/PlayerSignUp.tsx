@@ -92,7 +92,7 @@ const PlayerSignUp: React.FC = () => {
                         </div>
                     </Link>
                 </div>
-                <div className="flex z-10">
+                <div className="flex z-20">
                     <img
                         src="3d-rendering-of-cartoon-like-man-working-on-computer.png"
                         className="w-[720px]"

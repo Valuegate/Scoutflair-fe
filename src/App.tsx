@@ -11,28 +11,31 @@ import PasswordResetForm from './pages/Auth/PasswordResetForm'
 import PasswordResetSuccess from './pages/Auth/PasswordResetSuccess'
 import SignUpSelectPage from './pages/Auth/SignUpSelect'
 // import TestSC from './pages/test'
-import SignInSelectPage from './pages/Auth/SignInSelect'
+// import SignInSelectPage from './pages/Auth/SignInSelect'
 // import ScoutIntro from './pages/Auth/Scout/ScoutIntro'
 // import PlayerIntro from './pages/Auth/Player/PlayerIntro'
 import CoachIntro from './pages/Auth/Coach/CoachIntro'
 import Intro from './pages/Auth/Intro'
+import LoginPage from './pages/Auth/LoginPage'
+import NotFound from './pages/NotFound'
 
 const App = () => {
   return (
     <Routes>
-      <Route path={'/'} element={<LandingPage />} />
-      <Route path={'/test'} element={<CoachIntro />} />
-      <Route path={'/about'} element={<AboutPage />} />
-      <Route path={'/contact'} element={<ContactPage />} />
-      <Route path={'/blogs'} element={<BlogsPage />} />
-      <Route path={'/services'} element={<ServicePage />} />
-      <Route path={'/sign-up/success'} element={<SignUpSuccessPage />} />
-      <Route path={'/login'} element={<SignInSelectPage />} />
-      <Route path={'/sign-up'} element={<SignUpSelectPage />} />
-      <Route path={'/intro'} element={<Intro />} />
-      <Route path={'/password-reset'} element={<PasswordResetPage />} />
-      <Route path={'/password-reset-form'} element={<PasswordResetForm />} />
-      <Route path={'/password-reset/success'} element={<PasswordResetSuccess />} />
+        <Route path={'/'} element={<LandingPage />} />
+        <Route path={'/test'} element={<CoachIntro />} />
+        <Route path={'/about'} element={<AboutPage />} />
+        <Route path={'/contact'} element={<ContactPage />} />
+        <Route path={'/blogs'} element={<BlogsPage />} />
+        <Route path={'/services'} element={<ServicePage />} />
+        <Route path={'/sign-up/success'} element={<SignUpSuccessPage />} />
+        <Route path={'/login'} element={<LoginPage />} />
+        <Route path={'/sign-up'} element={<SignUpSelectPage />} />
+        <Route path={'/intro'} element={<Intro />} />
+        <Route path={'/password-reset'} element={<PasswordResetPage />} />
+        <Route path={'/password-reset-form'} element={<PasswordResetForm />} />
+        <Route path={'/password-reset/success'} element={<PasswordResetSuccess />} />
+        <Route path='*' element={<NotFound />} />
     </Routes>
   )
 }
