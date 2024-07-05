@@ -64,7 +64,7 @@ const LoginPage: React.FC = () => {
             <Link to={Urls.SIGNUP} ><span className="w-56 opacity-80 text-base font-bold text-left text-[#010e1d]">Sign Up</span></Link>
           </p>
         </div>
-        <div className="md:w-1/2 max-w-md h-full p-6 bg-white rounded-2xl shadow-lg my-10 md:mx-32">
+        <div className="md:w-1/2 max-w-md h-fit p-6 bg-white rounded-2xl shadow-lg my-10 md:mx-32">
           <div className="mt-6 mb-6">
             <p className="text-2xl font-bold text-left text-black">Sign in to your account</p>
             <p className="text-xs font-bold text-left text-black/[0.72] opacity-88">Please enter your details</p>
