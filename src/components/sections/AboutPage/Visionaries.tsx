@@ -2,7 +2,7 @@ import React from "react"
 
 const Visionaries: React.FC = () => {
     return (
-        <section id="visionaries" className="bg-[#192B4D] py-14 px-[120px]">
+        <section id="visionaries" className="bg-[#192B4D] py-14 xs:px-8 md:px-[120px]">
             <div className="flex flex-col justify-start items-center relative gap-6">
                 <p className="text-xl font-bold text-left text-white">
                     OUR VISIONARIES
@@ -11,7 +11,7 @@ const Visionaries: React.FC = () => {
                     <p className="text-[32px] font-bold text-left text-white">
                         The Brains Behind Scoutflair
                     </p>
-                    <p className="w-[641px] opacity-[0.92] text-lg text-center text-white">
+                    <p className="opacity-[0.92] text-lg text-center text-white">
                         Meet the brilliant minds driving Scoutflair’s success. Our team of experts combines innovation
                         and expertise to revolutionize scouting and analytics
                     </p>
