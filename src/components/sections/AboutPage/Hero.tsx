@@ -2,11 +2,11 @@ import React from "react";
 
 const Hero: React.FC = () => {
     return (
-        <div className="px-[120px]">
+        <div className="xs:px-8 md:px-[120px]">
             <div className="flex flex-col">
                 <div className="flex flex-row">
                     <div>
-                        <p className="opacity-[0.96] text-[40px] font-bold text-left text-black py-24">
+                        <p className="opacity-[0.96] text-[40px] font-bold xs:text-center md:text-left text-black py-24">
                             We are passionate about transforming the football industry through, innovative technology,
                             scouting, analytics and advance insights.
                         </p>
