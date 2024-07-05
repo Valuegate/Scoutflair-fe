@@ -79,17 +79,23 @@ const ScoutSignUp: React.FC = () => {
     return (
         <div className="w-full min-h-screen bg-[#041931] flex flex-col md:flex-row">
             <div className="xs:hidden md:block w-full md:w-1/2 flex justify-center items-center md:h-screen bg-[#041931] p-4 md:p-0">
-                <div className="text-white text-center md:text-left">
+                <div className="text-white text-center md:text-left p-10 pb-0">
                     <h1 className="text-2xl md:text-4xl font-bold mb-4">
                         Unlock Your Football Potentials With Scoutflair
                     </h1>
                     <Link to={Urls.HOME}>
-                        <div className="flex items-center justify-center md:justify-start gap-4">
-                            <img className="w-8 h-8" src={Scoutflairlogo} alt="" />
+                        <div className="flex items-center justify-center md:justify-start">
+                            <img className="w-8 h-8 mx-2" src={Scoutflairlogo} alt="" />
                             <span className="text-xl font-bold">Scout</span>
                             <span className="text-xl">Flair</span>
                         </div>
                     </Link>
+                </div>
+                <div className="flex z-20 overflow-hidden">
+                    <img
+                        src="3d-rendering-of-cartoon-like-man-working.png"
+                        className="w-[720px]"
+                    />
                 </div>
             </div>
             <div className="w-full md:w-1/2 h-full flex justify-center items-center bg-[#f8f8ff] p-4 md:p-8">
@@ -232,7 +238,7 @@ const ScoutSignUp: React.FC = () => {
                                 <button
                                     type="submit"
                                     className="w-full py-2 bg-[#f2a725] text-black font-bold rounded-md hover:bg-yellow-500 transition"
-                                // disabled={isSubmitting}
+                                    disabled={isSubmitting}
                                 >
                                     {isSubmitting ? 'Submitting...' : 'Sign Up'}
                                 </button>
@@ -261,28 +267,6 @@ const ScoutSignUp: React.FC = () => {
                         </p>
                     </div>
                 </div>
-            </div>
-            <div className="xs:hidden lg:block">
-                <img
-                    src="close-up-view-of-christmas-balls-concept.png"
-                    className="w-[2353.99px] h-[2353.99px] absolute left-[3461px] top-[-2355px] object-cover"
-                />
-                <img
-                    src="close-up-view-of-christmas-balls-concept.png"
-                    className="w-[71.39px] h-[71.39px] absolute left-[81px] top-[413.42px] object-cover"
-                />
-                <img
-                    src="close-up-view-of-christmas-balls-concept.png"
-                    className="w-[52.27px] h-[52.27px] absolute left-[162px] top-[382.01px] object-cover"
-                />
-                <img
-                    src="close-up-view-of-christmas-balls-concept.png"
-                    className="w-[39.19px] h-[39.19px] absolute left-56 top-[350.25px] object-cover"
-                />
-                <img
-                    src="close-up-view-of-christmas-balls-concept.png"
-                    className="w-[27px] h-[27px] absolute left-[276px] top-[324.88px] object-cover"
-                />
             </div>
         </div>
     );
