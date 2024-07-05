@@ -45,8 +45,8 @@ const Footer: React.FC = () => {
                     </div>
                     <div className="flex flex-col gap-9 w-full sm:w-auto">
                         <p className="text-2xl font-semibold text-black">Stay Connected</p>
-                        <div className="flex flex-col gap-6">
-                            <div className="flex flex-col gap-2.5 p-2.5 bg-white border border-black rounded-xl">
+                        <div className="flex flex-col gap-4">
+                            <div className="flex flex-row gap-2.5 p-1 bg-white border border-black rounded-xl">
                                 <input
                                     type="email"
                                     placeholder="Enter your email address..."

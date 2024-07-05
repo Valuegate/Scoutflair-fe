@@ -23,9 +23,9 @@ const Testimonials: React.FC = () => {
                 </div>
             </div>
             <div className="grid xs:grid-cols-1 lg:grid-cols-3 gap-10 pt-28">
-                <TestimonialCard />
-                <TestimonialCard />
-                <TestimonialCard />
+                <TestimonialCard image="ellipse-67.png" name="Chinedu Okonkwo" location="Abuja, Nigeria" testimonial="I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!" />
+                <TestimonialCard image="testimonial-pic-2.png" name="Michael Adekunle" location="Lagos, Nigeria" testimonial="I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!" />
+                <TestimonialCard image="testimonial-pic-1.png" name="Musa Abubakar" location="Kaduna, Nigeria" testimonial="I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!" />              
             </div>
             <img
                 src="hands-of-teenagers-showing-okay-sign.png"

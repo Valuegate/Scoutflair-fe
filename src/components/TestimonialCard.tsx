@@ -1,6 +1,12 @@
 import React from "react";
 
-const TestimonialCard: React.FC = () => {
+interface TestimonialProps {
+    image: string,
+    name: string,
+    location: string,
+    testimonial: string
+}
+const TestimonialCard: React.FC <TestimonialProps> = ({ image, name, location, testimonial }) => {
     return (
         <div className="relative flex justify-center items-center w-full h-auto opacity-100 z-10">
             <div
@@ -8,22 +14,22 @@ const TestimonialCard: React.FC = () => {
                 style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14), 0px 6px 10px 0 rgba(0,0,0,0.14)" }}
             >
                 <div className="flex justify-center">
-                    <img className="flex top-0" src="ellipse-67.png" />
+                    <img className="flex top-0" src={image} />
                 </div>
                 <div className="flex flex-col justify-start items-center gap-2">
                     <div className="flex flex-col justify-start items-center self-stretch gap-4">
                         <div className="flex flex-col justify-start items-center gap-3">
                             <div className="flex flex-col justify-center items-center self-stretch gap-1">
                                 <p className="w-fit text-[22px] font-bold text-center text-black">
-                                    Chinedu Okonkwo
+                                    {name}
                                 </p>
                                 <p className="w-fit text-sm text-center text-black/[0.72]">
-                                    Abuja. Nigeria.
+                                    {location}
                                 </p>
                             </div>
                             <div className="flex justify-center items-center w-full gap-2.5">
                                 <p className="text-lg text-center text-black/80">
-                                    "I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!"
+                                    {testimonial}
                                 </p>
                             </div>
                         </div>
@@ -33,8 +39,7 @@ const TestimonialCard: React.FC = () => {
                                 height={14}
                                 viewBox="0 0 15 14"
                                 fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="flex-grow-0 flex-shrink-0"
+                                xmlns="http://www.w3.org/2000/svg"                                
                                 preserveAspectRatio="none"
                             >
                                 <path
@@ -47,8 +52,7 @@ const TestimonialCard: React.FC = () => {
                                 height={14}
                                 viewBox="0 0 15 14"
                                 fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="flex-grow-0 flex-shrink-0"
+                                xmlns="http://www.w3.org/2000/svg"                                
                                 preserveAspectRatio="xMidYMid meet"
                             >
                                 <path
@@ -61,8 +65,7 @@ const TestimonialCard: React.FC = () => {
                                 height={14}
                                 viewBox="0 0 14 14"
                                 fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="flex-grow-0 flex-shrink-0"
+                                xmlns="http://www.w3.org/2000/svg"                                
                                 preserveAspectRatio="xMidYMid meet"
                             >
                                 <path
@@ -76,7 +79,7 @@ const TestimonialCard: React.FC = () => {
                                 viewBox="0 0 15 14"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="flex-grow-0 flex-shrink-0"
+                                
                                 preserveAspectRatio="xMidYMid meet"
                             >
                                 <path
@@ -90,7 +93,7 @@ const TestimonialCard: React.FC = () => {
                                 viewBox="0 0 15 14"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="flex-grow-0 flex-shrink-0"
+                                
                                 preserveAspectRatio="xMidYMid meet"
                             >
                                 <path
