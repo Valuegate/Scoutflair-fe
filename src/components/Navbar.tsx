@@ -64,6 +64,11 @@ const Navbar: React.FC = () => {
                             Sign Up
                         </button>
                     </Link>
+                    <Link to={Urls.LOGIN}>
+                        <button className="w-full mt-4 py-2 bg-[#f2a725] text-black font-bold rounded-lg shadow-md">
+                            Log in
+                        </button>
+                    </Link>
                 </div>
             )}
         </div>
