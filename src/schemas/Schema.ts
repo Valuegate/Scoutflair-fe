@@ -56,3 +56,8 @@ export const EmailValidationSchema = Yup.object({
     .email("Invalid email address")
     .required("Email is required"),
 })
+
+export const TokenValidationSchema = Yup.object({
+  token: Yup.string()
+    .required("Token is required"),
+})

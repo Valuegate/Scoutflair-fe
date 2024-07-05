@@ -8,10 +8,10 @@ export const Urls = {
     PASSWORDRESET: "/password-reset",
     PASSWORDRESETSUCCESS: "/password-reset/success",
     LOGIN: "/login",
-    SIGNUP: "/sign-up",
-    PLAYERSIGNUP: "/sign-up?type=player",
-    SCOUTSIGNUP: "/sign-up?type=scout",
-    COACHSIGNUP: "/sign-up?type=coach",
+    SIGNUP: "/signup",
+    PLAYERSIGNUP: "/signup?type=player",
+    SCOUTSIGNUP: "/signup?type=scout",
+    COACHSIGNUP: "/signup?type=coach",
 }
 
 export const positions = [

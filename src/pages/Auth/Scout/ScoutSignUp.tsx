@@ -54,13 +54,8 @@ const ScoutSignUp: React.FC = () => {
             const response = await requestApi('/scoutflair/v1/signup', 'POST', newValues);
             console.log(response.data);
 
-            if (response.status) {
-                Swal.fire({
-                    title: "User created successfully!",
-                    text: "Redirecting to Login",
-                    icon: "success"
-                });
-                navigate("/login?type=scout", { replace: true })
+            if (response.status) {                
+                navigate("signup/success", { replace: true })
             } else {
                 Swal.fire({
                     title: "Oops...",

@@ -1,13 +1,12 @@
 import React from 'react';
+import { Urls } from '../../constants/constants';
+import { Link } from 'react-router-dom';
 
 const SignUpSuccessPage: React.FC = () => {
   return (
     <div className="w-full h-screen relative overflow-hidden bg-white">
       <div className="absolute inset-0 overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('/frame-3404.png')" }}>
         <div className="absolute inset-0 overflow-hidden bg-[#010e1d]/90">
-          <p className="absolute left-1/2 transform -translate-x-1/2 top-24 text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white">
-            Choose Your Role
-          </p>
           <div className="w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 h-auto p-4 md:p-8 absolute left-1/2 transform -translate-x-1/2 top-1/3 md:top-1/2 -translate-y-1/3 md:-translate-y-1/2 overflow-hidden rounded-2xl bg-[#f8f8ff]">
             <div className="flex flex-col justify-start items-center gap-6">
               <svg
@@ -30,7 +29,7 @@ const SignUpSuccessPage: React.FC = () => {
                   Account created successfully
                 </p>
                 <p className="text-sm text-center text-black/80">
-                  Check your email to verify your account.
+                  Check your email to verify your account. Move to <Link to={Urls.LOGIN}><span className='inline-block text-slate-800 font-semibold underline'>Login</span></Link>
                 </p>
               </div>
             </div>
