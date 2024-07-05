@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import ActiveSideBarIcon from "./ActiveSideBarIcon"; // Make sure to import the icon component
 
 const SideBar: React.FC = () => {
+    const [activePath, setActivePath] = useState<string>("");
+
+    const handleSetActive = (path: string) => {
+        setActivePath(path);
+    };
+
+    const getActiveStyle = (path: string) => ({
+        background: activePath === path 
+            ? "linear-gradient(128.61deg, rgba(1,14,29,0.24) -10.42%, rgba(255,255,255,0.24) 140.66%)" 
+            : "none",
+        padding: "8px",
+        borderRadius: "8px",
+        position: "relative"
+    });
+
     return (
         <div
-            className="w-[336px] h-[1294px] relative overflow-hidden rounded-tr-3xl rounded-br-3xl bg-[#041931]"
-            style={{ boxShadow: "0px 6px 10px 0 rgba(0,0,0,0.14)" }}
+            className="w-full md:w-[336px] h-full flex flex-col rounded-tr-3xl rounded-br-3xl bg-[#041931] shadow-lg"
         >
-            <div className="flex justify-start items-center w-[228px] h-12 absolute left-[54px] top-10 gap-4">
+            <div className="flex items-center gap-4 p-6">
                 <svg
                     width={48}
                     height={48}
@@ -16,7 +31,7 @@ const SideBar: React.FC = () => {
                     className="w-12 h-12"
                     preserveAspectRatio="xMidYMid meet"
                 >
-                    <g clip-path="url(#clip0_225_1342)">
+                    <g clipPath="url(#clip0_225_1342)">
                         <path
                             d="M24.6205 43.8747L4.13307 23.4182C-1.13811 18.1669 -1.13811 9.64175 4.13307 4.39042C9.40426 -0.870374 17.9367 -0.870374 23.2079 4.39042L43.6954 24.8375C48.9666 30.0983 48.9666 38.614 43.6954 43.8747C38.4242 49.1261 29.8917 49.1261 24.6205 43.8747Z"
                             fill="#083162"
@@ -29,104 +44,139 @@ const SideBar: React.FC = () => {
                             d="M44.4455 23.4084L24.6406 3.63311C30.1488 -1.26814 38.6055 -1.08836 43.8861 4.19136C49.1763 9.47107 49.3659 17.911 44.4455 23.4084Z"
                             fill="#F2A725"
                         />
-                    </g>                    
+                    </g>
                 </svg>
-                <p className="text-[32px] text-left text-white">
-                    <span className="text-[32px] font-bold text-left text-white">
-                        Scout
-                    </span>
-                    <span className="text-[32px] text-left text-white">Flair</span>
-                </p>
+                <div className="text-[32px] text-white font-bold">
+                    <p>Scout</p>
+                    <p className="font-normal">Flair</p>
+                </div>
             </div>
-            <p className="absolute left-[54px] top-[135px] opacity-[0.72] text-sm text-left text-white">
-                INSIGHTS
-            </p>
-            <svg
-                width={336}
-                height={1}
-                viewBox="0 0 336 1"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute left-[-0.66px] top-[286.34px]"
-                preserveAspectRatio="none"
-            >
-                <line
-                    x1="-1.39876e-8"
-                    y1="0.84"
-                    x2={336}
-                    y2="0.839971"
-                    stroke="white"
-                    stroke-opacity="0.56"
-                    stroke-width="0.32"
-                />
-            </svg>
-            <svg
-                width={333}
-                height={1}
-                viewBox="0 0 333 1"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute left-[-3.66px] top-[694.34px]"
-                preserveAspectRatio="none"
-            >
-                <line
-                    x1={-3}
-                    y1="0.84"
-                    x2={333}
-                    y2="0.839971"
-                    stroke="white"
-                    stroke-opacity="0.56"
-                    stroke-width="0.32"
-                />
-            </svg>
-            <svg
-                width={336}
-                height={1}
-                viewBox="0 0 336 1"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute left-[-0.66px] top-[933.34px]"
-                preserveAspectRatio="none"
-            >
-                <line
-                    x1="-1.39876e-8"
-                    y1="0.84"
-                    x2={336}
-                    y2="0.839971"
-                    stroke="white"
-                    stroke-opacity="0.56"
-                    stroke-width="0.32"
-                />
-            </svg>
-            <div className="flex flex-col justify-start items-start absolute left-[54px] top-[719px] gap-6">
-                <p className="opacity-[0.72] text-sm text-left text-white">
-                    RESOURCES
-                </p>
-                <div className="flex flex-col justify-start items-start opacity-[0.88] gap-6">
-                    <div className="flex justify-start items-center relative gap-2">
-                        
-                        <p className="text-xl font-bold text-left text-white">Messages</p>
+            <div className="flex flex-col gap-6 px-6">
+                <div className="opacity-[0.72] text-sm text-white">
+                    <p>INSIGHTS</p>
+                </div>
+                <hr className="border-white border-opacity-56" />
+                <div 
+                    className="text-xl font-bold text-white relative"
+                    style={getActiveStyle("Analytics")}
+                    onClick={() => handleSetActive("Analytics")}
+                >
+                    <p>Analytics</p>
+                    <div className="absolute -right-3 bottom-1/4">
+                        {activePath === "Analytics" && <ActiveSideBarIcon />}
+                    </div>                        
+                </div>
+                <hr className="border-white border-opacity-56" />
+                <div className="opacity-[0.72] text-sm text-white">
+                    <p>MAIN</p>
+                </div>
+                <div className="flex flex-col gap-6">
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Players")}
+                        onClick={() => handleSetActive("Players")}
+                    >
+                        <p>Players</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Players" && <ActiveSideBarIcon />}
+                        </div>                        
                     </div>
-                    <div className="flex justify-start items-center relative gap-2">
-                        
-                        <p className="text-xl font-bold text-left text-white">
-                            Notifications
-                        </p>
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Tactics")}
+                        onClick={() => handleSetActive("Tactics")}
+                    >
+                        <p>Tactics</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Tactics" && <ActiveSideBarIcon />}
+                        </div>                        
                     </div>
-                    <div className="flex justify-start items-center relative gap-2">
-                        
-                        <p className="text-xl font-bold text-left text-white">Settings</p>
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Matches")}
+                        onClick={() => handleSetActive("Matches")}
+                    >
+                        <p>Matches</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Matches" && <ActiveSideBarIcon />}
+                        </div>                        
+                    </div>
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Local Pitches")}
+                        onClick={() => handleSetActive("Local Pitches")}
+                    >
+                        <p>Local Pitches</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Local Pitches" && <ActiveSideBarIcon />}
+                        </div>                        
+                    </div>
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Academies")}
+                        onClick={() => handleSetActive("Academies")}
+                    >
+                        <p>Academies</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Academies" && <ActiveSideBarIcon />}
+                        </div>                        
+                    </div>
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Football Clubs")}
+                        onClick={() => handleSetActive("Football Clubs")}
+                    >
+                        <p>Football Clubs</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Football Clubs" && <ActiveSideBarIcon />}
+                        </div>                        
+                    </div>
+                </div>
+                <hr className="border-white border-opacity-56" />
+                <div className="opacity-[0.72] text-sm text-white">
+                    <p>RESOURCES</p>
+                </div>
+                <div className="flex flex-col gap-6">
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Messages")}
+                        onClick={() => handleSetActive("Messages")}
+                    >
+                        <p>Messages</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Messages" && <ActiveSideBarIcon />}
+                        </div>                        
+                    </div>
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Notifications")}
+                        onClick={() => handleSetActive("Notifications")}
+                    >
+                        <p>Notifications</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Notifications" && <ActiveSideBarIcon />}
+                        </div>                        
+                    </div>
+                    <div 
+                        className="text-xl font-bold text-white relative"
+                        style={getActiveStyle("Settings")}
+                        onClick={() => handleSetActive("Settings")}
+                    >
+                        <p>Settings</p>
+                        <div className="absolute -right-3 bottom-1/4">
+                            {activePath === "Settings" && <ActiveSideBarIcon />}
+                        </div>                        
                     </div>
                 </div>
             </div>
-            <div className="flex justify-start items-center absolute left-[53px] top-[960px] opacity-[0.88] gap-2">
+            <div className="mt-auto flex items-center gap-2 p-6">
                 <svg
                     width={28}
                     height={28}
                     viewBox="0 0 28 28"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-7 h-7 relative"
+                    className="w-7 h-7"
                     preserveAspectRatio="none"
                 >
                     <path
@@ -134,49 +184,12 @@ const SideBar: React.FC = () => {
                         fill="white"
                     />
                 </svg>
-                <p className="text-xl font-bold text-left text-white">Sign Out</p>
-            </div>
-            <div className="flex justify-start items-center absolute left-[54px] top-[229px] opacity-[0.88] gap-3">
-                
-                <p className="text-xl font-bold text-left text-white">Analytics</p>
-            </div>
-            <div className="flex flex-col justify-start items-start absolute left-[53px] top-[311px] gap-6">
-                <p className="opacity-[0.72] text-sm text-left text-white">MAIN</p>
-                <div className="flex flex-col justify-start items-start opacity-[0.88] gap-6">
-                    <div className="flex justify-start items-center relative gap-3">
-                        
-                        <p className="text-xl font-bold text-left text-white">Players</p>
-                    </div>
-                    <div className="flex justify-start items-center relative gap-3">
-                        
-                        <p className="text-xl font-bold text-left text-white">Tactics</p>
-                    </div>
-                    <div className="flex justify-start items-center relative gap-3">
-                        
-                        <p className="text-xl font-bold text-left text-white">Matches</p>
-                    </div>
-                    <div className="flex justify-start items-center relative gap-3">
-                        
-                        <p className="text-xl font-bold text-left text-white">
-                            Local Pitches
-                        </p>
-                    </div>
-                    <div className="flex justify-start items-center relative gap-3">
-                        
-                        <p className="text-xl font-bold text-left text-white">
-                            Academies
-                        </p>
-                    </div>
-                    <div className="flex justify-start items-center relative gap-3">
-                        
-                        <p className="text-xl font-bold text-left text-white">
-                            Football Clubs
-                        </p>
-                    </div>
+                <div className="text-xl font-bold text-white">
+                    <p>Sign Out</p>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default SideBar
+export default SideBar;

@@ -18,67 +18,70 @@ const PartnerSection: React.FC = () => {
                 </div>
                 <div className="grid xs:grid-cols-1 md:grid-cols-2 gap-6">
                     <div
-                        className="flex xs:flex-col lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-[#4bbac1]"
+                        className="flex lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-[#4bbac1]"
                         style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
                     >
                         <div>
-                            <img className="w-32 h-16" src={Binoculars} alt="" />
+                            <img className="min-w-24 min-h-24" src={Binoculars} alt="" />
                         </div>
-                        <div className="flex flex-col justify-start items-start relative gap-2">
-                            <p className="self-stretch text-2xl font-semibold text-left text-white">
+                        <div className="flex flex-col justify-start items-start relative gap-[6.045801162719727px]">
+                            <p className="self-stretch text-[18.13740348815918px] font-semibold text-left text-black">
                                 Advance Scouting
                             </p>
-                            <p className="self-stretch opacity-[0.88] text-lg text-left text-white">
+                            <p className="self-stretch opacity-[0.88] text-[13.603052139282227px] text-left text-black">
                                 Discover talent with precision using our advanced scouting tools, providing in-depth analysis
                                 and insights to identify and evealuate top players
                             </p>
                         </div>
                     </div>
                     <div
-                        className="flex xs:flex-col lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
+                        className="flex lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
                         style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
                     >
                         <div>
-                            <img className="w-32 h-16" src={InfoMapIcon} alt="" />
+                            <img className="min-w-24 min-h-24" src={InfoMapIcon} alt="" />
                         </div>
-                        <div className="flex flex-col justify-start items-start relative gap-2">
-                            <p className="self-stretch text-2xl font-semibold text-left text-black">
-                                Talent Development
+                        <div className="flex flex-col justify-start items-start relative gap-[6.045801162719727px]">
+                            <p className="self-stretch text-[18.13740348815918px] font-semibold text-left text-black">
+                                Advance Scouting
                             </p>
-                            <p className="opacity-[0.88] text-lg text-left text-black">
-                            Enhance player skills with our comprehensive talent development programs, focusing on personalized training and growth to maximize potential.
+                            <p className="self-stretch opacity-[0.88] text-[13.603052139282227px] text-left text-black">
+                                Discover talent with precision using our advanced scouting tools, providing in-depth analysis
+                                and insights to identify and evealuate top players
                             </p>
                         </div>
                     </div>
                     <div
-                        className="flex xs:flex-col lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
+                        className="flex lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
                         style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
                     >
                         <div>
-                            <img className="w-32 h-16" src={DataAnalyticsIcon} alt="" />
+                            <img className="min-w-24 min-h-24" src={DataAnalyticsIcon} alt="" />
                         </div>
-                        <div className="flex flex-col justify-start items-start relative gap-2">
-                            <p className="self-stretch text-2xl font-semibold text-left text-black">
-                                Data Analytics
+                        <div className="flex flex-col justify-start items-start relative gap-[6.045801162719727px]">
+                            <p className="self-stretch text-[18.13740348815918px] font-semibold text-left text-black">
+                                Advance Scouting
                             </p>
-                            <p className="self-stretch opacity-[0.88] text-lg text-left text-black">
-                            Unlock valuable insights with our data analytics tools, providing detailed performance metrics and actionable intelligence for informed decision-making.
+                            <p className="self-stretch opacity-[0.88] text-[13.603052139282227px] text-left text-black">
+                                Discover talent with precision using our advanced scouting tools, providing in-depth analysis
+                                and insights to identify and evealuate top players
                             </p>
                         </div>
                     </div>
                     <div
-                        className="flex xs:flex-col lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
+                        className="flex lg:flex-row justify-start items-start gap-12 px-12 py-8 rounded-2xl bg-white"
                         style={{ boxShadow: "0px 8px 10px 0 rgba(0,0,0,0.14)" }}
                     >
-                        <div>                           
-                            <img className="w-32 h-16" src={TalentDevIcon} alt="" />
+                        <div>
+                            <img className="min-w-24 min-h-24" src={TalentDevIcon} alt="" />
                         </div>
-                        <div className="flex flex-col justify-start items-start relative gap-2">
-                            <p className="self-stretch text-2xl font-semibold text-left text-black">
-                                Information Mapping
+                        <div className="flex flex-col justify-start items-start relative gap-[6.045801162719727px]">
+                            <p className="self-stretch text-[18.13740348815918px] font-semibold text-left text-black">
+                                Advance Scouting
                             </p>
-                            <p className="self-stretch opacity-[0.88] text-lg text-left text-black">
-                            Visualize and organize complex data with our information mapping tools, making it easier to understand and interpret key insights, streamlining your decision-making process
+                            <p className="self-stretch opacity-[0.88] text-[13.603052139282227px] text-left text-black">
+                                Discover talent with precision using our advanced scouting tools, providing in-depth analysis
+                                and insights to identify and evealuate top players
                             </p>
                         </div>
                     </div>
