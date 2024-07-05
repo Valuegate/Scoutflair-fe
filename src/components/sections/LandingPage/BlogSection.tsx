@@ -7,7 +7,7 @@ const BlogSection: React.FC = () => {
             <div className="flex flex-col justify-start items-center relative gap-6 pb-20">
                 <p className="text-xl font-bold text-left text-[#946108]">BLOG</p>
                 <div className="flex flex-col justify-start items-center relative gap-1">
-                    <p className="text-[32px] font-bold text-left text-black">
+                    <p className="text-[32px] font-bold xs:text-center md:text-left text-black">
                         Stay Informed, Stay Ahead!
                     </p>
                     <p className="lg:w-[641px] opacity-[0.92] text-lg text-center text-black">

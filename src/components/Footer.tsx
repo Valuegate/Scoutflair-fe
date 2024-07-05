@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
                                 Scout<span className="font-normal">Flair</span>
                             </p>
                         </div>
-                        <p className="max-w-sm text-base text-black">
+                        <p className="max-w-sm xs:hidden md:flex text-base text-black">
                             At ScoutFlair, our mission is to provide football enthusiasts, coaches, and analysts with the tools they need to unlock the game's hidden insights.
                         </p>
                     </div>
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                             <a href="#contact" className="text-xl text-black">Contact Us</a>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-4 w-full sm:w-auto">
+                    <div className="flex xs:hidden md:flex flex-col gap-4 w-full sm:w-auto">
                         <p className="text-2xl font-semibold text-black">Useful Links</p>
                         <div className="flex flex-col gap-4">
                             <a href="#faq" className="text-xl text-black">F.A.Q</a>

@@ -3,7 +3,7 @@ import TestimonialCard from "../../TestimonialCard";
 
 const Testimonials: React.FC = () => {
     return (
-        <div className="flex flex-col relative py-[56px] justify-center px-[120px]">
+        <div className="flex flex-col relative py-[56px] justify-center xs:px-8 md:px-[120px]">
             <img
                 src="hands-of-teenagers-showing-okay-sign.png"
                 className="md:w-[518px] md:h-[345px] absolute right-0 top-0 opacity-40 object-cover"
@@ -12,8 +12,8 @@ const Testimonials: React.FC = () => {
                 <p className="text-xl font-bold text-left text-[#946108]">
                     TESTIMONIALS
                 </p>
-                <div className="flex flex-col justify-start items-center relative gap-1">
-                    <p className="text-[32px] font-bold text-left text-black">
+                <div className="flex flex-col xs:justify-center md:justify-start items-center relative gap-1">
+                    <p className="text-[32px] font-bold xs:text-center md:text-left text-black">
                         Real feedback, Real Results!
                     </p>
                     <p className="opacity-[0.92] text-lg text-center text-black">

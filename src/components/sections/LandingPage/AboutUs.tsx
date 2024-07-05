@@ -8,7 +8,7 @@ const AboutUs: React.FC = () => {
         <div className="bg-[#192B4D] relative">
             <div
                 className="absolute inset-0 opacity-10 bg-cover pointer-events-none"
-                style={{backgroundImage: `url('../../../assets/aboutusbg.png')`}}
+                style={{ backgroundImage: `url('../../../assets/aboutusbg.png')` }}
             />
             <div className="relative z-10 flex flex-col text-center justify-center gap-32 py-14 xs:px-8 md:px-[120px]">
                 <div className="flex flex-col justify-start items-center relative gap-6">
@@ -44,7 +44,9 @@ const AboutUs: React.FC = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <GoldButton text="Learn More" />
+                                <div className="w-full flex xs:justify-center md:justify-start">
+                                    <GoldButton text="Learn More" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +68,7 @@ const AboutUs: React.FC = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex xs:justify-center">
+                            <div className="flex w-full xs:justify-center md:justify-start">
                                 <GoldButton text="Read More" />
                             </div>
                         </div>
