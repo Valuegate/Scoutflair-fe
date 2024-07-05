@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 
   const handleNextClick = () => {
     if (selectedPath) {
-      navigate(`/intro?type=${selectedPath}`, { replace: true });
+      navigate(`/signup?type=${selectedPath}`, { replace: true });
     } else {
       Swal.fire({
         title: "Oops...",
