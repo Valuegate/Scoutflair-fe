@@ -8,7 +8,7 @@ const Visionaries: React.FC = () => {
                     OUR VISIONARIES
                 </p>
                 <div className="flex flex-col justify-start items-center relative gap-1">
-                    <p className="text-[32px] font-bold text-left text-white">
+                    <p className="text-[32px] font-bold xs:text-center md:text-left text-white">
                         The Brains Behind Scoutflair
                     </p>
                     <p className="opacity-[0.92] text-lg text-center text-white">

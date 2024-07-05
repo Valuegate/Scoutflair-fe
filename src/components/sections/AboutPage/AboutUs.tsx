@@ -31,14 +31,16 @@ const AboutUs: React.FC = () => {
                         <div className="flex flex-col items-start gap-12 ml-auto">
                             <div className="flex flex-col justify-start items-start gap-12">
                                 <div className="flex flex-col justify-start items-start lg:w-[618px] relative gap-6">
-                                    <p className="opacity-[0.92] text-[26.622514724731445px] text-left uppercase text-white">
-                                        MEET THE TEAM
-                                    </p>
+                                    <div className="w-full">
+                                        <p className="opacity-[0.92] text-[26.622514724731445px] xs:text-center md:text-left uppercase text-white">
+                                            MEET THE TEAM
+                                        </p>
+                                    </div>
                                     <div className="flex flex-col justify-start items-start self-stretch relative gap-4">
-                                        <p className="self-stretch lg:w-[618px] text-2xl font-bold text-left text-white">
+                                        <p className="self-stretch lg:w-[618px] text-2xl font-bold xs:text-center md:text-left text-white">
                                             The Faces of Innovation
                                         </p>
-                                        <p className="self-stretch lg:w-[618px] opacity-80 text-[23.960262298583984px] text-left text-white">
+                                        <p className="self-stretch lg:w-[618px] opacity-80 text-[23.960262298583984px] xs:text-center md:text-left text-white">
                                             Discover the dedicated professionals fueling our success. Meet the innovative minds shaping
                                             our vision and revolutionizing scouting analytics for your success
                                         </p>
@@ -54,14 +56,16 @@ const AboutUs: React.FC = () => {
                     <div className="w-full flex lg:flex-row xs:flex-col-reverse xs:gap-y-10">
                         <div className="flex flex-col justify-start items-start gap-12">
                             <div className="flex flex-col justify-start items-start lg:w-[620px] relative gap-6">
-                                <p className="opacity-[0.92] text-[24.78257179260254px] text-left uppercase text-white">
-                                    OUR MISSION
-                                </p>
+                                <div className="w-full">
+                                    <p className="opacity-[0.92] text-[24.78257179260254px] xs:text-center md:text-left uppercase text-white">
+                                        OUR MISSION
+                                    </p>
+                                </div>
                                 <div className="flex flex-col justify-start items-start self-stretch relative gap-2">
-                                    <p className="self-stretch lg:w-[620px] text-2xl font-bold text-left text-white">
+                                    <p className="self-stretch lg:w-[620px] text-2xl font-bold xs:text-center md:text-left text-white">
                                         Our Purpose, Your Success
                                     </p>
-                                    <p className="self-stretch lg:w-[620px] opacity-80 text-[22.30431365966797px] text-left text-white">
+                                    <p className="self-stretch lg:w-[620px] opacity-80 text-[22.30431365966797px] xs:text-center md:text-left text-white">
                                         At Scoutflair, our purpose is to elevate your scouting experience through cutting-edge
                                         analytics and personalized data gathering. We’re committed to providing tailored solutions
                                         that drive your success on and off the field.
