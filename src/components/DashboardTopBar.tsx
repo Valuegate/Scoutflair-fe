@@ -12,7 +12,7 @@ const TopBar: React.FC = () => {
                 Welcome, Team ScoutFlair
             </p>
             <input 
-                className="mx-4 py-2 rounded-lg border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                className="mx-4 py-2 rounded-lg border p-4 border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 placeholder="Search"
             />
             <div className="flex items-center gap-4 mr-4 md:mr-6">
