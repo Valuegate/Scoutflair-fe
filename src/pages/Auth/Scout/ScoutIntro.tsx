@@ -111,10 +111,10 @@ const ScoutIntro: React.FC = () => {
                             </clipPath>
                         </defs>
                     </svg>
-                    <p className="text-sm font-medium text-black">Scoutflair © 2023</p>
+                    <p className="text-sm font-medium text-black">Scoutflair © {new Date().getFullYear()}</p>
                 </div>
                 <p className="opacity-90 text-sm font-medium text-black">
-                    <span>© 2023 Scoutflair. All rights reserved.</span>
+                    <span>© {new Date().getFullYear()} Scoutflair. All rights reserved.</span>
                 </p>
             </div>
         </div>

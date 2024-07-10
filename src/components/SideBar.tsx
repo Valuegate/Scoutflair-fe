@@ -19,7 +19,7 @@ const SideBar: React.FC = () => {
 
     return (
         <div
-            className="w-full md:w-[336px] h-full flex flex-col rounded-tr-3xl rounded-br-3xl bg-[#041931] shadow-lg"
+            className="w-full md:w-[336px] min-h-max flex flex-col rounded-tr-3xl rounded-br-3xl bg-[#041931] shadow-lg"
         >
             <div className="flex items-center gap-4 p-6">
                 <svg

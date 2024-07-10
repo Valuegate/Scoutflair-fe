@@ -12,6 +12,7 @@ export const Urls = {
     PLAYERSIGNUP: "/signup?type=player",
     SCOUTSIGNUP: "/signup?type=scout",
     COACHSIGNUP: "/signup?type=coach",
+    DASHBOARD: "/dashboard"
 }
 
 export const positions = [

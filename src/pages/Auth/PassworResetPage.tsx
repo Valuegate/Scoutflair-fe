@@ -16,27 +16,7 @@ const PasswordResetPage: React.FC = () => {
 
   const initialValues: FormValues = {
     email: ""
-  }
-
-  const toast = () => {
-    // Toastify({
-    //   text: "This is a toast",
-    //   duration: 3000,
-    //   destination: "https://github.com/apvarun/toastify-js",
-    //   newWindow: true,
-    //   close: true,
-    //   gravity: "top", // `top` or `bottom`
-    //   position: "right", // `left`, `center` or `right`
-    //   stopOnFocus: true, // Prevents dismissing of toast on hover
-    //   onClick: function(){} // Callback after click
-    // }).showToast();
-
-    Swal.fire({
-      title: "Oops...",
-      text: `testtttt`,
-      icon: "error"
-    });
-  }
+  }  
   
   const handleSubmit = async (values: any) => {
     console.log("Submission Block", values);
@@ -106,10 +86,7 @@ const PasswordResetPage: React.FC = () => {
                             className="w-full h-12 flex justify-center items-center gap-2.5 px-6 py-2.5 rounded-[20px] bg-[#f2a725] text-2xl font-medium text-black"
                           >
                             Continue
-                          </button>
-                          <button onClick={toast}>
-                            Toast
-                          </button>
+                          </button>                          
                           <p className="w-full text-base font-semibold text-center text-[#f00] cursor-pointer">
                             Cancel
                           </p>

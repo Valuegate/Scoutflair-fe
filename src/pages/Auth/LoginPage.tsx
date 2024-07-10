@@ -1,13 +1,16 @@
 import React from 'react';
 import Scoutflairlogo from "../../assets/Scoutflairlogo.svg"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Urls } from '../../constants/constants';
 import { useAxios } from '../../api/base';
 import { Form, Formik, Field, FormikHelpers } from 'formik';
 import { LoginValidationSchema } from '../../schemas/Schema';
 import Swal from 'sweetalert2';
+import { useAuthContext } from '../../providers/AuthContext';
 
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate()
+  const { login } = useAuthContext()
   const { requestApi } = useAxios()
 
   interface FormValues {
@@ -28,11 +31,14 @@ const LoginPage: React.FC = () => {
       console.log(response.data);
 
       if (response.status) {
+        const token = response.data.token
+        login(token)
         Swal.fire({
           title: "Logged In successfully!",
           text: "Redirecting to dashboard",
           icon: "success"
-        });
+        });     
+        navigate(Urls.DASHBOARD, {replace: true}) 
         resetForm()
       } else {
         Swal.fire({
@@ -46,6 +52,7 @@ const LoginPage: React.FC = () => {
       alert("An error occurred during submission. Please try again.");
     };
   }
+  
   return (
     <div className="w-full h-screen flex items-center justify-center bg-[url('scout-sign-in-(wrong-password).png')] bg-cover bg-no-repeat bg-center">
       <div className="flex flex-col absolute right-0 items-center justify-center w-full md:w-3/5 p-4 h-screen bg-[#f4f4f6] md:rounded-tl-2xl md:rounded-bl-2xl">

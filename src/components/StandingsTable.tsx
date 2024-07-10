@@ -36,7 +36,7 @@ const StandingsTable: React.FC = () => {
                 </div>
                 <div className="flex flex-col justify-center items-center opacity-[0.88] gap-4">
                     <div className="flex flex-col justify-start items-center relative gap-1.5">
-                        <div className="flex justify-start items-start relative gap-[260px]">
+                        <div className="flex justify-start items-start relative gap-56">
                             <div>
                                 <p className="text-sm pl-10 font-semibold text-left text-black">
                                     Club
@@ -105,7 +105,7 @@ const StandingsTable: React.FC = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex justify-between gap-[50px] w-[307px] h-[21px]">
+                                <div className="flex justify-between gap-[50px] h-[21px]">
                                     <p className="opacity-80 text-sm text-left text-black">
                                         65
                                     </p>
