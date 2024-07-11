@@ -13,10 +13,10 @@ const Analytics: React.FC = () => {
     const navigate = useNavigate();
     const { isLoggedIn } = useAuthContext();
 
-    // if (isLoggedIn()) {
-    //     navigate("/login", { replace: true });
-    //     // return null;
-    // }
+    if (isLoggedIn()) {
+        navigate("/login", { replace: true });
+        // return null;
+    }
 
     return (
         <div className="flex">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import ActiveSideBarIcon from "./ActiveSideBarIcon"; // Make sure to import the icon component
 
 const SideBar: React.FC = () => {
@@ -15,7 +15,7 @@ const SideBar: React.FC = () => {
         padding: "8px",
         borderRadius: "8px",
         position: "relative"
-    });
+    } as CSSProperties);
 
     return (
         <div
