@@ -1,11 +1,11 @@
 import React from "react";
-import SideBar from "../components/SideBar";
-import TopBar from "../components/DashboardTopBar";
+import SideBar from "../components/Dashboard/SideBar";
+import TopBar from "../components/Dashboard/DashboardTopBar";
 import UpcomingMatchBanner from "../components/sections/UpcomingMatchBanner";
-import StandingsTable from "../components/StandingsTable";
-import ScoutCardSection from "../components/ScoutCardSection";
+import StandingsTable from "../components/Dashboard/StandingsTable";
+import ScoutCardSection from "../components/Dashboard/ScoutCardSection";
 import LatestNewsCard from "../components/LatestNewsCard";
-import TopScorerCard from "../components/TopScorersCard";
+import TopScorerCard from "../components/Dashboard/TopScorersCard";
 import { useAuthContext } from "../providers/AuthContext";
 import { useNavigate } from "react-router-dom";
 

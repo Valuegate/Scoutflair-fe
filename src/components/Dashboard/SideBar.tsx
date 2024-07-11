@@ -46,7 +46,7 @@ const SideBar: React.FC = () => {
                         />
                     </g>
                 </svg>
-                <div className="text-[32px] text-white font-bold">
+                <div className="flex text-[32px] text-white font-bold">
                     <p>Scout</p>
                     <p className="font-normal">Flair</p>
                 </div>

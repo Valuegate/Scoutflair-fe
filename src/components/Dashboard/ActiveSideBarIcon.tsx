@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../assets/dashboard/Frame 36361.svg"
+import Icon from "../../assets/dashboard/Frame 36361.svg"
 
 const ActiveSideBarIcon: React.FC = () => {
     return (

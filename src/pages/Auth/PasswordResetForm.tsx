@@ -1,14 +1,19 @@
 import React from 'react';
 import Scoutflairlogo from '../../assets/Scoutflairlogo.svg';  // Adjust the import path to your logo
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Urls } from '../../constants/constants';
 import { Field, Form, Formik } from "formik"
 import { PasswordResetValidationSchema } from '../../schemas/Schema';
 import { useAxios } from '../../api/base';
+import { useAuthContext } from '../../providers/AuthContext';
+import Swal from 'sweetalert2';
 
 const PasswordResetForm: React.FC = () => {
   const { requestApi } = useAxios()
   const navigate = useNavigate()
+  const { getUserame } = useAuthContext()
+  const query = new URLSearchParams(useLocation().search)
+  const token = query.get("token")
   interface FormValues {
     newpassword: string;
     confirmpassword: string;
@@ -20,19 +25,23 @@ const PasswordResetForm: React.FC = () => {
   };
 
   const handleSubmit = async (values: any) => {
-    console.log("Submission Block", values);
     const newValues = {
-      ...values
+      password: values.newpassword,
+      text: token,
+      userame: getUserame()
     }
+    console.log("Submission Block", newValues);
     try {
-      const response = await requestApi('/scoutflair/v1/signup/changePassword', 'POST', newValues);
+      const response = await requestApi('/scoutflair/v1/signup/recover/second', 'POST', newValues);
       console.log(response.data);
-
       if (response.status) {
-        alert('Password Reset Successfully!');
-        navigate("/login", { replace: true })
+        navigate("/password-reset/success", { replace: true })
       } else {
-        alert(`Error: ${response.data.response.data}`);
+        Swal.fire({
+          title: "Oops...",
+          text: `${response.data.response.data.message}`,
+          icon: "error"
+        });
       }
     } catch (error: any) {
       console.error("Submission error:", error.response.data);

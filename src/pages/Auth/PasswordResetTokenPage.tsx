@@ -29,7 +29,7 @@ const PasswordResetTokenPage: React.FC = () => {
           text: "",
           icon: "success"
         });
-        navigate("/login", { replace: true })
+        navigate(`/password-reset/form?token=${values.token}`, { replace: true })
       } else {
         Swal.fire({
           title: "Oops...",

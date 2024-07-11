@@ -1,6 +1,6 @@
 import React from "react";
-import NotificationIcon from "../assets/dashboard/notification.png";
-import SettingIcon from "../assets/dashboard/settings.svg";
+import NotificationIcon from "../../assets/dashboard/notification.png";
+import SettingIcon from "../../assets/dashboard/settings.svg";
 
 const TopBar: React.FC = () => {
     return (

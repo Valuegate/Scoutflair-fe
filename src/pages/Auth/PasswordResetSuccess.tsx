@@ -6,10 +6,7 @@ const PasswordResetSuccess: React.FC = () => {
   return (
     <div className="w-full h-screen relative overflow-hidden bg-white">
       <div className="w-full h-full absolute left-0 top-0 overflow-hidden bg-[url('frame-3404.png')] bg-cover bg-no-repeat bg-center">
-        <div className="w-full h-full absolute left-0 top-0 overflow-hidden bg-[#010e1d]/90">
-          <p className="absolute left-1/2 top-1/4 transform -translate-x-1/2 text-2xl font-bold text-center text-black">
-            Choose Your Role
-          </p>
+        <div className="w-full h-full absolute left-0 top-0 overflow-hidden bg-[#010e1d]/90">          
           <div
             className="flex flex-col justify-start items-center absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-8 p-8 md:gap-12 md:px-12 md:pt-16 md:pb-36 rounded-2xl bg-white"
             style={{ boxShadow: "0px 6px 10px 0 rgba(0,0,0,0.14)" }}

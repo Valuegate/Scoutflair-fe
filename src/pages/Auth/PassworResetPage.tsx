@@ -6,10 +6,12 @@ import { useAxios } from '../../api/base';
 import { useNavigate } from 'react-router-dom';
 // import Toastify from "toastify-js"
 import Swal from 'sweetalert2'
+import { useAuthContext } from '../../providers/AuthContext';
 
 const PasswordResetPage: React.FC = () => {
   const { requestApi } = useAxios()
   const navigate = useNavigate()
+  const { startRecover } = useAuthContext()
   interface FormValues {
     email: string
   }
@@ -24,6 +26,7 @@ const PasswordResetPage: React.FC = () => {
       const response = await requestApi(`/scoutflair/v1/signup/recover/first/${values.email}/`, "GET")
       console.log(response.data);
       if (response.status) {
+        startRecover(values.email)
         Swal.fire({
           title: "Password Reset Link Sent!",
           text: "",

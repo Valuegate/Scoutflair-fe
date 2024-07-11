@@ -20,6 +20,7 @@ import LoginPage from './pages/Auth/LoginPage'
 import NotFound from './pages/NotFound'
 import Dashboard from './pages/Dashboard'
 import PasswordResetTokenPage from './pages/Auth/PasswordResetTokenPage'
+import Analytics from './pages/Dashboard/Analytics'
 
 const App = () => {
   return (
@@ -30,7 +31,8 @@ const App = () => {
         <Route path={'/contact'} element={<ContactPage />} />
         <Route path={'/blogs'} element={<BlogsPage />} />
         <Route path={'/services'} element={<ServicePage />} />
-        <Route path={'/Dashboard'} element={<Dashboard />} />
+        {/* <Route path={'/Dashboard'} element={<Dashboard />} /> */}
+        <Route path={'/Dashboard'} element={<Analytics />} />
         <Route path={'/signup/success'} element={<SignUpSuccessPage />} />
         <Route path={'/login'} element={<LoginPage />} />
         <Route path={'/signup'} element={<SignUpSelectPage />} />
@@ -38,7 +40,7 @@ const App = () => {
         <Route path={'/intro'} element={<Intro />} />
         <Route path={'/password-reset'} element={<PasswordResetPage />} />
         <Route path={'/password-reset/confirm'} element={<PasswordResetTokenPage />} />
-        <Route path={'/password-reset-form'} element={<PasswordResetForm />} />
+        <Route path={'/password-reset/form'} element={<PasswordResetForm />} />
         <Route path={'/password-reset/success'} element={<PasswordResetSuccess />} />
         <Route path='*' element={<NotFound />} />
     </Routes>
