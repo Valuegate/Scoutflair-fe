@@ -55,7 +55,7 @@ const ScoutSignUp: React.FC = () => {
             console.log(response.data);
 
             if (response.status) {                
-                navigate("signup/success", { replace: true })
+                navigate("/signup/success", { replace: true })
             } else {
                 Swal.fire({
                     title: "Oops...",
