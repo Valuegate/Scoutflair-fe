@@ -10,17 +10,13 @@ import PasswordResetPage from './pages/Auth/PassworResetPage'
 import PasswordResetForm from './pages/Auth/PasswordResetForm'
 import PasswordResetSuccess from './pages/Auth/PasswordResetSuccess'
 import SignUpSelectPage from './pages/Auth/SignUpSelect'
-// import TestSC from './pages/test'
-// import SignInSelectPage from './pages/Auth/SignInSelect'
-// import ScoutIntro from './pages/Auth/Scout/ScoutIntro'
-// import PlayerIntro from './pages/Auth/Player/PlayerIntro'
 import CoachIntro from './pages/Auth/Coach/CoachIntro'
 import Intro from './pages/Auth/Intro'
 import LoginPage from './pages/Auth/LoginPage'
 import NotFound from './pages/NotFound'
 import Dashboard from './pages/Dashboard'
 import PasswordResetTokenPage from './pages/Auth/PasswordResetTokenPage'
-import Analytics from './pages/Dashboard/Analytics'
+// import Analytics from './pages/Dashboard/Analytics'
 
 const App = () => {
   return (
@@ -31,8 +27,8 @@ const App = () => {
         <Route path={'/contact'} element={<ContactPage />} />
         <Route path={'/blogs'} element={<BlogsPage />} />
         <Route path={'/services'} element={<ServicePage />} />
-        {/* <Route path={'/Dashboard'} element={<Dashboard />} /> */}
-        <Route path={'/Dashboard'} element={<Analytics />} />
+        <Route path={'/Dashboard'} element={<Dashboard />} />
+        {/* <Route path={'/Dashboard'} element={<Analytics />} /> */}
         <Route path={'/signup/success'} element={<SignUpSuccessPage />} />
         <Route path={'/login'} element={<LoginPage />} />
         <Route path={'/signup'} element={<SignUpSelectPage />} />
