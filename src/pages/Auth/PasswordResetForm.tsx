@@ -7,6 +7,7 @@ import { PasswordResetValidationSchema } from '../../schemas/Schema';
 import { useAxios } from '../../api/base';
 import { useAuthContext } from '../../providers/AuthContext';
 import Swal from 'sweetalert2';
+import { IResetPasswordPayload } from '../../types/types';
 
 const PasswordResetForm: React.FC = () => {
   const { requestApi } = useAxios()
@@ -14,12 +15,8 @@ const PasswordResetForm: React.FC = () => {
   const { getUserame } = useAuthContext()
   const query = new URLSearchParams(useLocation().search)
   const token = query.get("token")
-  interface FormValues {
-    newpassword: string;
-    confirmpassword: string;
-  }
 
-  const initialValues: FormValues = {
+  const initialValues: IResetPasswordPayload = {
     newpassword: "",
     confirmpassword: "",
   };

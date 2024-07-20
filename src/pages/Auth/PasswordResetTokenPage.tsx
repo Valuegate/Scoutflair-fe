@@ -18,7 +18,7 @@ const PasswordResetTokenPage: React.FC = () => {
     token: ""
   }
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: FormValues) => {
     console.log("Submission Block", values);
     try {
       const response = await requestApi(`/scoutflair/v1/signup/confirm?token=${values.token}`, "GET")

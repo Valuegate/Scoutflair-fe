@@ -13,17 +13,17 @@ const LoginPage: React.FC = () => {
   const { login } = useAuthContext()
   const { requestApi } = useAxios()
 
-  interface FormValues {
+  interface ILoginPayload {
     username: string;
     password: string;
   }
 
-  const initialValues: FormValues = {
+  const initialValues: ILoginPayload = {
     password: "",
     username: "",
   };
 
-  const onSubmit = async (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
+  const onSubmit = async (values: ILoginPayload, { resetForm }: FormikHelpers<ILoginPayload>) => {
     console.log("Submission Block", values);
 
     try {

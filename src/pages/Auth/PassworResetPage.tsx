@@ -7,20 +7,18 @@ import { useNavigate } from 'react-router-dom';
 // import Toastify from "toastify-js"
 import Swal from 'sweetalert2'
 import { useAuthContext } from '../../providers/AuthContext';
+import { IEmailPayload } from '../../types/types';
 
 const PasswordResetPage: React.FC = () => {
   const { requestApi } = useAxios()
   const navigate = useNavigate()
   const { startRecover } = useAuthContext()
-  interface FormValues {
-    email: string
-  }
 
-  const initialValues: FormValues = {
+  const initialValues: IEmailPayload = {
     email: ""
   }  
   
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: IEmailPayload) => {
     console.log("Submission Block", values);
     try {
       const response = await requestApi(`/scoutflair/v1/signup/recover/first/${values.email}/`, "GET")

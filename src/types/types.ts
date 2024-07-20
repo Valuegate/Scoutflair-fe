@@ -10,3 +10,17 @@ export interface Iplayer {
     "preferredFoot": string,
     "usertype": string
 }
+
+export interface ILoginPayload {
+    username: string;
+    password: string;
+}
+
+export interface IResetPasswordPayload {
+    newpassword: string;
+    confirmpassword: string;
+}
+
+export interface IEmailPayload {
+    email: string
+}
