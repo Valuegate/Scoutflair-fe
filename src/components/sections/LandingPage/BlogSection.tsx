@@ -36,7 +36,7 @@ const BlogSection: React.FC = () => {
                     className="flex flex-col justify-start items-start relative gap-[19.255014419555664px] px-[19.25px] pt-5 pb-7 rounded-2xl bg-white border-[4.81px] border-[#d1d1d1]"
                     style={{ boxShadow: "0px 6.6px 8.3px 0 rgba(209,209,209,0.14)" }}
                 >
-                    <div className="w-full h-[320px] relative overflow-hidden rounded-2xl bg-[url('frame-1000002081.jpeg')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[320px] relative overflow-hidden rounded-2xl bg-[url('./frame-1000002081.jpeg')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-start w-fit relative gap-[9.6px]">
                         <p className="w-fit text-base font-bold text-left text-black">
                             Manchester City Fc becomes the first English Club to win 4 Epl titles in a row
@@ -51,7 +51,7 @@ const BlogSection: React.FC = () => {
                     className="flex flex-col justify-start items-start relative gap-[19.255014419555664px] px-[19.25px] pt-5 pb-7 rounded-2xl bg-white border-[4.81px] border-[#d1d1d1]"
                     style={{ boxShadow: "0px 6.6px 8.3px 0 rgba(209,209,209,0.14)" }}
                 >
-                    <div className="w-full h-[320px] relative overflow-hidden rounded-2xl bg-[url('frame-1000002081.jpeg')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[320px] relative overflow-hidden rounded-2xl bg-[url('./frame-1000002081.jpeg')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-start w-fit relative gap-[9.6px]">
                         <p className="w-fit text-base font-bold text-left text-black">
                             Manchester City Fc becomes the first English Club to win 4 Epl titles in a row

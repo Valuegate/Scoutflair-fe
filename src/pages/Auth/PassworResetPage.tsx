@@ -46,7 +46,7 @@ const PasswordResetPage: React.FC = () => {
 
   return (
     <div className="w-full h-screen relative overflow-hidden bg-white">
-      <div className="absolute inset-0 overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('frame-3404.png')" }}>
+      <div className="absolute inset-0 overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('./frame-3404.png')" }}>
         <div className="absolute inset-0 overflow-hidden bg-[#010e1d]/90">
           <div
             className="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 rounded-2xl bg-white p-8 md:p-12"

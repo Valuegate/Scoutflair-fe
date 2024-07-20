@@ -14,7 +14,7 @@ const PopularBlogs: React.FC <PopularBlogsProps> = ({title}) => {
                     className="flex flex-col justify-start items-center h-[263px] p-4 rounded-2xl bg-white"
                     style={{ boxShadow: "0px 6px 10px 0 rgba(0,0,0,0.14)" }}
                 >
-                    <div className="w-full h-[136px] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[url('frame-36303.png')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[136px] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[url('./frame-36303.png')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-start w-full gap-3 mt-4">
                         <p className="w-full text-base font-semibold text-left text-black">
                             Top 10 strategies for effective football scouting
@@ -31,7 +31,7 @@ const PopularBlogs: React.FC <PopularBlogsProps> = ({title}) => {
                     className="flex flex-col justify-start items-center h-[263px] p-4 rounded-2xl bg-white"
                     style={{ boxShadow: "0px 6px 10px 0 rgba(0,0,0,0.14)" }}
                 >
-                    <div className="w-full h-[136px] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[url('frame-36303.png')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[136px] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[url('./frame-36303.png')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-start w-full gap-3 mt-4">
                         <p className="w-full text-base font-semibold text-left text-black">
                             Top 10 strategies for effective football scouting
@@ -48,7 +48,7 @@ const PopularBlogs: React.FC <PopularBlogsProps> = ({title}) => {
                     className="flex flex-col justify-start items-center h-[263px] p-4 rounded-2xl bg-white"
                     style={{ boxShadow: "0px 6px 10px 0 rgba(0,0,0,0.14)" }}
                 >
-                    <div className="w-full h-[136px] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[url('frame-36303.png')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[136px] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[url('./frame-36303.png')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-start w-full gap-3 mt-4">
                         <p className="w-full text-base font-semibold text-left text-black">
                             Top 10 strategies for effective football scouting
@@ -65,7 +65,7 @@ const PopularBlogs: React.FC <PopularBlogsProps> = ({title}) => {
                     className="flex flex-col justify-start items-center h-[263px] p-4 rounded-2xl bg-white"
                     style={{ boxShadow: "0px 6px 10px 0 rgba(0,0,0,0.14)" }}
                 >
-                    <div className="w-full h-[136px] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[url('frame-36303.png')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[136px] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[url('./frame-36303.png')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-start w-full gap-3 mt-4">
                         <p className="w-full text-base font-semibold text-left text-black">
                             Top 10 strategies for effective football scouting

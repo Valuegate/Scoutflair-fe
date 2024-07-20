@@ -33,7 +33,7 @@ const LatestNewsCard: React.FC = () => {
                 {Array(5).fill(0).map((_, index) => (
                     <div key={index} className="flex justify-start items-center gap-3 w-full">
                         <div className="w-20 h-20 relative overflow-hidden rounded-2xl bg-cover bg-no-repeat bg-center"
-                            style={{ backgroundImage: "url('frame-1000001962.jpeg')" }}
+                            style={{ backgroundImage: "url('./frame-1000001962.jpeg')" }}
                         />
                         <div className="flex flex-col justify-start items-start flex-grow gap-1">
                             <p className="text-base font-semibold text-left text-black">

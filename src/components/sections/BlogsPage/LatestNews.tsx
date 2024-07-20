@@ -12,7 +12,7 @@ const LatestNews: React.FC <LatestNewsProps> = ({title}) => {
                     className="flex flex-col justify-start items-center h-[263px] p-4 rounded-[13.17px] bg-white"
                     style={{ boxShadow: "0px 4.937705px 8.229508px 0 rgba(0,0,0,0.14)" }}
                 >
-                    <div className="w-full h-[130.03px] relative overflow-hidden rounded-tl-[13.17px] rounded-tr-[13.17px] bg-[url('frame-36257.jpeg')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[130.03px] relative overflow-hidden rounded-tl-[13.17px] rounded-tr-[13.17px] bg-[url('./frame-36257.jpeg')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-center w-full gap-[8.23px] px-[13.17px] mt-[13.17px]">
                         <div className="flex flex-col justify-start items-start w-full gap-[9.88px]">
                             <div className="flex flex-col justify-start items-start w-full gap-[6.58px]">
@@ -34,7 +34,7 @@ const LatestNews: React.FC <LatestNewsProps> = ({title}) => {
                     className="flex flex-col justify-start items-center h-[263px] p-4 rounded-[13.17px] bg-white"
                     style={{ boxShadow: "0px 4.937705px 8.229508px 0 rgba(0,0,0,0.14)" }}
                 >
-                    <div className="w-full h-[130.03px] relative overflow-hidden rounded-tl-[13.17px] rounded-tr-[13.17px] bg-[url('frame-36257.jpeg')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[130.03px] relative overflow-hidden rounded-tl-[13.17px] rounded-tr-[13.17px] bg-[url('./frame-36257.jpeg')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-center w-full gap-[8.23px] px-[13.17px] mt-[13.17px]">
                         <div className="flex flex-col justify-start items-start w-full gap-[9.88px]">
                             <div className="flex flex-col justify-start items-start w-full gap-[6.58px]">
@@ -56,7 +56,7 @@ const LatestNews: React.FC <LatestNewsProps> = ({title}) => {
                     className="flex flex-col justify-start items-center h-[263px] p-4 rounded-[13.17px] bg-white"
                     style={{ boxShadow: "0px 4.937705px 8.229508px 0 rgba(0,0,0,0.14)" }}
                 >
-                    <div className="w-full h-[130.03px] relative overflow-hidden rounded-tl-[13.17px] rounded-tr-[13.17px] bg-[url('frame-36257.jpeg')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[130.03px] relative overflow-hidden rounded-tl-[13.17px] rounded-tr-[13.17px] bg-[url('./frame-36257.jpeg')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-center w-full gap-[8.23px] px-[13.17px] mt-[13.17px]">
                         <div className="flex flex-col justify-start items-start w-full gap-[9.88px]">
                             <div className="flex flex-col justify-start items-start w-full gap-[6.58px]">
@@ -78,7 +78,7 @@ const LatestNews: React.FC <LatestNewsProps> = ({title}) => {
                     className="flex flex-col justify-start items-center h-[263px] p-4 rounded-[13.17px] bg-white"
                     style={{ boxShadow: "0px 4.937705px 8.229508px 0 rgba(0,0,0,0.14)" }}
                 >
-                    <div className="w-full h-[130.03px] relative overflow-hidden rounded-tl-[13.17px] rounded-tr-[13.17px] bg-[url('frame-36257.jpeg')] bg-cover bg-no-repeat bg-center" />
+                    <div className="w-full h-[130.03px] relative overflow-hidden rounded-tl-[13.17px] rounded-tr-[13.17px] bg-[url('./frame-36257.jpeg')] bg-cover bg-no-repeat bg-center" />
                     <div className="flex flex-col justify-start items-center w-full gap-[8.23px] px-[13.17px] mt-[13.17px]">
                         <div className="flex flex-col justify-start items-start w-full gap-[9.88px]">
                             <div className="flex flex-col justify-start items-start w-full gap-[6.58px]">

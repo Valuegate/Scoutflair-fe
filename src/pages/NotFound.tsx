@@ -7,7 +7,7 @@ import { Urls } from "../constants/constants";
 const NotFound: React.FC = () => {
     return (
         <div className="w-full h-screen flex items-center justify-center bg-white">
-            <div className="w-full h-full absolute left-0 top-0 overflow-hidden bg-[url('frame-3404.png')] bg-cover bg-no-repeat bg-center">
+            <div className="w-full h-full absolute left-0 top-0 overflow-hidden bg-[url('./frame-3404.png')] bg-cover bg-no-repeat bg-center">
                 <div className="w-full h-full absolute left-0 top-0 overflow-hidden bg-[#010e1d]/[0.98] flex items-center justify-center">
                     <div className="w-full max-w-screen-lg flex flex-col md:flex-row items-center gap-8 px-4 py-6 bg-white bg-opacity-80 rounded-3xl shadow-lg">
                         <div className="flex flex-col justify-start items-start gap-6 p-4">

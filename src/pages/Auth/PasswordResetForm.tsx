@@ -47,7 +47,7 @@ const PasswordResetForm: React.FC = () => {
   };
 
   return (
-    <div className="w-full h-screen relative overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('/frame-3404.png')" }}>
+    <div className="w-full h-screen relative overflow-hidden bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('./frame-3404.png')" }}>
       <div className="w-full h-full absolute left-0 top-0 overflow-hidden bg-[#010e1d]/90">
         <p className="absolute left-1/2 transform -translate-x-1/2 top-24 text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white">
           Choose Your Role

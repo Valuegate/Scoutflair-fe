@@ -19,16 +19,16 @@ const Visionaries: React.FC = () => {
             </div>
             <div className="grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-1 pt-20 gap-4">
                 <div>
-                    <img className="rounded-2xl" src="/frame-1000002098.jpeg" alt="" />
+                    <img className="rounded-2xl" src="./frame-1000002098.jpeg" alt="" />
                 </div>
                 <div>
-                    <img className="rounded-2xl" src="/frame-1000002099.jpeg" alt="" />
+                    <img className="rounded-2xl" src="./frame-1000002099.jpeg" alt="" />
                 </div>
                 <div>
-                    <img className="rounded-2xl" src="/frame-1000002100.jpeg" alt="" />
+                    <img className="rounded-2xl" src="./frame-1000002100.jpeg" alt="" />
                 </div>
                 <div>
-                    <img className="rounded-2xl" src="/frame-1000002101.jpeg" alt="" />
+                    <img className="rounded-2xl" src="./frame-1000002101.jpeg" alt="" />
                 </div>                
             </div>
         </section>

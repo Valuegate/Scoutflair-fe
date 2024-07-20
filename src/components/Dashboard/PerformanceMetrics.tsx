@@ -53,7 +53,7 @@ const ResponsivePlayerPerformanceMetrics: React.FC = () => {
             style={{ boxShadow: "0px 4px 8px 0 rgba(0,0,0,0.12)" }}
         >
             <div
-                className="relative flex flex-col items-center w-full max-w-[374px] h-[120px] overflow-hidden bg-[url('frame-1000001965.png')] bg-cover bg-no-repeat bg-center"
+                className="relative flex flex-col items-center w-full max-w-[374px] h-[120px] overflow-hidden bg-[url('./frame-1000001965.png')] bg-cover bg-no-repeat bg-center"
                 style={{ filter: "drop-shadow(0px 4px 8px rgba(0,0,0,0.12))" }}
             >
                 <div className="absolute inset-0 bg-[#041931]/[0.88] flex items-center pl-4">

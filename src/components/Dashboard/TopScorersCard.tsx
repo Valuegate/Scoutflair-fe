@@ -16,7 +16,7 @@ const TopScorerCard: React.FC = () => {
                     </div>
                 </div>
                 <div className="relative w-full h-36 bg-cover bg-no-repeat bg-center overflow-hidden shadow-md"
-                    style={{ backgroundImage: "url('frame-1000001965.png')" }}
+                    style={{ backgroundImage: "url('./frame-1000001965.png')" }}
                 >
                     <div className="absolute inset-0 bg-[#041931]/[0.88] flex items-center p-4">
                         <img src="soccer-game-concept.png" className="w-1/2 h-auto mt-4 rounded-2xl" alt="soccer game concept" />

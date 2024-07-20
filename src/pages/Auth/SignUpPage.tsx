@@ -47,7 +47,7 @@ const SignUpPage: React.FC = () => {
 
     return (
         <div className="flex flex-row">
-            <div className="w-full sm:w-1/2 h-screen relative overflow-hidden bg-[url('frame-36351.jpeg')] bg-cover bg-no-repeat bg-center hidden sm:block">
+            <div className="w-full sm:w-1/2 h-screen relative overflow-hidden bg-[url('./frame-36351.jpeg')] bg-cover bg-no-repeat bg-center hidden sm:block">
                 <p className="w-[522px] absolute left-[135px] top-12 text-base text-center capitalize text-white">
                     Welcome aboard! scoutFlair awaits your football brilliance
                 </p>
