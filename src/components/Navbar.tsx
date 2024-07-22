@@ -29,7 +29,6 @@ const Navbar: React.FC = () => {
                     <Link to={Urls.HOME} className={getLinkClass(Urls.HOME)}>Home</Link>
                     <Link to={Urls.ABOUT} className={getLinkClass(Urls.ABOUT)}>About</Link>
                     <Link to={Urls.SERVICES} className={getLinkClass(Urls.SERVICES)}>Services</Link>
-                    <Link to={Urls.RESOURCES} className={getLinkClass(Urls.RESOURCES)}>Resources</Link>
                     <Link to={Urls.BLOGS} className={getLinkClass(Urls.BLOGS)}>Blogs</Link>
                     <Link to={Urls.CONTACT} className={getLinkClass(Urls.CONTACT)}>Contact</Link>
                 </div>
@@ -56,7 +55,6 @@ const Navbar: React.FC = () => {
                     <Link to={Urls.HOME} className={getLinkClass(Urls.HOME) + " block"}>Home</Link>
                     <Link to={Urls.ABOUT} className={getLinkClass(Urls.ABOUT) + " block"}>About</Link>
                     <Link to={Urls.SERVICES} className={getLinkClass(Urls.SERVICES) + " block"}>Services</Link>
-                    <Link to={Urls.RESOURCES} className={getLinkClass(Urls.RESOURCES) + " block"}>Resources</Link>
                     <Link to={Urls.BLOGS} className={getLinkClass(Urls.BLOGS) + " block"}>Blogs</Link>
                     <Link to={Urls.CONTACT} className={getLinkClass(Urls.CONTACT) + " block"}>Contact</Link>
                     <Link to={Urls.SIGNUP}>

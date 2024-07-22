@@ -7,7 +7,7 @@ import TalentDevIcon from "../../../assets/Frame 1000002061.png"
 
 const PartnerSection: React.FC = () => {
     return (
-        <section className="w-screen overflow-hidden bg-[#192B4D] xs:px-8 md:px-[120px] pt-10">
+        <section className="overflow-hidden bg-[#192B4D] xs:px-8 md:px-[120px] pt-10">
             <div className="flex flex-col gap-4">
                 <p className="text-white">Our Partners</p>
                 <img src={Partners} alt="" />
