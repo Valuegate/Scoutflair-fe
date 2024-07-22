@@ -18,7 +18,6 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({ src }) => {
     });
   }, []);
 
-  ;
 
   return (
     <div className='flex justify-end'>
