@@ -10,33 +10,33 @@ import { useAuthContext } from "../providers/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard: React.FC = () => {
-    const navigate = useNavigate();
-    const { isLoggedIn } = useAuthContext();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuthContext();
 
-    if (isLoggedIn()) {
-        navigate("/login", { replace: true });
-        // return null;
-    }
+  if (isLoggedIn()) {
+    navigate("/login", { replace: true });
+    // return null;
+  }
 
-    return (
-        <div className="flex">
-            <SideBar />
-            <div className="w-full flex flex-col">
-                <TopBar />
-                <div className="flex w-full">
-                    <div className="flex flex-col p-8 gap-8 w-2/3 pr-0">
-                        <UpcomingMatchBanner />
-                        <StandingsTable />
-                        <ScoutCardSection />
-                    </div>
-                    <div className="flex flex-col p-8 gap-8 w-1/3">
-                        <LatestNewsCard />
-                        <TopScorerCard />
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className="flex">
+      <SideBar />
+      <div className="w-full flex flex-col h-[100vh] overflow-y-scroll">
+        <TopBar />
+        <div className="flex w-full">
+          <div className="flex flex-col p-8 gap-8 w-2/3 pr-0">
+            <UpcomingMatchBanner />
+            <StandingsTable />
+            <ScoutCardSection />
+          </div>
+          <div className="flex flex-col p-8 gap-8 w-1/3">
+            <LatestNewsCard />
+            <TopScorerCard />
+          </div>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default Dashboard;
